@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расчет импульса ЯРД // Каталог</title>
+  <link rel="stylesheet" href="/css/propellant-bwxt.css">
+</head>
+<body>
+  <div class="mobile-app-frame">
+    <div class="page-content-scrollable">
+      <div class="screen-header-block">
+        <h1 class="screen-title">Рабочие тела ЯРД</h1>
+        <p class="screen-subtitle">Реестр компонентов</p>
+      </div>
+
+      <div class="catalog-filter-bar">
+        <form method="GET" action="/propellants/catalog" class="filter-form">
+          <div class="filter-input-wrap">
+            <span class="filter-prefix-label">Макс. М:</span>
+            <input type="number" step="0.01" name="max_molar_mass" value="{{filter_max_molar_mass}}" placeholder="20.00"
+              class="filter-number-input">
+            <span class="filter-suffix-unit">г/моль</span>
+          </div>
+          <button type="submit" class="btn-filter-submit">Фильтр</button>
+        </form>
+      </div>
+
+      <div class="catalog-cards-grid">
+        {{#each propellants}}
+        <a href="/propellants/feed/{{this.propellant_id}}" class="propellant-grid-card">
+          <div class="card-image-box">
+            <img src="{{this.propellant_image_url}}" alt="{{this.propellant_name}}" class="propellant-card-img"
+              loading="lazy">
+          </div>
+          <div class="card-meta-content">
+            <div class="card-propellant-title">{{this.propellant_name}} {{this.chemical_formula}}</div>
+            <div class="card-bottom-row">
+              <span class="card-molar-mass">{{this.molar_mass_g_mol}} г/моль</span>
+              <span class="card-likes-count">
+                <span class="card-heart-icon">&hearts;</span> {{this.propellant_likes_count}}
+              </span>
+            </div>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+    </div>
+
+    <nav class="bottom-tab-bar">
+      <a href="/propellants/feed" class="tab-nav-item">
+        <svg class="tab-nav-svg" viewBox="0 0 24 24">
+          <path d="M12 2c-3.5 4-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-7-6-11z" />
+          <path d="M12 18a2.5 2.5 0 0 1-2.5-2.5c0-1.5 1.5-2.5 2.5-4 1 1.5 2.5 2.5 2.5 4a2.5 2.5 0 0 1-2.5 2.5z" />
+        </svg>
+        <span>ЛЕНТА</span>
+      </a>
+      <a href="/propellants/draft" class="tab-nav-item">
+        <svg class="tab-nav-svg" viewBox="0 0 24 24">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+        <span>ДОБАВИТЬ</span>
+      </a>
+      <a href="/propellants/catalog" class="tab-nav-item active">
+        <div class="tab-active-indicator"></div>
+        <svg class="tab-nav-svg" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="12" y1="3" x2="12" y2="21" />
+        </svg>
+        <span>ПЛИТКА</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>

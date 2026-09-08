@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  propellant_minio:
+    image: minio/minio:latest
+    container_name: propellant_minio
+    restart: always
+    environment:
+      MINIO_ROOT_USER: propellant_admin
+      MINIO_ROOT_PASSWORD: propellant_secret_pass
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - propellant_minio_data:/data
+
+volumes:
+  propellant_minio_data:
