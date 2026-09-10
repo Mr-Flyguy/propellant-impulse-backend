@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Расчет импульса ЯРД // Черновик</title>
   <link rel="stylesheet" href="/css/propellant-bwxt.css">
 </head>
+
 <body>
   <div class="mobile-app-frame">
     <div class="page-content-scrollable">
@@ -17,7 +19,7 @@
         <p class="screen-subtitle">Спецификация параметров для расчета тяги и импульса теплового ядерного двигателя.</p>
       </div>
 
-      <div class="section-caption-red">МЕДИАФАЙЛЫ (MINIO STORAGE)</div>
+      <div class="section-caption-red">МЕДИАФАЙЛЫ</div>
 
       <div class="form-group-block">
         <label class="input-caption-label">IMAGE URL</label>
@@ -25,15 +27,17 @@
       </div>
 
       <div class="media-preview-card">
-        <img src="{{draft_propellant.propellant_image_url}}" class="media-preview-thumb" alt="{{draft_propellant.propellant_name}}">
+        <img src="{{draft_propellant.propellant_image_url}}" class="media-preview-thumb"
+          alt="{{draft_propellant.propellant_name}}">
         <div class="media-preview-meta">
           <div class="media-preview-name">{{draft_propellant.propellant_image_key}}</div>
-          <div class="media-preview-specs">Размер: {{draft_propellant.propellant_image_size_kb}} KB | Тип: {{draft_propellant.propellant_image_mime}}</div>
+          <div class="media-preview-specs">Размер: {{draft_propellant.propellant_image_size_kb}} KB | Тип:
+            {{draft_propellant.propellant_image_mime}}</div>
         </div>
       </div>
 
       <div class="form-group-block">
-        <label class="input-caption-label">VIDEO URL (MINIO)</label>
+        <label class="input-caption-label">VIDEO URL</label>
         <input type="text" class="form-input-control" value="{{draft_propellant.propellant_video_key}}" readonly>
       </div>
 
@@ -42,33 +46,39 @@
       <div class="form-grid-2col">
         <div class="form-group-block">
           <label class="input-caption-label">НАЗВАНИЕ *</label>
-          <input type="text" class="form-input-control" value="{{draft_propellant.propellant_name}}" placeholder="Название">
+          <input type="text" class="form-input-control" value="{{draft_propellant.propellant_name}}"
+            placeholder="Название">
         </div>
         <div class="form-group-block">
           <label class="input-caption-label">ФОРМУЛА *</label>
-          <input type="text" class="form-input-control" value="{{draft_propellant.chemical_formula}}" placeholder="Формула">
+          <input type="text" class="form-input-control" value="{{draft_propellant.chemical_formula}}"
+            placeholder="Формула">
         </div>
       </div>
 
       <div class="form-grid-2col">
         <div class="form-group-block">
           <label class="input-caption-label">МОЛЯРНАЯ МАССА (Г/МОЛЬ)</label>
-          <input type="number" step="0.01" class="form-input-control" value="{{draft_propellant.molar_mass_g_mol}}" placeholder="20.00">
+          <input type="number" step="0.01" class="form-input-control" value="{{draft_propellant.molar_mass_g_mol}}"
+            placeholder="20.00">
         </div>
         <div class="form-group-block">
           <label class="input-caption-label">ТЕМП. РЕАКТОРА (K)</label>
-          <input type="number" step="10" class="form-input-control" value="{{draft_propellant.reactor_temperature_k}}" placeholder="2500">
+          <input type="number" step="10" class="form-input-control" value="{{draft_propellant.reactor_temperature_k}}"
+            placeholder="2500">
         </div>
       </div>
 
       <div class="form-group-block">
         <label class="input-caption-label">ПОКАЗАТЕЛЬ АДИАБАТЫ (&gamma;)</label>
-        <input type="number" step="0.01" class="form-input-control" value="{{draft_propellant.specific_heat_ratio}}" placeholder="1.30">
+        <input type="number" step="0.01" class="form-input-control" value="{{draft_propellant.specific_heat_ratio}}"
+          placeholder="1.30">
       </div>
 
       <div class="form-group-block">
         <label class="input-caption-label">ТЕРМОДИНАМИЧЕСКОЕ ОПИСАНИЕ</label>
-        <textarea class="form-textarea-control" placeholder="Описание">{{draft_propellant.thermodynamic_description}}</textarea>
+        <textarea class="form-textarea-control"
+          placeholder="Описание">{{draft_propellant.thermodynamic_description}}</textarea>
       </div>
 
       <button type="button" class="btn-submit-disabled" disabled>Сохранить спецификацию</button>
@@ -77,28 +87,29 @@
     <nav class="bottom-tab-bar">
       <a href="/propellants/feed" class="tab-nav-item">
         <svg class="tab-nav-svg" viewBox="0 0 24 24">
-          <path d="M12 2c-3.5 4-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-7-6-11z"/>
-          <path d="M12 18a2.5 2.5 0 0 1-2.5-2.5c0-1.5 1.5-2.5 2.5-4 1 1.5 2.5 2.5 2.5 4a2.5 2.5 0 0 1-2.5 2.5z"/>
+          <path d="M12 2c-3.5 4-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-7-6-11z" />
+          <path d="M12 18a2.5 2.5 0 0 1-2.5-2.5c0-1.5 1.5-2.5 2.5-4 1 1.5 2.5 2.5 2.5 4a2.5 2.5 0 0 1-2.5 2.5z" />
         </svg>
         <span>ЛЕНТА</span>
       </a>
       <a href="/propellants/draft" class="tab-nav-item active">
         <div class="tab-active-indicator"></div>
         <svg class="tab-nav-svg" viewBox="0 0 24 24">
-          <line x1="12" y1="5" x2="12" y2="19"/>
-          <line x1="5" y1="12" x2="19" y2="12"/>
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
         </svg>
         <span>ДОБАВИТЬ</span>
       </a>
       <a href="/propellants/catalog" class="tab-nav-item">
         <svg class="tab-nav-svg" viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="3"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="12" y1="3" x2="12" y2="21"/>
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="12" y1="3" x2="12" y2="21" />
         </svg>
         <span>ПЛИТКА</span>
       </a>
     </nav>
   </div>
 </body>
+
 </html>
