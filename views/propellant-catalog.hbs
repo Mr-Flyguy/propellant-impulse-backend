@@ -15,14 +15,17 @@
       </div>
 
       <div class="catalog-filter-bar">
-        <form method="GET" action="/propellants/catalog" class="filter-form">
-          <div class="filter-input-wrap">
-            <span class="filter-prefix-label">Макс. М:</span>
-            <input type="number" step="0.01" name="max_molar_mass" value="{{filter_max_molar_mass}}" placeholder="20.00"
-              class="filter-number-input">
-            <span class="filter-suffix-unit">г/моль</span>
+        <form method="GET" action="/propellants/catalog" class="filter-form-slider">
+          <div class="slider-meta-row">
+            <span class="slider-range-label">Диапазон: 1.00–64.00</span>
+            <span class="slider-current-value" id="sliderValDisplay">{{filter_max_molar_mass}}</span>
           </div>
-          <button type="submit" class="btn-filter-submit">Фильтр</button>
+          <div class="slider-input-container">
+            <input type="range" min="1.00" max="64.00" step="0.01" name="max_molar_mass"
+              value="{{filter_max_molar_mass}}" class="filter-range-slider" id="molarMassSlider"
+              oninput="document.getElementById('sliderValDisplay').innerText = parseFloat(this.value).toFixed(2)">
+          </div>
+          <button type="submit" class="btn-filter-submit-block">Фильтр</button>
         </form>
       </div>
 

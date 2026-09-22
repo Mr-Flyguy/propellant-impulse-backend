@@ -28,16 +28,14 @@
         </div>
         <span class="action-like-counter">{{propellant.propellant_likes_count}}</span>
 
+        <div class="feed-action-pill">M = {{propellant.molar_mass_g_mol}} г/моль</div>
+        <div class="feed-action-pill">Isp = {{propellant.vacuum_specific_impulse_s}} с</div>
+
         <a href="/propellants/feed/{{propellant.propellant_id}}?next=true" class="btn-next-feed">Далее &gt;</a>
       </div>
 
       <div class="feed-info-card">
         <h1 class="feed-title">{{propellant.propellant_name}} ({{propellant.chemical_formula}})</h1>
-        <div class="feed-tags-row">
-          <span class="feed-tag">M = {{propellant.molar_mass_g_mol}} г/моль</span>
-          <span class="feed-tag">Isp = {{propellant.vacuum_specific_impulse_s}} с</span>
-          <span class="feed-tag">&gamma; = {{propellant.specific_heat_ratio}}</span>
-        </div>
 
         <p class="desc-short-preview">{{propellant.thermodynamic_description}}</p>
 

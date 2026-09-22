@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Расчет импульса ЯРД // Черновик</title>
   <link rel="stylesheet" href="/css/propellant-bwxt.css">
 </head>
-
 <body>
   <div class="mobile-app-frame">
     <div class="page-content-scrollable">
@@ -21,24 +19,51 @@
 
       <div class="section-caption-red">МЕДИАФАЙЛЫ</div>
 
-      <div class="form-group-block">
-        <label class="input-caption-label">IMAGE URL</label>
-        <input type="text" class="form-input-control" value="{{draft_propellant.propellant_image_key}}" readonly>
+      <div class="media-input-group">
+        <div class="media-subcaption">ФОТО</div>
+        <label class="media-select-card" for="draftPhotoInput">
+          <input type="file" id="draftPhotoInput" name="photo" accept="image/*" class="media-hidden-file-input">
+          <div class="media-select-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+          </div>
+          <div class="media-select-meta">
+            <div class="media-select-title">Выбрать фото</div>
+            <div class="media-select-hint">JPG, PNG или GIF</div>
+          </div>
+          <div class="media-select-plus">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+        </label>
       </div>
 
-      <div class="media-preview-card">
-        <img src="{{draft_propellant.propellant_image_url}}" class="media-preview-thumb"
-          alt="{{draft_propellant.propellant_name}}">
-        <div class="media-preview-meta">
-          <div class="media-preview-name">{{draft_propellant.propellant_image_key}}</div>
-          <div class="media-preview-specs">Размер: {{draft_propellant.propellant_image_size_kb}} KB | Тип:
-            {{draft_propellant.propellant_image_mime}}</div>
-        </div>
-      </div>
-
-      <div class="form-group-block">
-        <label class="input-caption-label">VIDEO URL</label>
-        <input type="text" class="form-input-control" value="{{draft_propellant.propellant_video_key}}" readonly>
+      <div class="media-input-group">
+        <div class="media-subcaption">ВИДЕО</div>
+        <label class="media-select-card" for="draftVideoInput">
+          <input type="file" id="draftVideoInput" name="video" accept="video/*" class="media-hidden-file-input">
+          <div class="media-select-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="6" width="14" height="12" rx="3"/>
+              <polygon points="16 10 22 7 22 17 16 14" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="media-select-meta">
+            <div class="media-select-title">Выбрать видео</div>
+            <div class="media-select-hint">MP4 или MOV</div>
+          </div>
+          <div class="media-select-plus">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+        </label>
       </div>
 
       <div class="section-caption-red">ХАРАКТЕРИСТИКИ ПО ТЕМЕ</div>
@@ -58,21 +83,21 @@
 
       <div class="form-grid-2col">
         <div class="form-group-block">
-          <label class="input-caption-label">МОЛЯРНАЯ МАССА (Г/МОЛЬ)</label>
+          <label class="input-caption-label">МОЛЯРНАЯ МАССА(Г/МОЛЬ)</label>
           <input type="number" step="0.01" class="form-input-control" value="{{draft_propellant.molar_mass_g_mol}}"
             placeholder="20.00">
         </div>
         <div class="form-group-block">
-          <label class="input-caption-label">ТЕМП. РЕАКТОРА (K)</label>
+          <label class="input-caption-label">ТЕМП. РЕАКТОРА(К)</label>
           <input type="number" step="10" class="form-input-control" value="{{draft_propellant.reactor_temperature_k}}"
-            placeholder="2500">
+            placeholder="2400">
         </div>
       </div>
 
       <div class="form-group-block">
-        <label class="input-caption-label">ПОКАЗАТЕЛЬ АДИАБАТЫ (&gamma;)</label>
+        <label class="input-caption-label">ПОКАЗАТЕЛЬ АДИАБАТЫ(&gamma;)</label>
         <input type="number" step="0.01" class="form-input-control" value="{{draft_propellant.specific_heat_ratio}}"
-          placeholder="1.30">
+          placeholder="1.18">
       </div>
 
       <div class="form-group-block">
@@ -80,8 +105,6 @@
         <textarea class="form-textarea-control"
           placeholder="Описание">{{draft_propellant.thermodynamic_description}}</textarea>
       </div>
-
-      <button type="button" class="btn-submit-disabled" disabled>Сохранить спецификацию</button>
     </div>
 
     <nav class="bottom-tab-bar">
@@ -111,5 +134,4 @@
     </nav>
   </div>
 </body>
-
 </html>
