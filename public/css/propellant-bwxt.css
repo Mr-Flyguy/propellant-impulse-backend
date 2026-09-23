@@ -145,6 +145,13 @@ body {
   z-index: 30;
 }
 
+.feed-like-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 14px;
+}
+
 .action-atom-btn {
   width: 48px;
   height: 48px;
@@ -157,7 +164,6 @@ body {
   align-items: center;
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-  margin-right: 14px;
 }
 
 .action-atom-svg {
@@ -171,9 +177,9 @@ body {
   font-size: 13px;
   font-weight: 700;
   color: var(--text-main);
-  margin-top: -2px;
+  margin-top: 4px;
   margin-bottom: 2px;
-  margin-right: 25px;
+  text-align: center;
 }
 
 .feed-action-pill {
@@ -735,4 +741,82 @@ body {
   background: var(--accent-red);
   border-radius: 2px;
   box-shadow: 0 0 6px var(--accent-red);
+}
+
+.propellant-card-wrapper {
+  position: relative;
+}
+
+.card-delete-form {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 10;
+}
+
+.btn-card-delete {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(10, 13, 30, 0.85);
+  border: 1px solid rgba(201, 49, 70, 0.4);
+  color: #ff3b5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-card-delete:hover {
+  background: #c93146;
+  color: #ffffff;
+  border-color: #c93146;
+  transform: scale(1.08);
+}
+
+.btn-primary-action {
+  width: 100%;
+  height: 42px;
+  background: linear-gradient(90deg, #c93146 0%, #364596 100%);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(201, 49, 70, 0.35);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  margin-top: 10px;
+}
+
+.btn-primary-action:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.draft-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn-draft-secondary {
+  width: 100%;
+  height: 42px;
+  background: rgba(21, 24, 55, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-draft-secondary:hover {
+  background: rgba(28, 33, 74, 0.95);
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.4);
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query, Render } from '@nestjs/common';
+import { Controller, Get, Param, Render, NotFoundException } from '@nestjs/common';
 import { PropellantsService } from './propellants.service';
 
 @Controller('propellants')
@@ -7,25 +7,32 @@ export class PropellantFeedController {
 
   @Get('feed')
   @Render('propellant-feed')
-  getFeedDefault(@Query('next') next?: string) {
-    const { current, next_id } = this.propellantsService.getFeedItem(undefined, next === 'true');
+  async getFeedRoot() {
+    const res = await this.propellantsService.getFeedItem();
+    if (!res) {
+      throw new NotFoundException('Нет опубликованных рабочих тел');
+    }
+
     return {
-      propellant: current,
-      next_propellant_id: next_id,
+      propellant: res.current,
+      next_id: res.next_id,
       active_tab: 'feed',
     };
   }
 
   @Get('feed/:propellant_id')
   @Render('propellant-feed')
-  getFeedById(
-    @Param('propellant_id') propellant_id: string,
-    @Query('next') next?: string,
-  ) {
-    const { current, next_id } = this.propellantsService.getFeedItem(propellant_id, next === 'true');
+  async getFeedById(@Param('propellant_id') propellant_id: string) {
+    const id = parseInt(propellant_id, 10);
+    const res = await this.propellantsService.getFeedItem(id);
+
+    if (!res || res.current.id !== id) {
+      throw new NotFoundException('Рабочее тело не найдено или удалено');
+    }
+
     return {
-      propellant: current,
-      next_propellant_id: next_id,
+      propellant: res.current,
+      next_id: res.next_id,
       active_tab: 'feed',
     };
   }

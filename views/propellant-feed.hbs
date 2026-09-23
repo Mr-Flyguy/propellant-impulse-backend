@@ -10,38 +10,40 @@
   <div class="mobile-app-frame">
     <div class="feed-viewport">
       <video class="feed-bg-video" autoplay loop muted playsinline preload="auto">
-        <source src="{{{propellant.propellant_video_url}}}" type="video/mp4">
+        <source src="{{propellant.videoUrl}}" type="video/mp4">
       </video>
       <div class="feed-scrim-overlay"></div>
 
       <div class="feed-system-tag">ЛЕНТА ЭЛЕМЕНТОВ</div>
 
       <div class="feed-actions-stack">
-        <div class="action-atom-btn" title="Одобрено инженерами">
-          <svg class="action-atom-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
-            <circle cx="7.5" cy="7.5" r="3"/>
-            <circle cx="16.5" cy="7.5" r="3"/>
-            <circle cx="16.5" cy="16.5" r="3"/>
-            <circle cx="7.5" cy="16.5" r="3"/>
-          </svg>
+        <div class="feed-like-group">
+          <div class="action-atom-btn" title="Одобрено инженерами">
+            <svg class="action-atom-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+              <circle cx="7.5" cy="7.5" r="3"/>
+              <circle cx="16.5" cy="7.5" r="3"/>
+              <circle cx="16.5" cy="16.5" r="3"/>
+              <circle cx="7.5" cy="16.5" r="3"/>
+            </svg>
+          </div>
+          <span class="action-like-counter">{{propellant.likesCount}}</span>
         </div>
-        <span class="action-like-counter">{{propellant.propellant_likes_count}}</span>
 
-        <div class="feed-action-pill">M = {{propellant.molar_mass_g_mol}} г/моль</div>
-        <div class="feed-action-pill">Isp = {{propellant.vacuum_specific_impulse_s}} с</div>
+        <div class="feed-action-pill">M = {{propellant.molarMass}} г/моль</div>
+        <div class="feed-action-pill">Isp = {{propellant.specificImpulse}} с</div>
 
-        <a href="/propellants/feed/{{propellant.propellant_id}}?next=true" class="btn-next-feed">Далее &gt;</a>
+        <a href="/propellants/feed/{{next_id}}" class="btn-next-feed">Далее &gt;</a>
       </div>
 
       <div class="feed-info-card">
-        <h1 class="feed-title">{{propellant.propellant_name}} ({{propellant.chemical_formula}})</h1>
+        <h1 class="feed-title">{{propellant.name}}{{#if propellant.chemicalFormula}} ({{propellant.chemicalFormula}}){{/if}}</h1>
 
-        <p class="desc-short-preview">{{propellant.thermodynamic_description}}</p>
+        <p class="desc-short-preview">{{propellant.shortDescription}}</p>
 
         <details class="desc-details">
           <summary>Подробнее &#9662;</summary>
-          <p class="desc-full-text">{{propellant.engineering_analysis}}</p>
+          <p class="desc-full-text">{{propellant.engineeringAnalysis}}</p>
         </details>
       </div>
     </div>
@@ -65,8 +67,8 @@
       <a href="/propellants/catalog" class="tab-nav-item">
         <svg class="tab-nav-svg" viewBox="0 0 24 24">
           <rect x="3" y="3" width="18" height="18" rx="3"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="12" y1="3" x2="12" y2="21"/>
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="12" y1="3" x2="12" y2="21" />
         </svg>
         <span>ПЛИТКА</span>
       </a>

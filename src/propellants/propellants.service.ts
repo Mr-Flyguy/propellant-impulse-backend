@@ -1,195 +1,210 @@
-import { Injectable } from '@nestjs/common';
-import { Propellant, PropellantViewModel } from './propellant.interface';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, DataSource, MoreThan } from 'typeorm';
+import { Propellant } from './entities/propellant.entity';
+import { User } from './entities/user.entity';
+
+export interface FeedResult {
+  current: Propellant & { likesCount: number };
+  next_id: number;
+}
+
+export interface SavePropellantDto {
+  name?: string;
+  chemicalFormula?: string;
+  shortDescription?: string;
+  engineeringAnalysis?: string;
+  molarMass?: number;
+  reactorTemperatureK?: number;
+  specificHeatRatio?: number;
+  specificImpulse?: number;
+  imageUrl?: string;
+  videoUrl?: string;
+}
 
 @Injectable()
 export class PropellantsService {
-  private readonly minioBaseUrl = 'http://localhost:9000/propellants';
+  private readonly defaultImageUrl = '/img/default_propellant.jpg';
+  private readonly defaultVideoUrl = '/video/default_exhaust.mp4';
 
-  private readonly propellants: Propellant[] = [
-    {
-      propellant_id: '1',
-      propellant_name: 'Жидкий водород',
-      chemical_formula: 'LH₂',
-      molar_mass_g_mol: 2.016,
-      reactor_temperature_k: 2800,
-      specific_heat_ratio: 1.41,
-      vacuum_specific_impulse_s: 910,
-      thermodynamic_description:
-        'Эффективное рабочее тело за счёт минимальной массы и предельного импульса.',
-      engineering_analysis:
-        'Термолиз при 2800 K снижает массу газа до 1.8 г/моль, разгоняя истечение свыше 8900 м/с.',
-      propellant_image_key: 'propellant_h2.jpg',
-      propellant_video_key: 'video_exhaust_h2.mp4',
-      propellant_image_size_kb: 156,
-      propellant_image_mime: 'image/jpeg',
-      propellant_status: 'published',
-      propellant_user_likes: [
-        'usr_01', 'usr_02', 'usr_03', 'usr_04', 'usr_05', 'usr_06', 'usr_07', 'usr_08', 'usr_09', 'usr_10',
-        'usr_11', 'usr_12', 'usr_13', 'usr_14', 'usr_15', 'usr_16', 'usr_17', 'usr_18', 'usr_19', 'usr_20',
-        'usr_21', 'usr_22', 'usr_23', 'usr_24', 'usr_25', 'usr_26', 'usr_27', 'usr_28', 'usr_29', 'usr_30',
-        'usr_31', 'usr_32', 'usr_33', 'usr_34', 'usr_35', 'usr_36', 'usr_37', 'usr_38', 'usr_39', 'usr_40',
-        'usr_41', 'usr_42'
-      ],
-    },
-    {
-      propellant_id: '2',
-      propellant_name: 'Метан',
-      chemical_formula: 'LCH₄',
-      molar_mass_g_mol: 16.04,
-      reactor_temperature_k: 2600,
-      specific_heat_ratio: 1.32,
-      vacuum_specific_impulse_s: 630,
-      thermodynamic_description:
-        'Плотное криогенное топливо с балансом между объемом баков и тягой двигателя.',
-      engineering_analysis:
-        'Плотность 422 кг/м³ кардинально снижает массу баков при оптимальном балансе тяги и импульса.',
-      propellant_image_key: 'propellant_ch4.jpg',
-      propellant_video_key: 'video_exhaust_ch4.mp4',
-      propellant_image_size_kb: 168,
-      propellant_image_mime: 'image/jpeg',
-      propellant_status: 'published',
-      propellant_user_likes: [
-        'usr_01', 'usr_02', 'usr_03', 'usr_04', 'usr_05', 'usr_06', 'usr_07', 'usr_08', 'usr_09', 'usr_10',
-        'usr_11', 'usr_12', 'usr_13', 'usr_14', 'usr_15', 'usr_16', 'usr_17', 'usr_18', 'usr_19'
-      ],
-    },
-    {
-      propellant_id: '3',
-      propellant_name: 'Аммиак',
-      chemical_formula: 'LNH₃',
-      molar_mass_g_mol: 17.03,
-      reactor_temperature_k: 2500,
-      specific_heat_ratio: 1.31,
-      vacuum_specific_impulse_s: 480,
-      thermodynamic_description:
-        'Удобен для длительного хранения без криоохлаждения и диссоциирует в реакторе.',
-      engineering_analysis:
-        'Каталитический распад 2NH₃ → N₂ + 3H₂ дает смесь с массой 8.5 г/моль без криогенных утечек.',
-      propellant_image_key: 'propellant_nh3.jpg',
-      propellant_video_key: 'video_exhaust_nh3.mp4',
-      propellant_image_size_kb: 145,
-      propellant_image_mime: 'image/jpeg',
-      propellant_status: 'published',
-      propellant_user_likes: [
-        'usr_01', 'usr_02', 'usr_03', 'usr_04', 'usr_05', 'usr_06', 'usr_07', 'usr_08', 'usr_09', 'usr_10',
-        'usr_11', 'usr_12', 'usr_13', 'usr_14', 'usr_15', 'usr_16', 'usr_17', 'usr_18', 'usr_19', 'usr_20',
-        'usr_21', 'usr_22', 'usr_23', 'usr_24', 'usr_25', 'usr_26', 'usr_27', 'usr_28', 'usr_29', 'usr_30',
-        'usr_31'
-      ],
-    },
-    {
-      propellant_id: '4',
-      propellant_name: 'Гидразин',
-      chemical_formula: 'N₂H₄',
-      molar_mass_g_mol: 32.05,
-      reactor_temperature_k: 2400,
-      specific_heat_ratio: 1.25,
-      vacuum_specific_impulse_s: 510,
-      thermodynamic_description:
-        'Высокоплотное рабочее тело, дающее высокий расход при распаде в реакторе.',
-      engineering_analysis:
-        'Плотность 1.02 г/см³ минимизирует объем баков и лобовое сопротивление корабля.',
-      propellant_image_key: 'propellant_n2h4.jpg',
-      propellant_video_key: 'video_exhaust_n2h4.mp4',
-      propellant_image_size_kb: 172,
-      propellant_image_mime: 'image/jpeg',
-      propellant_status: 'published',
-      propellant_user_likes: [
-        'usr_01', 'usr_02', 'usr_03', 'usr_04', 'usr_05', 'usr_06', 'usr_07', 'usr_08'
-      ],
-    },
-    {
-      propellant_id: '5',
-      propellant_name: 'Диборан',
-      chemical_formula: 'B₂H₆',
-      molar_mass_g_mol: 27.67,
-      reactor_temperature_k: 2400,
-      specific_heat_ratio: 1.18,
-      vacuum_specific_impulse_s: 580,
-      thermodynamic_description:
-        'Обеспечивает компактность криобаков и высокий энерговыход при нагреве.',
-      engineering_analysis:
-        'Высокая теплотворность и компактность баков при реакторном распаде на бор и водород.',
-      propellant_image_key: 'propellant_b2h6.jpg',
-      propellant_video_key: 'video_exhaust_b2h6.mp4',
-      propellant_image_size_kb: 142,
-      propellant_image_mime: 'image/jpeg',
-      propellant_status: 'draft',
-      propellant_user_likes: [
-        'usr_01', 'usr_02', 'usr_03', 'usr_04', 'usr_05', 'usr_06', 'usr_07', 'usr_08', 'usr_09', 'usr_10',
-        'usr_11', 'usr_12', 'usr_13', 'usr_14'
-      ],
-    },
-    {
-      propellant_id: '6',
-      propellant_name: 'Водяной пар',
-      chemical_formula: 'H₂O',
-      molar_mass_g_mol: 18.01,
-      reactor_temperature_k: 2200,
-      specific_heat_ratio: 1.33,
-      vacuum_specific_impulse_s: 370,
-      thermodynamic_description:
-        'Безопасное рабочее тело с высокой доступностью ресурсов для дозаправки.',
-      engineering_analysis:
-        'Оптимально для заправки на ледяных астероидах (ISRU) без криогенных утечек.',
-      propellant_image_key: 'propellant_h2o.jpg',
-      propellant_video_key: 'video_exhaust_h2o.mp4',
-      propellant_image_size_kb: 130,
-      propellant_image_mime: 'image/jpeg',
-      propellant_status: 'deleted',
-      propellant_user_likes: [
-        'usr_01', 'usr_02', 'usr_03', 'usr_04', 'usr_05', 'usr_06', 'usr_07', 'usr_08', 'usr_09', 'usr_10',
-        'usr_11', 'usr_12', 'usr_13', 'usr_14', 'usr_15', 'usr_16', 'usr_17', 'usr_18', 'usr_19', 'usr_20',
-        'usr_21', 'usr_22', 'usr_23'
-      ],
-    },
-  ];
+  constructor(
+    @InjectRepository(Propellant)
+    private readonly propellantRepo: Repository<Propellant>,
+    @InjectRepository(User)
+    private readonly userRepo: Repository<User>,
+    private readonly dataSource: DataSource,
+  ) {}
 
-  private toViewModel(item: Propellant): PropellantViewModel {
+  private mapMedia(item: Propellant): Propellant & { likesCount: number; imageKey: string; videoKey: string } {
+    const rawImageUrl = item.imageUrl && item.imageUrl.trim() !== '' ? item.imageUrl : this.defaultImageUrl;
+    const rawVideoUrl = item.videoUrl && item.videoUrl.trim() !== '' ? item.videoUrl : this.defaultVideoUrl;
+    const imageKey = rawImageUrl.split('/').pop()?.split('?')[0] || 'propellant_ch4.jpg';
+    const videoKey = rawVideoUrl.split('/').pop()?.split('?')[0] || 'video_exhaust_ch4.mp4';
+    const videoUrl = rawVideoUrl.includes('?') ? rawVideoUrl : `${rawVideoUrl}?v=2`;
+
+    const molarMass = item.molarMass !== null && item.molarMass !== undefined ? Number(item.molarMass) : item.molarMass;
+    const specificHeatRatio = item.specificHeatRatio !== null && item.specificHeatRatio !== undefined ? Number(item.specificHeatRatio) : item.specificHeatRatio;
+
     return {
       ...item,
-      propellant_image_url: `${this.minioBaseUrl}/${item.propellant_image_key}`,
-      propellant_video_url: `${this.minioBaseUrl}/${item.propellant_video_key}?t=${Date.now()}`,
-      propellant_likes_count: item.propellant_user_likes.length,
+      imageUrl: rawImageUrl,
+      videoUrl,
+      imageKey,
+      videoKey,
+      molarMass,
+      specificHeatRatio,
+      likesCount: item.likes ? item.likes.length : 0,
     };
   }
 
-  getPublishedPropellants(): PropellantViewModel[] {
-    return this.propellants
-      .filter((item) => item.propellant_status === 'published')
-      .map((item) => this.toViewModel(item));
-  }
+  async getFeedItem(id?: number): Promise<FeedResult | null> {
+    let current: Propellant | null = null;
 
-  getFeedItem(id?: string, next?: boolean): { current: PropellantViewModel; next_id: string } {
-    const list = this.getPublishedPropellants();
-    let index = list.findIndex((p) => p.propellant_id === id);
-    if (index === -1) {
-      index = 0;
+    if (id) {
+      current = await this.propellantRepo.findOne({
+        where: { id, status: 'published' },
+        relations: ['likes'],
+      });
     }
 
-    if (next) {
-      index = index + 1 >= list.length ? 0 : index + 1;
+    if (!current) {
+      current = await this.propellantRepo.findOne({
+        where: { status: 'published' },
+        order: { id: 'ASC' },
+        relations: ['likes'],
+      });
     }
 
-    const current = list[index];
-    const nextIndex = index + 1 >= list.length ? 0 : index + 1;
+    if (!current) {
+      return null;
+    }
+
+    const nextItem = await this.propellantRepo.findOne({
+      where: { status: 'published', id: MoreThan(current.id) },
+      order: { id: 'ASC' },
+      select: ['id'],
+    });
+
+    const nextId = nextItem
+      ? nextItem.id
+      : (
+          await this.propellantRepo.findOne({
+            where: { status: 'published' },
+            order: { id: 'ASC' },
+            select: ['id'],
+          })
+        )?.id ?? current.id;
 
     return {
-      current,
-      next_id: list[nextIndex].propellant_id,
+      current: this.mapMedia(current),
+      next_id: nextId,
     };
   }
 
-  getDraftItem(): PropellantViewModel {
-    const draft = this.propellants.find((item) => item.propellant_status === 'draft');
-    return this.toViewModel(draft || this.propellants[0]);
+  async getCatalogItems(maxMolarMass?: number): Promise<Array<Propellant & { likesCount: number }>> {
+    const qb = this.propellantRepo
+      .createQueryBuilder('p')
+      .leftJoinAndSelect('p.likes', 'like')
+      .where('p.status = :status', { status: 'published' })
+      .orderBy('p.id', 'ASC');
+
+    if (maxMolarMass !== undefined && !isNaN(maxMolarMass)) {
+      qb.andWhere('p.molarMass <= :max', { max: maxMolarMass });
+    }
+
+    const items = await qb.getMany();
+    return items.map((item) => this.mapMedia(item));
   }
 
-  getCatalogItems(max?: number): PropellantViewModel[] {
-    const list = this.getPublishedPropellants();
-    if (max !== undefined && !isNaN(max)) {
-      return list.filter((item) => item.molar_mass_g_mol <= max);
+  async getUserDraft(userId: number): Promise<Propellant | null> {
+    const draft = await this.propellantRepo.findOne({
+      where: { creatorId: userId, status: 'draft' },
+    });
+    if (!draft) return null;
+    return this.mapMedia(draft);
+  }
+
+  async saveUserDraft(userId: number, dto: SavePropellantDto): Promise<Propellant> {
+    const draft = await this.propellantRepo.findOne({
+      where: { creatorId: userId, status: 'draft' },
+    });
+
+    if (draft) {
+      if (dto.name) draft.name = dto.name;
+      if (dto.chemicalFormula !== undefined) draft.chemicalFormula = dto.chemicalFormula;
+      if (dto.shortDescription !== undefined) draft.shortDescription = dto.shortDescription;
+      if (dto.engineeringAnalysis !== undefined) draft.engineeringAnalysis = dto.engineeringAnalysis;
+      if (dto.imageUrl !== undefined) draft.imageUrl = dto.imageUrl;
+      if (dto.videoUrl !== undefined) draft.videoUrl = dto.videoUrl;
+      if (dto.molarMass !== undefined && !isNaN(dto.molarMass)) draft.molarMass = dto.molarMass;
+      if (dto.reactorTemperatureK !== undefined && !isNaN(dto.reactorTemperatureK)) draft.reactorTemperatureK = dto.reactorTemperatureK;
+      if (dto.specificHeatRatio !== undefined && !isNaN(dto.specificHeatRatio)) draft.specificHeatRatio = dto.specificHeatRatio;
+      if (dto.specificImpulse !== undefined && !isNaN(dto.specificImpulse)) draft.specificImpulse = dto.specificImpulse;
+      draft.updatedAt = new Date();
+      return await this.propellantRepo.save(draft);
     }
-    return list;
+
+    const newDraft = this.propellantRepo.create({
+      name: dto.name || 'Новое рабочее тело',
+      chemicalFormula: dto.chemicalFormula || 'LCH₄',
+      shortDescription: dto.shortDescription || '',
+      engineeringAnalysis: dto.engineeringAnalysis || '',
+      status: 'draft',
+      imageUrl: dto.imageUrl || this.defaultImageUrl,
+      videoUrl: dto.videoUrl || this.defaultVideoUrl,
+      molarMass: dto.molarMass ?? 16.04,
+      reactorTemperatureK: dto.reactorTemperatureK ?? 2600,
+      specificHeatRatio: dto.specificHeatRatio ?? 1.32,
+      specificImpulse: dto.specificImpulse ?? 630,
+      creatorId: userId,
+    });
+
+    return await this.propellantRepo.save(newDraft);
+  }
+
+  async publishDraft(userId: number, dto: SavePropellantDto): Promise<Propellant> {
+    const draft = await this.propellantRepo.findOne({
+      where: { creatorId: userId, status: 'draft' },
+    });
+
+    if (draft) {
+      if (dto.name) draft.name = dto.name;
+      if (dto.chemicalFormula !== undefined) draft.chemicalFormula = dto.chemicalFormula;
+      if (dto.shortDescription !== undefined) draft.shortDescription = dto.shortDescription;
+      if (dto.engineeringAnalysis !== undefined) draft.engineeringAnalysis = dto.engineeringAnalysis;
+      if (dto.imageUrl !== undefined) draft.imageUrl = dto.imageUrl;
+      if (dto.videoUrl !== undefined) draft.videoUrl = dto.videoUrl;
+      if (dto.molarMass !== undefined && !isNaN(dto.molarMass)) draft.molarMass = dto.molarMass;
+      if (dto.reactorTemperatureK !== undefined && !isNaN(dto.reactorTemperatureK)) draft.reactorTemperatureK = dto.reactorTemperatureK;
+      if (dto.specificHeatRatio !== undefined && !isNaN(dto.specificHeatRatio)) draft.specificHeatRatio = dto.specificHeatRatio;
+      if (dto.specificImpulse !== undefined && !isNaN(dto.specificImpulse)) draft.specificImpulse = dto.specificImpulse;
+      draft.status = 'published';
+      draft.updatedAt = new Date();
+      return await this.propellantRepo.save(draft);
+    }
+
+    const newPropellant = this.propellantRepo.create({
+      name: dto.name || 'Новое рабочее тело',
+      chemicalFormula: dto.chemicalFormula || 'LCH₄',
+      shortDescription: dto.shortDescription || '',
+      engineeringAnalysis: dto.engineeringAnalysis || '',
+      status: 'published',
+      imageUrl: dto.imageUrl || this.defaultImageUrl,
+      videoUrl: dto.videoUrl || this.defaultVideoUrl,
+      molarMass: dto.molarMass ?? 16.04,
+      reactorTemperatureK: dto.reactorTemperatureK ?? 2600,
+      specificHeatRatio: dto.specificHeatRatio ?? 1.32,
+      specificImpulse: dto.specificImpulse ?? 630,
+      creatorId: userId,
+    });
+
+    return await this.propellantRepo.save(newPropellant);
+  }
+
+  async deletePropellantRaw(id: number): Promise<void> {
+    await this.dataSource.query(
+      'UPDATE propellants SET status = $1, updated_at = NOW() WHERE id = $2',
+      ['deleted', id],
+    );
   }
 }

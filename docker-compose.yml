@@ -15,5 +15,29 @@ services:
     volumes:
       - propellant_minio_data:/data
 
+  propellant_postgres:
+    image: postgres:16-alpine
+    container_name: propellant_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: propellant_user
+      POSTGRES_PASSWORD: propellant_pass
+      POSTGRES_DB: propellant_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - propellant_pg_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
+
+  propellant_adminer:
+    image: adminer:latest
+    container_name: propellant_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - propellant_postgres
+
 volumes:
   propellant_minio_data:
+  propellant_pg_data:

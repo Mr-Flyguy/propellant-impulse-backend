@@ -31,21 +31,30 @@
 
       <div class="catalog-cards-grid">
         {{#each propellants}}
-        <a href="/propellants/feed/{{this.propellant_id}}" class="propellant-grid-card">
-          <div class="card-image-box">
-            <img src="{{this.propellant_image_url}}" alt="{{this.propellant_name}}" class="propellant-card-img"
-              loading="lazy">
-          </div>
-          <div class="card-meta-content">
-            <div class="card-propellant-title">{{this.propellant_name}} {{this.chemical_formula}}</div>
-            <div class="card-bottom-row">
-              <span class="card-molar-mass">{{this.molar_mass_g_mol}} г/моль</span>
-              <span class="card-likes-count">
-                <span class="card-heart-icon">&hearts;</span> {{this.propellant_likes_count}}
-              </span>
+        <div class="propellant-card-wrapper">
+          <a href="/propellants/feed/{{this.id}}" class="propellant-grid-card">
+            <div class="card-image-box">
+              <img src="{{this.imageUrl}}" alt="{{this.name}}" class="propellant-card-img" loading="lazy">
             </div>
-          </div>
-        </a>
+            <div class="card-meta-content">
+              <div class="card-propellant-title">{{this.name}}{{#if this.chemicalFormula}} {{this.chemicalFormula}}{{/if}}</div>
+              <div class="card-bottom-row">
+                <span class="card-molar-mass">{{this.molarMass}} г/моль</span>
+                <span class="card-likes-count">
+                  <span class="card-heart-icon">&hearts;</span> {{this.likesCount}}
+                </span>
+              </div>
+            </div>
+          </a>
+          <form method="POST" action="/propellants/delete/{{this.id}}" class="card-delete-form">
+            <button type="submit" class="btn-card-delete" title="Удалить">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
         {{/each}}
       </div>
     </div>
