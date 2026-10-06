@@ -3,6 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PropellantsModule } from './propellants/propellants.module';
+import { MinioModule } from './minio/minio.module';
+import { CommonModule } from './common/common.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,7 +19,10 @@ import { PropellantsModule } from './propellants/propellants.module';
       autoLoadEntities: true,
       synchronize: false,
     }),
+    CommonModule,
+    MinioModule,
     PropellantsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

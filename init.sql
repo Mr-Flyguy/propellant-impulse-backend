@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(64) NOT NULL UNIQUE,
     email VARCHAR(128) NOT NULL UNIQUE,
+    password VARCHAR(128),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -9,11 +10,11 @@ CREATE TABLE IF NOT EXISTS propellants (
     id SERIAL PRIMARY KEY,
     name VARCHAR(128) NOT NULL,
     chemical_formula VARCHAR(32),
-    short_description VARCHAR(255),
+    short_description TEXT,
     engineering_analysis TEXT,
     status VARCHAR(32) NOT NULL DEFAULT 'draft',
-    image_url VARCHAR(255),
-    video_url VARCHAR(255),
+    image_url TEXT,
+    video_url TEXT,
     image_size_kb INT DEFAULT 168,
     image_mime VARCHAR(64) DEFAULT 'image/jpeg',
     molar_mass DECIMAL(8, 3) NOT NULL,
@@ -37,12 +38,15 @@ CREATE TABLE IF NOT EXISTS propellant_likes (
     PRIMARY KEY (user_id, propellant_id)
 );
 
-INSERT INTO users (id, username, email) VALUES
-(1, 'engineer_maksim', 'maksim@bmstu.ru'),
-(2, 'chief_designer', 'designer@roscosmos.ru'),
-(3, 'flight_specialist', 'specialist@roscosmos.ru'),
-(4, 'test_pilot', 'pilot@gagarin.ru')
-ON CONFLICT (id) DO NOTHING;
+INSERT INTO users (id, username, email, password) VALUES
+(1, 'user_1', 'user1@example.com', 'password123'),
+(2, 'user_2', 'user2@example.com', 'password123'),
+(3, 'user_3', 'user3@example.com', 'password123'),
+(4, 'user_4', 'user4@example.com', 'password123')
+ON CONFLICT (id) DO UPDATE SET 
+    username = EXCLUDED.username,
+    email = EXCLUDED.email,
+    password = EXCLUDED.password;
 
 INSERT INTO propellants (id, name, chemical_formula, short_description, engineering_analysis, status, image_url, video_url, image_size_kb, image_mime, molar_mass, reactor_temperature_k, specific_heat_ratio, specific_impulse, creator_id, created_at, updated_at) VALUES
 (1, 'Жидкий водород', 'H₂', 'Эффективное рабочее тело за счёт минимальной массы и предельного импульса.', 'Идеальное рабочее тело с предельной скоростью истечения. При температуре реактора 2800 K диссоциация H₂ дополнительно увеличивает тягу без утяжеления активной зоны.', 'published', 'http://localhost:9000/propellants/propellant_h2.jpg', 'http://localhost:9000/propellants/video_exhaust_h2.mp4', 156, 'image/jpeg', 2.016, 2800, 1.41, 910, 1, NOW() - INTERVAL '5 days', NOW() - INTERVAL '5 days'),
