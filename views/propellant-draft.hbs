@@ -20,8 +20,8 @@
       <form method="POST" action="/propellants/publish" class="draft-form-block">
         <div class="section-caption-red">МЕДИАФАЙЛЫ</div>
 
-        <input type="hidden" id="draftImageUrl" name="image_url" value="{{#if draft_propellant.imageUrl}}{{draft_propellant.imageUrl}}{{else}}http://localhost:9000/propellants/propellant_ch4.jpg{{/if}}">
-        <input type="hidden" id="draftVideoUrl" name="video_url" value="{{#if draft_propellant.videoUrl}}{{draft_propellant.videoUrl}}{{else}}http://localhost:9000/propellants/video_exhaust_ch4.mp4{{/if}}">
+        <input type="hidden" id="draftImageUrl" name="image_url" value="{{#if draft_propellant.imageUrl}}{{draft_propellant.imageUrl}}{{else}}/img/default_propellant.jpg{{/if}}">
+        <input type="hidden" id="draftVideoUrl" name="video_url" value="{{#if draft_propellant.videoUrl}}{{draft_propellant.videoUrl}}{{else}}/video/default_exhaust.mp4{{/if}}">
 
         <div class="media-input-group">
           <div class="media-subcaption">ФОТО</div>
@@ -78,23 +78,13 @@
         </div>
 
         <div class="form-group-block">
-          <label class="input-caption-label">ФОРМУЛА *</label>
-          <input type="text" name="chemical_formula" class="form-input-control" value="{{draft_propellant.chemicalFormula}}" placeholder="LCH₄" required>
+          <label class="input-caption-label">МОЛЯРНАЯ МАССА (Г/МОЛЬ) *</label>
+          <input type="text" name="molar_mass" class="form-input-control" value="{{draft_propellant.molarMass}}" placeholder="16,04" required>
         </div>
 
         <div class="form-group-block">
-          <label class="input-caption-label">МОЛЯРНАЯ МАССА (Г/МОЛЬ)</label>
-          <input type="text" name="molar_mass" class="form-input-control" value="{{draft_propellant.molarMass}}" placeholder="16,04">
-        </div>
-
-        <div class="form-group-block">
-          <label class="input-caption-label">ТЕМП. РЕАКТОРА (К)</label>
-          <input type="number" step="10" name="reactor_temperature_k" class="form-input-control" value="{{draft_propellant.reactorTemperatureK}}" placeholder="2600">
-        </div>
-
-        <div class="form-group-block">
-          <label class="input-caption-label">ПОКАЗАТЕЛЬ АДИАБАТЫ (Г)</label>
-          <input type="text" name="specific_heat_ratio" class="form-input-control" value="{{draft_propellant.specificHeatRatio}}" placeholder="1,32">
+          <label class="input-caption-label">ПОКАЗАТЕЛЬ АДИАБАТЫ (Г) *</label>
+          <input type="text" name="specific_heat_ratio" class="form-input-control" value="{{draft_propellant.specificHeatRatio}}" placeholder="1,32" required>
         </div>
 
         <div class="form-group-block">
