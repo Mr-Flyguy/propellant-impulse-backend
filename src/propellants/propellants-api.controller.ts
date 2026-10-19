@@ -18,6 +18,7 @@ import { PropellantsService } from './propellants.service';
 import { MinioService } from '../minio/minio.service';
 import { CurrentUserService } from '../common/current-user.service';
 import { CreatePropellantDto } from './dto/create-propellant.dto';
+import { PublishPropellantDto } from './dto/publish-propellant.dto';
 import { LikePropellantDto } from './dto/like-propellant.dto';
 import { PropellantResponseDto } from './dto/propellant-response.dto';
 
@@ -113,9 +114,10 @@ export class PropellantsApiController {
   @HttpCode(HttpStatus.OK)
   async publish(
     @Param('id', ParseIntPipe) id: number,
+    @Body() dto?: PublishPropellantDto,
   ): Promise<PropellantResponseDto> {
     const currentUser = this.currentUserService.getCurrentUser();
-    return this.propellantsService.publishApiDraft(id, currentUser.id);
+    return this.propellantsService.publishApiDraft(id, currentUser.id, dto);
   }
 
   @Delete(':id')
