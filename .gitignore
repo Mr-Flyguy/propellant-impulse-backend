@@ -31,8 +31,3 @@ Thumbs.db
 *.sln
 *.sw?
 
-# Lab collections and diagrams (kept in artifacts)
-*collection*.json
-*.drawio
-*.mdj
-class_diagram.*
