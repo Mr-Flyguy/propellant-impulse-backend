@@ -34,7 +34,7 @@
         <div class="propellant-card-wrapper">
           <a href="/propellants/feed/{{this.id}}" class="propellant-grid-card">
             <div class="card-image-box">
-              <img src="{{this.imageUrl}}" alt="{{this.name}}" class="propellant-card-img" loading="lazy">
+              <img src="{{this.imageUrl}}" alt="{{this.name}}" class="propellant-card-img" loading="lazy" onerror="this.onerror=null; this.src='/img/default_propellant.jpg';">
             </div>
             <div class="card-meta-content">
               <div class="card-propellant-title">{{this.name}}</div>
