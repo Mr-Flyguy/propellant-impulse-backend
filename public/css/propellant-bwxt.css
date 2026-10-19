@@ -375,6 +375,49 @@ body {
   display: none;
 }
 
+.media-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(14, 18, 45, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.media-preview-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  background: #090b17;
+}
+
+.media-preview-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.media-preview-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.media-preview-specs {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
 .media-select-card {
   display: flex;
   align-items: center;
