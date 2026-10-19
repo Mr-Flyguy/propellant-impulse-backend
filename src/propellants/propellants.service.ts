@@ -11,6 +11,7 @@ import { User } from './entities/user.entity';
 import { PropellantLike } from './entities/propellant-like.entity';
 import { CurrentUserService } from '../common/current-user.service';
 import { CreatePropellantDto } from './dto/create-propellant.dto';
+import { PublishPropellantDto } from './dto/publish-propellant.dto';
 import { PropellantResponseDto } from './dto/propellant-response.dto';
 
 export interface FeedResult {
@@ -378,18 +379,6 @@ export class PropellantsService {
     imageUrl?: string,
     videoUrl?: string,
   ): Promise<PropellantResponseDto> {
-    const parsedMolarMass =
-      dto.molar_mass !== undefined && dto.molar_mass !== null && dto.molar_mass !== ''
-        ? Number(String(dto.molar_mass).replace(',', '.'))
-        : undefined;
-
-    const parsedGamma =
-      dto.specific_heat_ratio !== undefined &&
-      dto.specific_heat_ratio !== null &&
-      dto.specific_heat_ratio !== ''
-        ? Number(String(dto.specific_heat_ratio).replace(',', '.'))
-        : undefined;
-
     let draft = await this.propellantRepo.findOne({
       where: { creatorId: currentUserId, status: 'draft' },
       relations: ['likes'],
@@ -397,12 +386,6 @@ export class PropellantsService {
 
     if (draft) {
       if (dto.name) draft.name = dto.name;
-      if (dto.short_description !== undefined)
-        draft.shortDescription = dto.short_description;
-      if (parsedMolarMass !== undefined && !isNaN(parsedMolarMass))
-        draft.molarMass = parsedMolarMass;
-      if (parsedGamma !== undefined && !isNaN(parsedGamma))
-        draft.specificHeatRatio = parsedGamma;
       if (imageUrl) draft.imageUrl = imageUrl;
       if (videoUrl) draft.videoUrl = videoUrl;
       draft.updatedAt = new Date();
@@ -410,9 +393,9 @@ export class PropellantsService {
     } else {
       draft = this.propellantRepo.create({
         name: dto.name || 'Новое рабочее тело',
-        shortDescription: dto.short_description || '',
-        molarMass: parsedMolarMass ?? 16.04,
-        specificHeatRatio: parsedGamma ?? 1.32,
+        shortDescription: '',
+        molarMass: 16.04,
+        specificHeatRatio: 1.32,
         status: 'draft',
         imageUrl: imageUrl || this.defaultImageUrl,
         videoUrl: videoUrl || this.defaultVideoUrl,
@@ -428,6 +411,7 @@ export class PropellantsService {
   async publishApiDraft(
     id: number,
     currentUserId: number,
+    dto?: PublishPropellantDto,
   ): Promise<PropellantResponseDto> {
     const propellant = await this.propellantRepo.findOne({
       where: { id },
@@ -448,6 +432,19 @@ export class PropellantsService {
       throw new BadRequestException(
         'Опубликовать можно только запись в статусе "draft"',
       );
+    }
+
+    if (dto) {
+      if (dto.name) propellant.name = dto.name;
+      if (dto.short_description !== undefined) propellant.shortDescription = dto.short_description;
+      if (dto.molar_mass !== undefined && dto.molar_mass !== null && dto.molar_mass !== '') {
+        const parsedMolarMass = Number(String(dto.molar_mass).replace(',', '.'));
+        if (!isNaN(parsedMolarMass)) propellant.molarMass = parsedMolarMass;
+      }
+      if (dto.specific_heat_ratio !== undefined && dto.specific_heat_ratio !== null && dto.specific_heat_ratio !== '') {
+        const parsedGamma = Number(String(dto.specific_heat_ratio).replace(',', '.'));
+        if (!isNaN(parsedGamma)) propellant.specificHeatRatio = parsedGamma;
+      }
     }
 
     propellant.status = 'published';
