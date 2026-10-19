@@ -198,7 +198,7 @@ export class PropellantsService {
 
     const newDraft = this.propellantRepo.create({
       name: dto.name || 'Новое рабочее тело',
-      chemicalFormula: dto.chemicalFormula || 'LCH₄',
+      chemicalFormula: dto.chemicalFormula || null,
       shortDescription: dto.shortDescription || '',
       engineeringAnalysis: dto.engineeringAnalysis || '',
       status: 'draft',
@@ -253,7 +253,7 @@ export class PropellantsService {
 
     const newPropellant = this.propellantRepo.create({
       name: dto.name || 'Новое рабочее тело',
-      chemicalFormula: dto.chemicalFormula || 'LCH₄',
+      chemicalFormula: dto.chemicalFormula || null,
       shortDescription: dto.shortDescription || '',
       engineeringAnalysis: dto.engineeringAnalysis || '',
       status: 'published',
