@@ -48,7 +48,7 @@ export class PropellantsApiController {
   async getFeed(
     @Query('id') id?: string,
     @Query('next') next?: string,
-  ) {
+  ): Promise<PropellantResponseDto> {
     const currentUser = this.currentUserService.getCurrentUser();
     const parsedId = id ? Number(id) : undefined;
     const isNext = next === 'true' || next === '1';

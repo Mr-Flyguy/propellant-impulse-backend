@@ -310,7 +310,7 @@ export class PropellantsService {
     currentUserId: number,
     id?: number,
     next?: boolean,
-  ): Promise<{ item: PropellantResponseDto; next_id: number } | null> {
+  ): Promise<PropellantResponseDto> {
     let current: Propellant | null = null;
 
     if (id && next) {
@@ -335,29 +335,10 @@ export class PropellantsService {
     }
 
     if (!current) {
-      return null;
+      throw new NotFoundException('Опубликованные рабочие тела в ленте не найдены');
     }
 
-    const nextItem = await this.propellantRepo.findOne({
-      where: { status: 'published', id: MoreThan(current.id) },
-      order: { id: 'ASC' },
-      select: ['id'],
-    });
-
-    const nextId = nextItem
-      ? nextItem.id
-      : (
-          await this.propellantRepo.findOne({
-            where: { status: 'published' },
-            order: { id: 'ASC' },
-            select: ['id'],
-          })
-        )?.id ?? current.id;
-
-    return {
-      item: PropellantResponseDto.fromEntity(current, currentUserId),
-      next_id: nextId,
-    };
+    return PropellantResponseDto.fromEntity(current, currentUserId);
   }
 
   async getApiDraft(currentUserId: number): Promise<PropellantResponseDto> {
