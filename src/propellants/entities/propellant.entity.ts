@@ -62,8 +62,8 @@ export class Propellant {
 
   @Column({
     type: 'decimal',
-    precision: 4,
-    scale: 2,
+    precision: 8,
+    scale: 3,
     name: 'specific_heat_ratio',
     nullable: true,
     default: 1.25,

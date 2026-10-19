@@ -46,13 +46,19 @@ export class PropellantDraftController {
     @Body('specific_heat_ratio') specific_heat_ratio: string,
     @Res() res: Response,
   ) {
+    let parsedMolarMass = molar_mass ? parseFloat(String(molar_mass).replace(',', '.')) : 16.04;
+    if (isNaN(parsedMolarMass)) parsedMolarMass = 16.04;
+
+    let parsedGamma = specific_heat_ratio ? parseFloat(String(specific_heat_ratio).replace(',', '.')) : 1.32;
+    if (isNaN(parsedGamma)) parsedGamma = 1.32;
+
     await this.propellantsService.publishDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
       chemicalFormula: 'LCH₄',
       shortDescription: short_description || '',
-      molarMass: molar_mass ? parseFloat(molar_mass.replace(',', '.')) : 16.04,
+      molarMass: parsedMolarMass,
       reactorTemperatureK: 2600,
-      specificHeatRatio: specific_heat_ratio ? parseFloat(specific_heat_ratio.replace(',', '.')) : 1.32,
+      specificHeatRatio: parsedGamma,
     });
     return res.redirect('/propellants/catalog');
   }
