@@ -1,13 +1,13 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0">
   <diagram id="er-diagram-propellants" name="ERD-ЯРД">
-    <mxGraphModel dx="1200" dy="700" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="620" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1200" dy="700" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="600" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
         <!-- ==================== TABLE 1: propellants ==================== -->
         <mxCell id="tbl_propellants" parent="1" style="shape=table;startSize=28;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;columnLines=1;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;strokeColor=#000000;fillColor=#f8f9fa;fontSize=12;fontFamily=Helvetica;" value="Рабочие тела (propellants)" vertex="1">
-          <mxGeometry height="388" width="380" x="50" y="30" as="geometry" />
+          <mxGeometry height="364" width="380" x="50" y="30" as="geometry" />
         </mxCell>
 
         <!-- Row 1: id (PK) -->
@@ -38,191 +38,177 @@
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 3: chemical_formula (N) -->
+        <!-- Row 3: short_description (N) -->
         <mxCell id="pr_3" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="76" as="geometry" />
         </mxCell>
         <mxCell id="pr_3_k" parent="pr_3" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="N" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_3_n" parent="pr_3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Химическая формула" vertex="1">
+        <mxCell id="pr_3_n" parent="pr_3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Краткое описание" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_3_t" parent="pr_3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(32)" vertex="1">
+        <mxCell id="pr_3_t" parent="pr_3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(255)" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 4: short_description (N) -->
+        <!-- Row 4: engineering_analysis (N) -->
         <mxCell id="pr_4" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="100" as="geometry" />
         </mxCell>
         <mxCell id="pr_4_k" parent="pr_4" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="N" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_4_n" parent="pr_4" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Краткое описание" vertex="1">
+        <mxCell id="pr_4_n" parent="pr_4" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Инженерный анализ" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_4_t" parent="pr_4" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(255)" vertex="1">
+        <mxCell id="pr_4_t" parent="pr_4" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="TEXT" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 5: engineering_analysis (N) -->
+        <!-- Row 5: status -->
         <mxCell id="pr_5" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="124" as="geometry" />
         </mxCell>
-        <mxCell id="pr_5_k" parent="pr_5" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="N" vertex="1">
+        <mxCell id="pr_5_k" parent="pr_5" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_5_n" parent="pr_5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Инженерный анализ" vertex="1">
+        <mxCell id="pr_5_n" parent="pr_5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Статус (soft delete)" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_5_t" parent="pr_5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="TEXT" vertex="1">
+        <mxCell id="pr_5_t" parent="pr_5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(32)" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 6: status -->
+        <!-- Row 6: image_url (N) -->
         <mxCell id="pr_6" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="148" as="geometry" />
         </mxCell>
-        <mxCell id="pr_6_k" parent="pr_6" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
+        <mxCell id="pr_6_k" parent="pr_6" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="N" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_6_n" parent="pr_6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Статус (soft delete)" vertex="1">
+        <mxCell id="pr_6_n" parent="pr_6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="URL изображения" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_6_t" parent="pr_6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(32)" vertex="1">
+        <mxCell id="pr_6_t" parent="pr_6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(255)" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 7: image_url -->
+        <!-- Row 7: video_url (N) -->
         <mxCell id="pr_7" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="172" as="geometry" />
         </mxCell>
-        <mxCell id="pr_7_k" parent="pr_7" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
+        <mxCell id="pr_7_k" parent="pr_7" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="N" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_7_n" parent="pr_7" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="URL изображения" vertex="1">
+        <mxCell id="pr_7_n" parent="pr_7" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="URL видео" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
         <mxCell id="pr_7_t" parent="pr_7" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(255)" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 8: video_url -->
+        <!-- Row 8: molar_mass -->
         <mxCell id="pr_8" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="196" as="geometry" />
         </mxCell>
         <mxCell id="pr_8_k" parent="pr_8" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_8_n" parent="pr_8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="URL видео" vertex="1">
+        <mxCell id="pr_8_n" parent="pr_8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Молярная масса (M)" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_8_t" parent="pr_8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="VARCHAR(255)" vertex="1">
+        <mxCell id="pr_8_t" parent="pr_8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DECIMAL(8,3)" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 9: molar_mass -->
+        <!-- Row 9: specific_impulse -->
         <mxCell id="pr_9" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="220" as="geometry" />
         </mxCell>
         <mxCell id="pr_9_k" parent="pr_9" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_9_n" parent="pr_9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Молярная масса (M)" vertex="1">
+        <mxCell id="pr_9_n" parent="pr_9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Удельный импульс (Isp)" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_9_t" parent="pr_9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DECIMAL(8,3)" vertex="1">
+        <mxCell id="pr_9_t" parent="pr_9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="INTEGER" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 10: specific_impulse -->
+        <!-- Row 10: reactor_temperature_k -->
         <mxCell id="pr_10" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="244" as="geometry" />
         </mxCell>
         <mxCell id="pr_10_k" parent="pr_10" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_10_n" parent="pr_10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Удельный импульс (Isp)" vertex="1">
+        <mxCell id="pr_10_n" parent="pr_10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Температура реактора" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
         <mxCell id="pr_10_t" parent="pr_10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="INTEGER" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 11: reactor_temperature_k -->
+        <!-- Row 11: specific_heat_ratio -->
         <mxCell id="pr_11" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="268" as="geometry" />
         </mxCell>
         <mxCell id="pr_11_k" parent="pr_11" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_11_n" parent="pr_11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Температура реактора" vertex="1">
+        <mxCell id="pr_11_n" parent="pr_11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Показатель адиабаты" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_11_t" parent="pr_11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="INTEGER" vertex="1">
+        <mxCell id="pr_11_t" parent="pr_11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DECIMAL(8,3)" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 12: specific_heat_ratio -->
+        <!-- Row 12: creator_id (FK) -->
         <mxCell id="pr_12" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="292" as="geometry" />
         </mxCell>
-        <mxCell id="pr_12_k" parent="pr_12" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
+        <mxCell id="pr_12_k" parent="pr_12" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="FK" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_12_n" parent="pr_12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Показатель адиабаты" vertex="1">
+        <mxCell id="pr_12_n" parent="pr_12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="id_создателя (creator_id)" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_12_t" parent="pr_12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DECIMAL(8,3)" vertex="1">
+        <mxCell id="pr_12_t" parent="pr_12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="INTEGER" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 13: creator_id (FK) -->
+        <!-- Row 13: created_at -->
         <mxCell id="pr_13" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="316" as="geometry" />
         </mxCell>
-        <mxCell id="pr_13_k" parent="pr_13" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="FK" vertex="1">
+        <mxCell id="pr_13_k" parent="pr_13" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_13_n" parent="pr_13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="id_создателя (creator_id)" vertex="1">
+        <mxCell id="pr_13_n" parent="pr_13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Дата создания" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_13_t" parent="pr_13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="INTEGER" vertex="1">
+        <mxCell id="pr_13_t" parent="pr_13" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DATETIME" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 14: created_at -->
+        <!-- Row 14: updated_at -->
         <mxCell id="pr_14" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
           <mxGeometry height="24" width="380" y="340" as="geometry" />
         </mxCell>
         <mxCell id="pr_14_k" parent="pr_14" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontSize=11;" value="" vertex="1">
           <mxGeometry height="24" width="50" as="geometry" />
         </mxCell>
-        <mxCell id="pr_14_n" parent="pr_14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Дата создания" vertex="1">
+        <mxCell id="pr_14_n" parent="pr_14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Дата обновления" vertex="1">
           <mxGeometry height="24" width="190" x="50" as="geometry" />
         </mxCell>
         <mxCell id="pr_14_t" parent="pr_14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DATETIME" vertex="1">
           <mxGeometry height="24" width="140" x="240" as="geometry" />
         </mxCell>
 
-        <!-- Row 15: updated_at (N) -->
-        <mxCell id="pr_15" parent="tbl_propellants" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;bubblePosition=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;strokeColor=none;" value="" vertex="1">
-          <mxGeometry height="24" width="380" y="364" as="geometry" />
-        </mxCell>
-        <mxCell id="pr_15_k" parent="pr_15" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;overflow=hidden;fontStyle=1;fontSize=11;" value="N" vertex="1">
-          <mxGeometry height="24" width="50" as="geometry" />
-        </mxCell>
-        <mxCell id="pr_15_n" parent="pr_15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="Дата обновления" vertex="1">
-          <mxGeometry height="24" width="190" x="50" as="geometry" />
-        </mxCell>
-        <mxCell id="pr_15_t" parent="pr_15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;fontSize=11;" value="DATETIME" vertex="1">
-          <mxGeometry height="24" width="140" x="240" as="geometry" />
-        </mxCell>
-
         <!-- ==================== TABLE 2: users ==================== -->
         <mxCell id="tbl_users" parent="1" style="shape=table;startSize=28;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;columnLines=1;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;strokeColor=#000000;fillColor=#f8f9fa;fontSize=12;fontFamily=Helvetica;" value="Пользователи (users)" vertex="1">
-          <mxGeometry height="148" width="360" x="560" y="90" as="geometry" />
+          <mxGeometry height="148" width="360" x="560" y="70" as="geometry" />
         </mxCell>
 
         <!-- Row 1: id (PK) -->
@@ -297,7 +283,7 @@
 
         <!-- ==================== TABLE 3: propellant_likes ==================== -->
         <mxCell id="tbl_likes" parent="1" style="shape=table;startSize=28;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;columnLines=1;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;strokeColor=#000000;fillColor=#f8f9fa;fontSize=12;fontFamily=Helvetica;" value="Лайки (propellant_likes)" vertex="1">
-          <mxGeometry height="100" width="380" x="50" y="470" as="geometry" />
+          <mxGeometry height="100" width="380" x="50" y="450" as="geometry" />
         </mxCell>
 
         <!-- Row 1: user_id (PK,FK) -->
@@ -344,11 +330,11 @@
 
         <!-- ==================== RELATIONSHIPS ==================== -->
         <!-- 1. users -> propellants (creator_id) -->
-        <mxCell id="rel_users_propellants" edge="1" parent="1" source="ur_1" target="pr_13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeWidth=1.5;strokeColor=#000000;">
+        <mxCell id="rel_users_propellants" edge="1" parent="1" source="ur_1" target="pr_12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeWidth=1.5;strokeColor=#000000;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="490" y="130" />
-              <mxPoint x="490" y="358" />
+              <mxPoint x="490" y="114" />
+              <mxPoint x="490" y="334" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -362,7 +348,7 @@
         <mxCell id="rel_users_likes" edge="1" parent="1" source="tbl_users" target="tbl_likes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeWidth=1.5;strokeColor=#000000;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="740" y="520" />
+              <mxPoint x="740" y="500" />
             </Array>
           </mxGeometry>
         </mxCell>

@@ -21,7 +21,6 @@ export interface FeedResult {
 
 export interface SavePropellantDto {
   name?: string;
-  chemicalFormula?: string;
   shortDescription?: string;
   engineeringAnalysis?: string;
   molarMass?: number;
@@ -171,8 +170,6 @@ export class PropellantsService {
 
     if (draft) {
       if (dto.name) draft.name = dto.name;
-      if (dto.chemicalFormula !== undefined)
-        draft.chemicalFormula = dto.chemicalFormula;
       if (dto.shortDescription !== undefined)
         draft.shortDescription = dto.shortDescription;
       if (dto.engineeringAnalysis !== undefined)
@@ -199,7 +196,6 @@ export class PropellantsService {
 
     const newDraft = this.propellantRepo.create({
       name: dto.name || 'Новое рабочее тело',
-      chemicalFormula: dto.chemicalFormula || null,
       shortDescription: dto.shortDescription || '',
       engineeringAnalysis: dto.engineeringAnalysis || '',
       status: 'draft',
@@ -225,8 +221,6 @@ export class PropellantsService {
 
     if (draft) {
       if (dto.name) draft.name = dto.name;
-      if (dto.chemicalFormula !== undefined)
-        draft.chemicalFormula = dto.chemicalFormula;
       if (dto.shortDescription !== undefined)
         draft.shortDescription = dto.shortDescription;
       if (dto.engineeringAnalysis !== undefined)
@@ -254,7 +248,6 @@ export class PropellantsService {
 
     const newPropellant = this.propellantRepo.create({
       name: dto.name || 'Новое рабочее тело',
-      chemicalFormula: dto.chemicalFormula || null,
       shortDescription: dto.shortDescription || '',
       engineeringAnalysis: dto.engineeringAnalysis || '',
       status: 'published',

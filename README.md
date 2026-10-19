@@ -61,8 +61,7 @@ npm run start
 | Поле | Тип данных | Ограничения | Описание |
 | :--- | :--- | :--- | :--- |
 | `id` | `SERIAL` | `PRIMARY KEY` | Уникальный идентификатор рабочего тела |
-| `name` | `VARCHAR(100)` | `NOT NULL` | Наименование рабочего тела (с химической формулой) |
-| `chemical_formula` | `VARCHAR(32)` | `NULL` | Химическая формула (опционально) |
+| `name` | `VARCHAR(128)` | `NOT NULL` | Наименование рабочего тела |
 | `short_description`| `TEXT` | `NULL` | Краткое описание физико-химических свойств |
 | `engineering_analysis` | `TEXT` | `NULL` | Детальный инженерный термодинамический анализ |
 | `status` | `VARCHAR(20)` | `NOT NULL, CHECK (status IN ('draft', 'published', 'deleted'))` | Жизненный цикл записи |
