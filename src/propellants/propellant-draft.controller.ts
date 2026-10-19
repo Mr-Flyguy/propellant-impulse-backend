@@ -23,24 +23,17 @@ export class PropellantDraftController {
   @Post('draft')
   async saveDraft(
     @Body('name') name: string,
-    @Body('chemical_formula') chemical_formula: string,
-    @Body('short_description') short_description: string,
-    @Body('molar_mass') molar_mass: string,
-    @Body('reactor_temperature_k') reactor_temperature_k: string,
-    @Body('specific_heat_ratio') specific_heat_ratio: string,
-    @Body('image_url') image_url: string,
-    @Body('video_url') video_url: string,
     @Res() res: Response,
   ) {
     await this.propellantsService.saveUserDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
-      chemicalFormula: chemical_formula || 'LCH₄',
-      shortDescription: short_description || '',
-      molarMass: molar_mass ? parseFloat(molar_mass.replace(',', '.')) : 16.04,
-      reactorTemperatureK: reactor_temperature_k ? parseInt(reactor_temperature_k, 10) : 2600,
-      specificHeatRatio: specific_heat_ratio ? parseFloat(specific_heat_ratio.replace(',', '.')) : 1.32,
-      imageUrl: image_url,
-      videoUrl: video_url,
+      chemicalFormula: 'LCH₄',
+      shortDescription: '',
+      molarMass: 16.04,
+      reactorTemperatureK: 2600,
+      specificHeatRatio: 1.32,
+      imageUrl: '/img/invalid_propellant.jpg',
+      videoUrl: '/video/invalid_exhaust.mp4',
     });
     return res.redirect('/propellants/draft');
   }
@@ -48,24 +41,18 @@ export class PropellantDraftController {
   @Post('publish')
   async publishDraft(
     @Body('name') name: string,
-    @Body('chemical_formula') chemical_formula: string,
     @Body('short_description') short_description: string,
     @Body('molar_mass') molar_mass: string,
-    @Body('reactor_temperature_k') reactor_temperature_k: string,
     @Body('specific_heat_ratio') specific_heat_ratio: string,
-    @Body('image_url') image_url: string,
-    @Body('video_url') video_url: string,
     @Res() res: Response,
   ) {
     await this.propellantsService.publishDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
-      chemicalFormula: chemical_formula || 'LCH₄',
+      chemicalFormula: 'LCH₄',
       shortDescription: short_description || '',
       molarMass: molar_mass ? parseFloat(molar_mass.replace(',', '.')) : 16.04,
-      reactorTemperatureK: reactor_temperature_k ? parseInt(reactor_temperature_k, 10) : 2600,
+      reactorTemperatureK: 2600,
       specificHeatRatio: specific_heat_ratio ? parseFloat(specific_heat_ratio.replace(',', '.')) : 1.32,
-      imageUrl: image_url,
-      videoUrl: video_url,
     });
     return res.redirect('/propellants/catalog');
   }
