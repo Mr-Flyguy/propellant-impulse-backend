@@ -21,9 +21,6 @@ export class Propellant {
   @Column({ type: 'varchar', length: 128 })
   name: string;
 
-  @Column({ type: 'varchar', length: 32, name: 'chemical_formula', nullable: true })
-  chemicalFormula: string;
-
   @Column({ type: 'varchar', length: 255, name: 'short_description', nullable: true })
   shortDescription: string;
 
