@@ -3,7 +3,6 @@ export type PropellantStatus = 'draft' | 'published' | 'deleted';
 export interface Propellant {
   propellant_id: string;
   propellant_name: string;
-  chemical_formula: string;
   molar_mass_g_mol: number;
   reactor_temperature_k: number;
   specific_heat_ratio: number;
