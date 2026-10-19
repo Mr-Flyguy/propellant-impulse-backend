@@ -27,7 +27,7 @@ export class PropellantDraftController {
   ) {
     await this.propellantsService.saveUserDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
-      chemicalFormula: 'LCH₄',
+      chemicalFormula: null,
       shortDescription: '',
       molarMass: 16.04,
       reactorTemperatureK: 2600,
@@ -54,7 +54,7 @@ export class PropellantDraftController {
 
     await this.propellantsService.publishDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
-      chemicalFormula: 'LCH₄',
+      chemicalFormula: null,
       shortDescription: short_description || '',
       molarMass: parsedMolarMass,
       reactorTemperatureK: 2600,

@@ -11,6 +11,7 @@
     <div class="feed-viewport">
       <video class="feed-bg-video" autoplay loop muted playsinline preload="auto">
         <source src="{{propellant.videoUrl}}" type="video/mp4">
+        <source src="/video/default_exhaust.mp4" type="video/mp4">
       </video>
       <div class="feed-scrim-overlay"></div>
 
@@ -37,7 +38,7 @@
       </div>
 
       <div class="feed-info-card">
-        <h1 class="feed-title">{{propellant.name}}{{#if propellant.chemicalFormula}} ({{propellant.chemicalFormula}}){{/if}}</h1>
+        <h1 class="feed-title">{{propellant.name}}</h1>
 
         <p class="desc-short-preview">{{propellant.shortDescription}}</p>
 
