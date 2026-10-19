@@ -4,6 +4,7 @@ import { PropellantsService } from './propellants.service';
 import { PropellantFeedController } from './propellant-feed.controller';
 import { PropellantDraftController } from './propellant-draft.controller';
 import { PropellantCatalogController } from './propellant-catalog.controller';
+import { PropellantsApiController } from './propellants-api.controller';
 import { User } from './entities/user.entity';
 import { Propellant } from './entities/propellant.entity';
 import { PropellantLike } from './entities/propellant-like.entity';
@@ -14,6 +15,7 @@ import { PropellantLike } from './entities/propellant-like.entity';
     PropellantFeedController,
     PropellantDraftController,
     PropellantCatalogController,
+    PropellantsApiController,
   ],
   providers: [PropellantsService],
   exports: [PropellantsService],

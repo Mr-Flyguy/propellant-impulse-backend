@@ -1,0 +1,280 @@
+{
+  "info": {
+    "_postman_id": "7f8c9b20-5d6e-4a1c-9e2b-propellant-api",
+    "name": "Propellant Impulse - REST API",
+    "description": "Коллекция запросов к REST API сервиса Propellant Impulse.\nБазовый URL: http://localhost:3000",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET Список услуг с фильтром (Каталог)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/propellants?max_molar_mass=20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants"],
+          "query": [
+            {
+              "key": "max_molar_mass",
+              "value": "20",
+              "description": "Фильтр по максимальной молярной массе"
+            }
+          ]
+        },
+        "description": "Скриншот 1: Получение списка услуг (с фильтром). Показывает поле is_creator: 0/1 для текущего пользователя. Записи в статусе deleted не возвращаются."
+      },
+      "response": []
+    },
+    {
+      "name": "2. POST Добавить новую услугу с картинкой и видео (Черновик)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "Ксенон",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": "",
+              "description": "Файл изображения (загружается в Minio, генерируется латинское имя)"
+            },
+            {
+              "key": "video",
+              "type": "file",
+              "src": "",
+              "description": "Файл видео (загружается в Minio, генерируется латинское имя)"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/propellants",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants"]
+        },
+        "description": "Скриншот 2: Добавление новой услуги (черновика) с загрузкой картинки и видео через multipart/form-data в объектное хранилище Minio."
+      },
+      "response": []
+    },
+    {
+      "name": "3. GET Поля черновика текущего пользователя (без ID)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/propellants/draft",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants", "draft"]
+        },
+        "description": "Скриншот 3: Получение полей черновика без передачи ID в URL."
+      },
+      "response": []
+    },
+    {
+      "name": "4. PUT Опубликовать услугу",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/propellants/2/publish",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants", "2", "publish"]
+        },
+        "description": "Скриншот 4: Публикация услуги создателем (перевод статуса draft -> published)."
+      },
+      "response": []
+    },
+    {
+      "name": "5. GET Лента услуг по параметрам (id и next)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/propellants/feed?id=1&next=true",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants", "feed"],
+          "query": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "ID текущей просматриваемой услуги"
+            },
+            {
+              "key": "next",
+              "value": "true",
+              "description": "Флаг циклического перехода к следующей услуге"
+            }
+          ]
+        },
+        "description": "Скриншот 5: Получение услуги из ленты по ID с флагом перехода next=true."
+      },
+      "response": []
+    },
+    {
+      "name": "6. POST Поставить / Снять лайк",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"like\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/propellants/1/like",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants", "1", "like"]
+        },
+        "description": "Скриншот 6: Управление лайком услуги."
+      },
+      "response": []
+    },
+    {
+      "name": "7. DELETE Удалить услугу (Soft delete)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/propellants/5",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "propellants", "5"]
+        },
+        "description": "Скриншот 7: Удаление услуги ее создателем (soft delete)."
+      },
+      "response": []
+    },
+    {
+      "name": "8. POST Регистрация нового пользователя",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"test_user\",\n  \"email\": \"test_user@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "auth", "register"]
+        },
+        "description": "Скриншот 8: Регистрация нового пользователя в системе."
+      },
+      "response": []
+    },
+    {
+      "name": "9. POST Вход пользователя (Аутентификация)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"user_1\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "auth", "login"]
+        },
+        "description": "Скриншот 9: Запрос авторизации пользователя."
+      },
+      "response": []
+    },
+    {
+      "name": "10. POST Выход пользователя (Деавторизация)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/auth/logout",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "auth", "logout"]
+        },
+        "description": "Скриншот 10: Запрос деавторизации пользователя."
+      },
+      "response": []
+    }
+  ]
+}
