@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS propellants (
     image_mime VARCHAR(64) DEFAULT 'image/jpeg',
     molar_mass DECIMAL(8, 3) NOT NULL,
     reactor_temperature_k INT DEFAULT 2400,
-    specific_heat_ratio DECIMAL(4, 2) DEFAULT 1.25,
+    specific_heat_ratio DECIMAL(8, 3) DEFAULT 1.25,
     specific_impulse INT NOT NULL,
     creator_id INT NOT NULL REFERENCES users(id) ON DELETE RESTRICT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
