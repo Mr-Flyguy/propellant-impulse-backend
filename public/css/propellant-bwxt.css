@@ -844,11 +844,19 @@ body {
   transform: translateY(-1px);
 }
 
+.draft-form-block {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .draft-actions-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 18px;
+  padding-bottom: 8px;
 }
 
 .btn-draft-secondary {
