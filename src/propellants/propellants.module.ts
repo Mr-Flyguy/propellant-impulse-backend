@@ -9,8 +9,13 @@ import { User } from './entities/user.entity';
 import { Propellant } from './entities/propellant.entity';
 import { PropellantLike } from './entities/propellant-like.entity';
 
+import { AuthModule } from '../auth/auth.module';
+
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Propellant, PropellantLike])],
+  imports: [
+    TypeOrmModule.forFeature([User, Propellant, PropellantLike]),
+    AuthModule,
+  ],
   controllers: [
     PropellantFeedController,
     PropellantDraftController,

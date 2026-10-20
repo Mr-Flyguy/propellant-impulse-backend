@@ -6,6 +6,7 @@ import { PropellantsModule } from './propellants/propellants.module';
 import { MinioModule } from './minio/minio.module';
 import { CommonModule } from './common/common.module';
 import { AuthModule } from './auth/auth.module';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { AuthModule } from './auth/auth.module';
       autoLoadEntities: true,
       synchronize: false,
     }),
+    RedisModule,
     CommonModule,
     MinioModule,
     PropellantsModule,
