@@ -1,13 +1,17 @@
-import { Entity, PrimaryColumn, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn, Unique } from 'typeorm';
 import { User } from './user.entity';
 import { Propellant } from './propellant.entity';
 
 @Entity('propellant_likes')
+@Unique(['userId', 'propellantId'])
 export class PropellantLike {
-  @PrimaryColumn({ name: 'user_id' })
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ name: 'user_id' })
   userId: number;
 
-  @PrimaryColumn({ name: 'propellant_id' })
+  @Column({ name: 'propellant_id' })
   propellantId: number;
 
   @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at' })
