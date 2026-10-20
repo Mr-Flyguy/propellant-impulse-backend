@@ -28,42 +28,31 @@
     <text class="col-k" x="75" y="74">PK</text>
     <text class="col-n" x="108" y="74">id</text>
     <text class="col-t" x="298" y="74">INTEGER</text>
-    <line class="grid-line" x1="50" y1="82" x2="430" y2="82" />
     <text class="col-n" x="108" y="98">name</text>
     <text class="col-t" x="298" y="98">VARCHAR(128)</text>
-    <line class="grid-line" x1="50" y1="106" x2="430" y2="106" />
     <text class="col-k" x="75" y="122">N</text>
     <text class="col-n" x="108" y="122">short_description</text>
     <text class="col-t" x="298" y="122">VARCHAR(255)</text>
-    <line class="grid-line" x1="50" y1="130" x2="430" y2="130" />
     <text class="col-k" x="75" y="146">N</text>
     <text class="col-n" x="108" y="146">engineering_analysis</text>
     <text class="col-t" x="298" y="146">TEXT</text>
-    <line class="grid-line" x1="50" y1="154" x2="430" y2="154" />
     <text class="col-n" x="108" y="170">status</text>
     <text class="col-t" x="298" y="170">VARCHAR(32)</text>
-    <line class="grid-line" x1="50" y1="178" x2="430" y2="178" />
     <text class="col-k" x="75" y="194">N</text>
     <text class="col-n" x="108" y="194">image_url</text>
     <text class="col-t" x="298" y="194">VARCHAR(255)</text>
-    <line class="grid-line" x1="50" y1="202" x2="430" y2="202" />
     <text class="col-k" x="75" y="218">N</text>
     <text class="col-n" x="108" y="218">video_url</text>
     <text class="col-t" x="298" y="218">VARCHAR(255)</text>
-    <line class="grid-line" x1="50" y1="226" x2="430" y2="226" />
     <text class="col-n" x="108" y="242">molar_mass</text>
     <text class="col-t" x="298" y="242">DECIMAL(8,3)</text>
-    <line class="grid-line" x1="50" y1="250" x2="430" y2="250" />
     <text class="col-n" x="108" y="266">specific_heat_ratio</text>
     <text class="col-t" x="298" y="266">DECIMAL(8,3)</text>
-    <line class="grid-line" x1="50" y1="274" x2="430" y2="274" />
     <text class="col-k" x="75" y="290">FK</text>
     <text class="col-n" x="108" y="290">creator_id</text>
     <text class="col-t" x="298" y="290">INTEGER</text>
-    <line class="grid-line" x1="50" y1="298" x2="430" y2="298" />
     <text class="col-n" x="108" y="314">created_at</text>
     <text class="col-t" x="298" y="314">TIMESTAMP</text>
-    <line class="grid-line" x1="50" y1="322" x2="430" y2="322" />
     <text class="col-n" x="108" y="338">updated_at</text>
     <text class="col-t" x="298" y="338">TIMESTAMP</text>
   </g>
@@ -78,16 +67,12 @@
     <text class="col-k" x="585" y="94">PK</text>
     <text class="col-n" x="618" y="94">id</text>
     <text class="col-t" x="798" y="94">INTEGER</text>
-    <line class="grid-line" x1="560" y1="102" x2="920" y2="102" />
     <text class="col-n" x="618" y="118">username</text>
     <text class="col-t" x="798" y="118">VARCHAR(64)</text>
-    <line class="grid-line" x1="560" y1="126" x2="920" y2="126" />
     <text class="col-n" x="618" y="142">password</text>
     <text class="col-t" x="798" y="142">VARCHAR(255)</text>
-    <line class="grid-line" x1="560" y1="150" x2="920" y2="150" />
     <text class="col-n" x="618" y="166">email</text>
     <text class="col-t" x="798" y="166">VARCHAR(128)</text>
-    <line class="grid-line" x1="560" y1="174" x2="920" y2="174" />
     <text class="col-n" x="618" y="190">created_at</text>
     <text class="col-t" x="798" y="190">TIMESTAMP</text>
   </g>
@@ -102,15 +87,12 @@
     <text class="col-k" x="75" y="444">PK</text>
     <text class="col-n" x="108" y="444">id</text>
     <text class="col-t" x="298" y="444">INTEGER</text>
-    <line class="grid-line" x1="50" y1="452" x2="430" y2="452" />
     <text class="col-k" x="75" y="468">FK</text>
     <text class="col-n" x="108" y="468">user_id</text>
     <text class="col-t" x="298" y="468">INTEGER</text>
-    <line class="grid-line" x1="50" y1="476" x2="430" y2="476" />
     <text class="col-k" x="75" y="492">FK</text>
     <text class="col-n" x="108" y="492">propellant_id</text>
     <text class="col-t" x="298" y="492">INTEGER</text>
-    <line class="grid-line" x1="50" y1="500" x2="430" y2="500" />
     <text class="col-n" x="108" y="516">created_at</text>
     <text class="col-t" x="298" y="516">TIMESTAMP</text>
   </g>
