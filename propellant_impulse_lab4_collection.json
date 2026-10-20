@@ -1,0 +1,366 @@
+{
+  "info": {
+    "_postman_id": "4d7ae606-61fb-48fe-8da4-propellant-lab4",
+    "name": "Propellant Impulse - Lab 4 (Auth & Sessions)",
+    "description": "Коллекция запросов к REST API сервиса Propellant Impulse для Лабораторной работы 4 (Сессии в Redis, защита маршрутов, Swagger, Insomnia/Postman).\nБазовый URL: http://localhost:3000",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Аутентификация (Auth)",
+      "item": [
+        {
+          "name": "1.1 Регистрация пользователя",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"test_engineer\",\n  \"email\": \"test_engineer@bmstu.ru\",\n  \"password\": \"secret123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "auth", "register"]
+            },
+            "description": "Регистрация нового пользователя с автоматическим хешированием пароля через bcrypt."
+          },
+          "response": []
+        },
+        {
+          "name": "1.2 Вход в систему (Login) - получение cookie sessionId",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"engineer_maksim\",\n  \"password\": \"secret123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Скриншоты 1-3: Выполняет аутентификацию, создает сессию в Redis (TTL 24h) и устанавливает HTTP-only cookie sessionId."
+          },
+          "response": []
+        },
+        {
+          "name": "1.3 Текущий профиль (Me) - проверка сессии",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/me",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "auth", "me"]
+            },
+            "description": "Возвращает данные аутентифицированного пользователя из сессии Redis."
+          },
+          "response": []
+        },
+        {
+          "name": "1.4 Выход из системы (Logout)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "auth", "logout"]
+            },
+            "description": "Удаляет сессию из Redis и очищает cookie sessionId."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Публичные запросы (Гость - Скриншоты 4-5)",
+      "item": [
+        {
+          "name": "2.1 Получение каталога без токена/куки (200 OK)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/propellants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants"]
+            },
+            "description": "Скриншоты 4-5: Выполнить получение всех услуг/рабочих тел в Insomnia/Postman без куки/токена. Возвращает 200 OK со всеми опубликованными телами."
+          },
+          "response": []
+        },
+        {
+          "name": "2.2 Получение каталога с фильтром по молярной массе",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/propellants?max_molar_mass=20",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants"],
+              "query": [
+                {
+                  "key": "max_molar_mass",
+                  "value": "20",
+                  "description": "Фильтр по максимальной молярной массе"
+                }
+              ]
+            },
+            "description": "Каталог рабочих тел с фильтрацией по максимальной молярной массе."
+          },
+          "response": []
+        },
+        {
+          "name": "2.3 Получение карточки для ленты (без куки)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/feed",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "feed"]
+            },
+            "description": "Получение карточки ленты рекомендаций без авторизации."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Защищенные запросы (Скриншоты 6-8)",
+      "item": [
+        {
+          "name": "3.1 PUT Изменение БЕЗ авторизации -> 401 Unauthorized",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Жидкий водород H₂ (тест без куки)\",\n  \"short_description\": \"Попытка несанкционированного изменения\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "1"]
+            },
+            "description": "Скриншот 6: Выполнить PUT без авторизации. Ожидается ответ 401 Unauthorized (отсутствует sessionId)."
+          },
+          "response": []
+        },
+        {
+          "name": "3.2 PUT Изменение С авторизацией -> 200 OK (измененные поля)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "sessionId={{sessionId}}",
+                "description": "Куки сессии из ответа логина или вкладки Application браузера"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Жидкий водород H₂ (модифицированный)\",\n  \"short_description\": \"Максимальный удельный импульс. Успешно обновлено авторизованным инженером.\",\n  \"molar_mass\": 2.016,\n  \"specific_heat_ratio\": 1.41\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "1"]
+            },
+            "description": "Скриншот 7: Выполнить PUT с авторизацией (куки sessionId). Возвращает 200 OK с обновленными данными. Далее сделать скриншот redis-cli (Скриншот 8)."
+          },
+          "response": []
+        },
+        {
+          "name": "3.3 GET Черновик текущего пользователя",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "sessionId={{sessionId}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/draft",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "draft"]
+            },
+            "description": "Получение черновика авторизованного пользователя."
+          },
+          "response": []
+        },
+        {
+          "name": "3.4 POST Создать черновик (creator_id автозаполняется)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "sessionId={{sessionId}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ксенон Xe\",\n  \"short_description\": \"Тяжелое инертное рабочее тело для ионных двигателей\",\n  \"molar_mass\": 131.29,\n  \"specific_heat_ratio\": 1.66\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/propellants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants"]
+            },
+            "description": "Создание черновика. Идентификатор creator_id берется из сессии Redis."
+          },
+          "response": []
+        },
+        {
+          "name": "3.5 PUT Опубликовать черновик",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "sessionId={{sessionId}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Метан CH₄\",\n  \"short_description\": \"Высокая плотность хранения и умеренная температура диссоциации\",\n  \"molar_mass\": 16.04,\n  \"specific_heat_ratio\": 1.32\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/2/publish",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "2", "publish"]
+            },
+            "description": "Публикация черновика авторизованным создателем."
+          },
+          "response": []
+        },
+        {
+          "name": "3.6 POST Отметка нравится (Like)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "sessionId={{sessionId}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"like\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/1/like",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "1", "like"]
+            },
+            "description": "Поставить или снять лайк от имени текущего авторизованного пользователя."
+          },
+          "response": []
+        },
+        {
+          "name": "3.7 DELETE Удалить рабочее тело (Soft Delete)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "sessionId={{sessionId}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/propellants/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "propellants", "2"]
+            },
+            "description": "Мягкое удаление рабочего тела создателем или администратором."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

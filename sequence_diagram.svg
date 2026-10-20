@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 880" width="1180" height="880">
+  <defs>
+    <style>
+      .title { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #111111; text-anchor: middle; }
+      .header-box { fill: #ffffff; stroke: #222222; stroke-width: 1.5; }
+      .header-text { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: bold; fill: #111111; text-anchor: middle; }
+      .lifeline-dash { stroke: #888888; stroke-width: 1.2; stroke-dasharray: 4,4; }
+      
+      .msg-sync { stroke: #0055aa; stroke-width: 1.6; fill: none; }
+      .msg-sync-arr { fill: #0055aa; stroke: #0055aa; }
+      .msg-sig { font-family: Consolas, monospace; font-size: 12px; font-weight: bold; fill: #003388; }
+      
+      .msg-dash { stroke: #555555; stroke-width: 1.2; stroke-dasharray: 4,3; fill: none; }
+      .msg-desc { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: #444444; }
+      
+      .msg-ret { stroke: #222222; stroke-width: 1.2; stroke-dasharray: 3,3; fill: none; }
+      .msg-ret-text { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10.5px; fill: #222222; font-style: italic; }
+      
+      .op-num { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .badge { fill: #0055aa; }
+    </style>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0055aa" />
+    </marker>
+    <marker id="arrow-dash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 2 L 9 5 L 1 8" fill="none" stroke="#555555" stroke-width="1.3" />
+    </marker>
+    <marker id="arrow-ret" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 2 L 9 5 L 1 8" fill="none" stroke="#222222" stroke-width="1.3" />
+    </marker>
+  </defs>
+
+  <rect width="1180" height="880" fill="#ffffff" />
+
+  <!-- Diagram Title -->
+  <text class="title" x="590" y="32">Диаграмма последовательности (Sequence Diagram) - 8 операций со связью через signature</text>
+
+  <!-- Lifeline X positions:
+       User: 90
+       Front: 250
+       Auth: 460
+       Propellant: 690
+       Redis: 900
+       DB: 1080
+  -->
+
+  <!-- Lifeline Dashed Stems -->
+  <line class="lifeline-dash" x1="90" y1="95" x2="90" y2="850" />
+  <line class="lifeline-dash" x1="250" y1="95" x2="250" y2="850" />
+  <line class="lifeline-dash" x1="460" y1="95" x2="460" y2="850" />
+  <line class="lifeline-dash" x1="690" y1="95" x2="690" y2="850" />
+  <line class="lifeline-dash" x1="900" y1="95" x2="900" y2="850" />
+  <line class="lifeline-dash" x1="1080" y1="95" x2="1080" y2="850" />
+
+  <!-- Lifeline Header Boxes -->
+  <!-- 1. Пользователь -->
+  <circle cx="90" cy="52" r="10" fill="#ffffff" stroke="#222222" stroke-width="1.5" />
+  <line x1="90" y1="62" x2="90" y2="76" stroke="#222222" stroke-width="1.5" />
+  <line x1="80" y1="68" x2="100" y2="68" stroke="#222222" stroke-width="1.5" />
+  <line x1="90" y1="76" x2="80" y2="88" stroke="#222222" stroke-width="1.5" />
+  <line x1="90" y1="76" x2="100" y2="88" stroke="#222222" stroke-width="1.5" />
+  <text class="header-text" x="90" y="105">Пользователь</text>
+
+  <!-- 2. SPA Фронтенд -->
+  <rect class="header-box" x="185" y="55" width="130" height="40" />
+  <text class="header-text" x="250" y="80">SPA Фронтенд</text>
+
+  <!-- 3. Домен пользователей (AuthService) -->
+  <rect class="header-box" x="380" y="55" width="160" height="40" />
+  <text class="header-text" x="460" y="72">Домен пользователей</text>
+  <text class="header-text" x="460" y="87" style="font-size:11px;font-weight:normal;">(AuthService)</text>
+
+  <!-- 4. Домен видов топлива (PropellantsService) -->
+  <rect class="header-box" x="600" y="55" width="180" height="40" />
+  <text class="header-text" x="690" y="72">Домен видов топлива</text>
+  <text class="header-text" x="690" y="87" style="font-size:11px;font-weight:normal;">(PropellantsService)</text>
+
+  <!-- 5. Redis -->
+  <rect class="header-box" x="845" y="55" width="110" height="40" />
+  <text class="header-text" x="900" y="72">Redis</text>
+  <text class="header-text" x="900" y="87" style="font-size:11px;font-weight:normal;">(SessionStore)</text>
+
+  <!-- 6. PostgreSQL -->
+  <rect class="header-box" x="1025" y="55" width="110" height="40" />
+  <text class="header-text" x="1080" y="72">PostgreSQL</text>
+  <text class="header-text" x="1080" y="87" style="font-size:11px;font-weight:normal;">(Database)</text>
+
+
+  <!-- ==================== OPERATION 1: POST UserLogin() ==================== -->
+  <circle class="badge" cx="228" cy="136" r="8" />
+  <text class="op-num" x="228" y="140" text-anchor="middle">1</text>
+  <text class="msg-sig" x="245" y="139">POST UserLogin()</text>
+  <line class="msg-sync" x1="250" y1="145" x2="460" y2="145" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="475" y="156">SET session:UUID { userId, role } (TTL 24h)</text>
+  <line class="msg-dash" x1="460" y1="160" x2="900" y2="160" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="174">Set-Cookie: sessionId=UUID (HttpOnly), 200 OK</text>
+  <line class="msg-ret" x1="460" y1="178" x2="250" y2="178" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 2: GET Propellants(maxMolarMass) ==================== -->
+  <circle class="badge" cx="228" cy="216" r="8" />
+  <text class="op-num" x="228" y="220" text-anchor="middle">2</text>
+  <text class="msg-sig" x="245" y="219">GET Propellants(maxMolarMass)</text>
+  <line class="msg-sync" x1="250" y1="225" x2="690" y2="225" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="238">SELECT WHERE status='published' AND molar_mass &lt;= max</text>
+  <line class="msg-dash" x1="690" y1="242" x2="1080" y2="242" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="258">200 OK: PropellantResponseDto[] (каталог без авторизации)</text>
+  <line class="msg-ret" x1="690" y1="262" x2="250" y2="262" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 3: GET PropellantFeed(id, next) ==================== -->
+  <circle class="badge" cx="228" cy="296" r="8" />
+  <text class="op-num" x="228" y="300" text-anchor="middle">3</text>
+  <text class="msg-sig" x="245" y="299">GET PropellantFeed(id, next)</text>
+  <line class="msg-sync" x1="250" y1="305" x2="690" y2="305" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="318">SELECT WHERE id &gt; current_id ORDER BY id ASC LIMIT 1</text>
+  <line class="msg-dash" x1="690" y1="322" x2="1080" y2="322" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="338">200 OK: PropellantResponseDto (следующая карточка в ленте)</text>
+  <line class="msg-ret" x1="690" y1="342" x2="250" y2="342" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 4: GET PropellantDraft() ==================== -->
+  <circle class="badge" cx="228" cy="376" r="8" />
+  <text class="op-num" x="228" y="380" text-anchor="middle">4</text>
+  <text class="msg-sig" x="245" y="379">GET PropellantDraft()</text>
+  <line class="msg-sync" x1="250" y1="385" x2="690" y2="385" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="396">AuthGuard: проверка cookie sessionId в Redis</text>
+  <line class="msg-dash" x1="690" y1="400" x2="900" y2="400" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-desc" x="700" y="416">SELECT WHERE creator_id = user.id AND status='draft'</text>
+  <line class="msg-dash" x1="690" y1="420" x2="1080" y2="420" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="436">200 OK: поля черновика текущего пользователя</text>
+  <line class="msg-ret" x1="690" y1="440" x2="250" y2="440" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 5: POST Propellant(name, image, video) ==================== -->
+  <circle class="badge" cx="228" cy="476" r="8" />
+  <text class="op-num" x="228" y="480" text-anchor="middle">5</text>
+  <text class="msg-sig" x="245" y="479">POST Propellant(name, image, video)</text>
+  <line class="msg-sync" x1="250" y1="485" x2="690" y2="485" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="496">Автозаполнение: creator_id = session.userId (сессия Redis)</text>
+  <line class="msg-dash" x1="690" y1="500" x2="900" y2="500" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-desc" x="700" y="516">INSERT INTO propellants (name, status='draft', creator_id)</text>
+  <line class="msg-dash" x1="690" y1="520" x2="1080" y2="520" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="536">201 Created: PropellantResponseDto (сохраненный черновик)</text>
+  <line class="msg-ret" x1="690" y1="540" x2="250" y2="540" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 6: PUT Propellant(id) ==================== -->
+  <circle class="badge" cx="228" cy="576" r="8" />
+  <text class="op-num" x="228" y="580" text-anchor="middle">6</text>
+  <text class="msg-sig" x="245" y="579">PUT Propellant(id)</text>
+  <line class="msg-sync" x1="250" y1="585" x2="690" y2="585" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="596">Без cookie -> 401 Unauthorized; С cookie -> проверка прав создателя</text>
+  <line class="msg-dash" x1="690" y1="600" x2="900" y2="600" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-desc" x="700" y="616">UPDATE propellants SET name, molar_mass, updated_at</text>
+  <line class="msg-dash" x1="690" y1="620" x2="1080" y2="620" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="636">200 OK: PropellantResponseDto (запись с измененными полями)</text>
+  <line class="msg-ret" x1="690" y1="640" x2="250" y2="640" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 7: DELETE Propellant(id) ==================== -->
+  <circle class="badge" cx="228" cy="676" r="8" />
+  <text class="op-num" x="228" y="680" text-anchor="middle">7</text>
+  <text class="msg-sig" x="245" y="679">DELETE Propellant(id)</text>
+  <line class="msg-sync" x1="250" y1="685" x2="690" y2="685" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="698">UPDATE propellants SET status='deleted' WHERE id=:id</text>
+  <line class="msg-dash" x1="690" y1="702" x2="1080" y2="702" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="718">200 OK: { success: true, message: "Успешно удалено (soft delete)" }</text>
+  <line class="msg-ret" x1="690" y1="722" x2="250" y2="722" marker-end="url(#arrow-ret)" />
+
+
+  <!-- ==================== OPERATION 8: POST PropellantLike(id, like) ==================== -->
+  <circle class="badge" cx="228" cy="756" r="8" />
+  <text class="op-num" x="228" y="760" text-anchor="middle">8</text>
+  <text class="msg-sig" x="245" y="759">POST PropellantLike(id, like)</text>
+  <line class="msg-sync" x1="250" y1="765" x2="690" y2="765" marker-end="url(#arrow-blue)" />
+
+  <text class="msg-desc" x="700" y="778">INSERT / DELETE propellant_likes (user_id = session.userId, propellant_id)</text>
+  <line class="msg-dash" x1="690" y1="782" x2="1080" y2="782" marker-end="url(#arrow-dash)" />
+
+  <text class="msg-ret-text" x="255" y="798">200 OK: { success: true, liked: 1, likes_count: N }</text>
+  <line class="msg-ret" x1="690" y1="802" x2="250" y2="802" marker-end="url(#arrow-ret)" />
+
+</svg>

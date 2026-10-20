@@ -6,12 +6,13 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, MoreThan } from 'typeorm';
-import { Propellant } from './entities/propellant.entity';
+import { Propellant, PropellantStatus } from './entities/propellant.entity';
 import { User } from './entities/user.entity';
 import { PropellantLike } from './entities/propellant-like.entity';
 import { CurrentUserService } from '../common/current-user.service';
 import { CreatePropellantDto } from './dto/create-propellant.dto';
 import { PublishPropellantDto } from './dto/publish-propellant.dto';
+import { UpdatePropellantDto } from './dto/update-propellant.dto';
 import { PropellantResponseDto } from './dto/propellant-response.dto';
 
 export interface FeedResult {
@@ -251,11 +252,11 @@ export class PropellantsService {
   }
 
   // ==========================================
-  // REST API METHODS (Laboratory Work 3)
+  // REST API METHODS (Laboratory Work 3 & 4)
   // ==========================================
 
   async getApiCatalog(
-    currentUserId: number,
+    currentUserId?: number,
     maxMolarMass?: number,
     query?: string,
   ): Promise<PropellantResponseDto[]> {
@@ -280,7 +281,7 @@ export class PropellantsService {
   }
 
   async getApiFeed(
-    currentUserId: number,
+    currentUserId?: number,
     id?: number,
     next?: boolean,
   ): Promise<PropellantResponseDto> {
@@ -338,8 +339,18 @@ export class PropellantsService {
       relations: ['likes'],
     });
 
+    const parsedMolarMass = dto.molar_mass
+      ? Number(String(dto.molar_mass).replace(',', '.'))
+      : 16.04;
+    const parsedGamma = dto.specific_heat_ratio
+      ? Number(String(dto.specific_heat_ratio).replace(',', '.'))
+      : 1.32;
+
     if (draft) {
       if (dto.name) draft.name = dto.name;
+      if (dto.short_description !== undefined) draft.shortDescription = dto.short_description;
+      if (dto.molar_mass !== undefined) draft.molarMass = isNaN(parsedMolarMass) ? 16.04 : parsedMolarMass;
+      if (dto.specific_heat_ratio !== undefined) draft.specificHeatRatio = isNaN(parsedGamma) ? 1.32 : parsedGamma;
       if (imageUrl) draft.imageUrl = imageUrl;
       if (videoUrl) draft.videoUrl = videoUrl;
       draft.updatedAt = new Date();
@@ -347,9 +358,9 @@ export class PropellantsService {
     } else {
       draft = this.propellantRepo.create({
         name: dto.name || 'Новое рабочее тело',
-        shortDescription: '',
-        molarMass: 16.04,
-        specificHeatRatio: 1.32,
+        shortDescription: dto.short_description || '',
+        molarMass: isNaN(parsedMolarMass) ? 16.04 : parsedMolarMass,
+        specificHeatRatio: isNaN(parsedGamma) ? 1.32 : parsedGamma,
         status: 'draft',
         imageUrl: imageUrl || this.defaultImageUrl,
         videoUrl: videoUrl || this.defaultVideoUrl,
@@ -361,9 +372,51 @@ export class PropellantsService {
     return PropellantResponseDto.fromEntity(draft, currentUserId);
   }
 
+  async updateApiPropellant(
+    id: number,
+    currentUserId: number,
+    userRole: string,
+    dto: UpdatePropellantDto,
+  ): Promise<PropellantResponseDto> {
+    const propellant = await this.propellantRepo.findOne({
+      where: { id },
+      relations: ['likes'],
+    });
+
+    if (!propellant) {
+      throw new NotFoundException(`Рабочее тело с ID ${id} не найдено`);
+    }
+
+    if (propellant.creatorId !== currentUserId && userRole !== 'admin') {
+      throw new ForbiddenException(
+        'Только создатель или администратор может редактировать данную запись',
+      );
+    }
+
+    if (dto.name) propellant.name = dto.name;
+    if (dto.short_description !== undefined) propellant.shortDescription = dto.short_description;
+    if (dto.molar_mass !== undefined && dto.molar_mass !== null && dto.molar_mass !== '') {
+      const parsedMolarMass = Number(String(dto.molar_mass).replace(',', '.'));
+      if (!isNaN(parsedMolarMass)) propellant.molarMass = parsedMolarMass;
+    }
+    if (dto.specific_heat_ratio !== undefined && dto.specific_heat_ratio !== null && dto.specific_heat_ratio !== '') {
+      const parsedGamma = Number(String(dto.specific_heat_ratio).replace(',', '.'));
+      if (!isNaN(parsedGamma)) propellant.specificHeatRatio = parsedGamma;
+    }
+    if (dto.status && ['draft', 'published', 'deleted'].includes(dto.status)) {
+      propellant.status = dto.status as PropellantStatus;
+    }
+
+    propellant.updatedAt = new Date();
+    const saved = await this.propellantRepo.save(propellant);
+
+    return PropellantResponseDto.fromEntity(saved, currentUserId);
+  }
+
   async publishApiDraft(
     id: number,
     currentUserId: number,
+    userRole?: string,
     dto?: PublishPropellantDto,
   ): Promise<PropellantResponseDto> {
     const propellant = await this.propellantRepo.findOne({
@@ -375,9 +428,9 @@ export class PropellantsService {
       throw new NotFoundException(`Рабочее тело с ID ${id} не найдено`);
     }
 
-    if (propellant.creatorId !== currentUserId) {
+    if (propellant.creatorId !== currentUserId && userRole !== 'admin') {
       throw new ForbiddenException(
-        'Только создатель может опубликовать данный черновик',
+        'Только создатель или администратор может опубликовать данный черновик',
       );
     }
 
@@ -410,6 +463,7 @@ export class PropellantsService {
   async deleteApiPropellant(
     id: number,
     currentUserId: number,
+    userRole?: string,
   ): Promise<{ success: boolean; message: string }> {
     const propellant = await this.propellantRepo.findOne({
       where: { id },
@@ -419,8 +473,8 @@ export class PropellantsService {
       throw new NotFoundException(`Рабочее тело с ID ${id} не найдено`);
     }
 
-    if (propellant.creatorId !== currentUserId) {
-      throw new ForbiddenException('Только создатель может удалить данную услугу');
+    if (propellant.creatorId !== currentUserId && userRole !== 'admin') {
+      throw new ForbiddenException('Только создатель или администратор может удалить данную запись');
     }
 
     propellant.status = 'deleted';
@@ -429,7 +483,7 @@ export class PropellantsService {
 
     return {
       success: true,
-      message: `Услуга с ID ${id} успешно удалена (soft delete)`,
+      message: `Рабочее тело с ID ${id} успешно удалено (soft delete)`,
     };
   }
 
@@ -448,7 +502,7 @@ export class PropellantsService {
 
     if (propellant.status !== 'published') {
       throw new BadRequestException(
-        'Поставить отметку "нравится" можно только опубликованной услуге',
+        'Поставить отметку "нравится" можно только опубликованному рабочему телу',
       );
     }
 

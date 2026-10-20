@@ -1,0 +1,526 @@
+{
+  "_type": "Project",
+  "_id": "AAAAAAF_PROJ_PROPELLANT",
+  "name": "Propellant Impulse",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "_id": "AAAAAAF_MODEL_MAIN",
+      "_parent": {
+        "$ref": "AAAAAAF_PROJ_PROPELLANT"
+      },
+      "name": "Class and Interaction Model",
+      "ownedElements": [
+        {
+          "_type": "UMLClass",
+          "_id": "AAAAAAF_CLS_DOMAIN_USERS",
+          "_parent": {
+            "$ref": "AAAAAAF_MODEL_MAIN"
+          },
+          "name": "Домен пользователей",
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_USER_LOGIN",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
+              },
+              "name": "POST UserLogin"
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_USER_REGISTER",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
+              },
+              "name": "POST User",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_REG_U",
+                  "name": "username",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_REG_E",
+                  "name": "email",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_REG_P",
+                  "name": "password",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_USER_LOGOUT",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
+              },
+              "name": "POST UserLogout"
+            }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "AAAAAAF_CLS_DOMAIN_PROPELLANTS",
+          "_parent": {
+            "$ref": "AAAAAAF_MODEL_MAIN"
+          },
+          "name": "Домен видов топлива",
+          "operations": [
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_GET_PROPELLANTS",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "GET Propellants",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_CAT_M",
+                  "name": "maxMolarMass",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_GET_FEED",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "GET PropellantFeed",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_FEED_I",
+                  "name": "id",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_FEED_N",
+                  "name": "next",
+                  "type": "boolean"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_GET_DRAFT",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "GET PropellantDraft"
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_POST_PROPELLANT",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "POST Propellant",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_POST_N",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_POST_I",
+                  "name": "image",
+                  "type": "File"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_POST_V",
+                  "name": "video",
+                  "type": "File"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_PUT_PROPELLANT",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "PUT Propellant",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_PUT_I",
+                  "name": "id",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_DELETE_PROPELLANT",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "DELETE Propellant",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_DEL_I",
+                  "name": "id",
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "_type": "UMLOperation",
+              "_id": "AAAAAAF_OP_POST_LIKE",
+              "_parent": {
+                "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+              },
+              "name": "POST PropellantLike",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_LIKE_I",
+                  "name": "id",
+                  "type": "number"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_LIKE_L",
+                  "name": "like",
+                  "type": "number"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "UMLCollaboration",
+          "_id": "AAAAAAF_COLLAB_MAIN",
+          "_parent": {
+            "$ref": "AAAAAAF_MODEL_MAIN"
+          },
+          "name": "Collaboration",
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "AAAAAAF_INTERACTION_MAIN",
+              "_parent": {
+                "$ref": "AAAAAAF_COLLAB_MAIN"
+              },
+              "name": "Взаимодействие компонентов (8 операций)",
+              "ownedElements": [
+                {
+                  "_type": "UMLSequenceDiagram",
+                  "_id": "AAAAAAF_SEQ_DIAGRAM_MAIN",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "Sequence Diagram",
+                  "ownedViews": [
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_USER",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_USER"
+                      },
+                      "left": 50,
+                      "top": 40,
+                      "width": 110,
+                      "height": 820
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_FRONT",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_FRONT"
+                      },
+                      "left": 210,
+                      "top": 40,
+                      "width": 130,
+                      "height": 820
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_AUTH",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_AUTH"
+                      },
+                      "left": 400,
+                      "top": 40,
+                      "width": 150,
+                      "height": 820
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_PROP",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_PROP"
+                      },
+                      "left": 610,
+                      "top": 40,
+                      "width": 160,
+                      "height": 820
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_REDIS",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_REDIS"
+                      },
+                      "left": 830,
+                      "top": 40,
+                      "width": 120,
+                      "height": 820
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_DB",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_DB"
+                      },
+                      "left": 1010,
+                      "top": 40,
+                      "width": 130,
+                      "height": 820
+                    }
+                  ]
+                }
+              ],
+              "participants": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_USER",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "Пользователь",
+                  "isActor": true
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_FRONT",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "SPA Фронтенд"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_AUTH",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "AuthService",
+                  "represent": {
+                    "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
+                  }
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_PROP",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "PropellantsService",
+                  "represent": {
+                    "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
+                  }
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_REDIS",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "Redis"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_DB",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "PostgreSQL"
+                }
+              ],
+              "messages": [
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_1_LOGIN",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "POST UserLogin",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_AUTH"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_USER_LOGIN"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_2_CATALOG",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "GET Propellants",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_GET_PROPELLANTS"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_3_FEED",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "GET PropellantFeed",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_GET_FEED"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_4_DRAFT",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "GET PropellantDraft",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_GET_DRAFT"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_5_CREATE",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "POST Propellant",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_POST_PROPELLANT"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_6_UPDATE",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "PUT Propellant",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_PUT_PROPELLANT"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_7_DELETE",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "DELETE Propellant",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_DELETE_PROPELLANT"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "AAAAAAF_MSG_8_LIKE",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "POST PropellantLike",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_FRONT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_POST_LIKE"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
