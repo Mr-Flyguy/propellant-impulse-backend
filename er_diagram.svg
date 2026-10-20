@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" width="980" height="580">
+
   <defs>
     <style>
       .tbl-bg { fill: #ffffff; stroke: #000000; stroke-width: 1.2; }
       .tbl-header-bg { fill: #f8f9fa; stroke: #000000; stroke-width: 1.2; }
-      .tbl-header-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #111111; text-anchor: middle; }
-      .div-line { stroke: #000000; stroke-width: 1; }
+      .tbl-header-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #111111; text-anchor: middle; }
+      .grid-line { stroke: #000000; stroke-width: 0.9; }
       .col-k { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #111111; text-anchor: middle; }
-      .col-k-plain { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; fill: #111111; text-anchor: middle; }
       .col-n { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; fill: #111111; }
       .col-t { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 11px; fill: #333333; }
       .edge { stroke: #000000; stroke-width: 1.5; fill: none; }
@@ -16,182 +15,128 @@
     </style>
   </defs>
 
-  <!-- Pure White Background -->
-  <rect width="980" height="600" fill="#ffffff" />
+  <rect width="100%" height="100%" fill="#ffffff" />
 
-  <!-- ==================== TABLE 1: propellants ==================== -->
+  <!-- Table: propellants -->
   <g id="tbl_propellants">
-    <!-- Outer Box -->
     <rect class="tbl-bg" x="50" y="30" width="380" height="364" />
-    <!-- Header -->
     <rect class="tbl-header-bg" x="50" y="30" width="380" height="28" />
-    <text class="tbl-header-txt" x="240" y="49">Рабочие тела (propellants)</text>
-    <line class="div-line" x1="50" y1="58" x2="430" y2="58" />
-
-    <!-- Vertical Column Dividers in Body -->
-    <line class="div-line" x1="100" y1="58" x2="100" y2="394" />
-    <line class="div-line" x1="290" y1="58" x2="290" y2="394" />
-
-    <!-- Rows (14 items, h=24 each, text baseline = y + 16) -->
-    <!-- 1: id -->
+    <text class="tbl-header-txt" x="240" y="49">propellants</text>
+    <line class="grid-line" x1="50" y1="58" x2="430" y2="58" />
+    <line class="grid-line" x1="100" y1="58" x2="100" y2="394" />
+    <line class="grid-line" x1="290" y1="58" x2="290" y2="394" />
     <text class="col-k" x="75" y="74">PK</text>
-    <text class="col-n" x="108" y="74">id_тела (id)</text>
+    <text class="col-n" x="108" y="74">id</text>
     <text class="col-t" x="298" y="74">INTEGER</text>
-
-    <!-- 2: name -->
-    <text class="col-n" x="108" y="98">Наименование</text>
+    <line class="grid-line" x1="50" y1="82" x2="430" y2="82" />
+    <text class="col-n" x="108" y="98">name</text>
     <text class="col-t" x="298" y="98">VARCHAR(128)</text>
-
-    <!-- 3: short_description (N) -->
+    <line class="grid-line" x1="50" y1="106" x2="430" y2="106" />
     <text class="col-k" x="75" y="122">N</text>
-    <text class="col-n" x="108" y="122">Краткое описание</text>
+    <text class="col-n" x="108" y="122">short_description</text>
     <text class="col-t" x="298" y="122">VARCHAR(255)</text>
-
-    <!-- 4: engineering_analysis (N) -->
+    <line class="grid-line" x1="50" y1="130" x2="430" y2="130" />
     <text class="col-k" x="75" y="146">N</text>
-    <text class="col-n" x="108" y="146">Инженерный анализ</text>
+    <text class="col-n" x="108" y="146">engineering_analysis</text>
     <text class="col-t" x="298" y="146">TEXT</text>
-
-    <!-- 5: status -->
-    <text class="col-n" x="108" y="170">Статус (soft delete)</text>
+    <line class="grid-line" x1="50" y1="154" x2="430" y2="154" />
+    <text class="col-n" x="108" y="170">status</text>
     <text class="col-t" x="298" y="170">VARCHAR(32)</text>
-
-    <!-- 6: image_url (N) -->
+    <line class="grid-line" x1="50" y1="178" x2="430" y2="178" />
     <text class="col-k" x="75" y="194">N</text>
-    <text class="col-n" x="108" y="194">URL изображения</text>
+    <text class="col-n" x="108" y="194">image_url</text>
     <text class="col-t" x="298" y="194">VARCHAR(255)</text>
-
-    <!-- 7: video_url (N) -->
+    <line class="grid-line" x1="50" y1="202" x2="430" y2="202" />
     <text class="col-k" x="75" y="218">N</text>
-    <text class="col-n" x="108" y="218">URL видео</text>
+    <text class="col-n" x="108" y="218">video_url</text>
     <text class="col-t" x="298" y="218">VARCHAR(255)</text>
-
-    <!-- 8: molar_mass -->
-    <text class="col-n" x="108" y="242">Молярная масса (M)</text>
+    <line class="grid-line" x1="50" y1="226" x2="430" y2="226" />
+    <text class="col-n" x="108" y="242">molar_mass</text>
     <text class="col-t" x="298" y="242">DECIMAL(8,3)</text>
-
-    <!-- 9: specific_impulse -->
-    <text class="col-n" x="108" y="266">Удельный импульс (Isp)</text>
+    <line class="grid-line" x1="50" y1="250" x2="430" y2="250" />
+    <text class="col-n" x="108" y="266">specific_impulse</text>
     <text class="col-t" x="298" y="266">INTEGER</text>
-
-    <!-- 10: reactor_temperature_k -->
-    <text class="col-n" x="108" y="290">Температура реактора</text>
+    <line class="grid-line" x1="50" y1="274" x2="430" y2="274" />
+    <text class="col-n" x="108" y="290">reactor_temperature_k</text>
     <text class="col-t" x="298" y="290">INTEGER</text>
-
-    <!-- 11: specific_heat_ratio -->
-    <text class="col-n" x="108" y="314">Показатель адиабаты</text>
+    <line class="grid-line" x1="50" y1="298" x2="430" y2="298" />
+    <text class="col-n" x="108" y="314">specific_heat_ratio</text>
     <text class="col-t" x="298" y="314">DECIMAL(8,3)</text>
-
-    <!-- 12: creator_id (FK) -->
+    <line class="grid-line" x1="50" y1="322" x2="430" y2="322" />
     <text class="col-k" x="75" y="338">FK</text>
-    <text class="col-n" x="108" y="338">id_создателя (creator_id)</text>
+    <text class="col-n" x="108" y="338">creator_id</text>
     <text class="col-t" x="298" y="338">INTEGER</text>
-
-    <!-- 13: created_at -->
-    <text class="col-n" x="108" y="362">Дата создания</text>
-    <text class="col-t" x="298" y="362">DATETIME</text>
-
-    <!-- 14: updated_at -->
-    <text class="col-n" x="108" y="386">Дата обновления</text>
-    <text class="col-t" x="298" y="386">DATETIME</text>
+    <line class="grid-line" x1="50" y1="346" x2="430" y2="346" />
+    <text class="col-n" x="108" y="362">created_at</text>
+    <text class="col-t" x="298" y="362">TIMESTAMP</text>
+    <line class="grid-line" x1="50" y1="370" x2="430" y2="370" />
+    <text class="col-n" x="108" y="386">updated_at</text>
+    <text class="col-t" x="298" y="386">TIMESTAMP</text>
   </g>
-
-  <!-- ==================== TABLE 2: users ==================== -->
+  <!-- Table: users -->
   <g id="tbl_users">
-    <!-- Outer Box -->
-    <rect class="tbl-bg" x="560" y="70" width="360" height="148" />
-    <!-- Header -->
-    <rect class="tbl-header-bg" x="560" y="70" width="360" height="28" />
-    <text class="tbl-header-txt" x="740" y="89">Пользователи (users)</text>
-    <line class="div-line" x1="560" y1="98" x2="920" y2="98" />
-
-    <!-- Vertical Column Dividers in Body -->
-    <line class="div-line" x1="610" y1="98" x2="610" y2="218" />
-    <line class="div-line" x1="790" y1="98" x2="790" y2="218" />
-
-    <!-- Rows (5 items, h=24 each) -->
-    <!-- 1: id (PK) -->
-    <text class="col-k" x="585" y="114">PK</text>
-    <text class="col-n" x="618" y="114">id_пользователя (id)</text>
-    <text class="col-t" x="798" y="114">INTEGER</text>
-
-    <!-- 2: username (U) -->
-    <text class="col-k" x="585" y="138">U</text>
-    <text class="col-n" x="618" y="138">Логин (username)</text>
-    <text class="col-t" x="798" y="138">VARCHAR(64)</text>
-
-    <!-- 3: password -->
-    <text class="col-n" x="618" y="162">Пароль (password)</text>
-    <text class="col-t" x="798" y="162">VARCHAR(128)</text>
-
-    <!-- 4: email (U) -->
-    <text class="col-k" x="585" y="186">U</text>
-    <text class="col-n" x="618" y="186">Email</text>
-    <text class="col-t" x="798" y="186">VARCHAR(128)</text>
-
-    <!-- 5: created_at -->
-    <text class="col-n" x="618" y="210">Дата регистрации</text>
-    <text class="col-t" x="798" y="210">DATETIME</text>
+    <rect class="tbl-bg" x="560" y="50" width="360" height="148" />
+    <rect class="tbl-header-bg" x="560" y="50" width="360" height="28" />
+    <text class="tbl-header-txt" x="740" y="69">users</text>
+    <line class="grid-line" x1="560" y1="78" x2="920" y2="78" />
+    <line class="grid-line" x1="610" y1="78" x2="610" y2="198" />
+    <line class="grid-line" x1="790" y1="78" x2="790" y2="198" />
+    <text class="col-k" x="585" y="94">PK</text>
+    <text class="col-n" x="618" y="94">id</text>
+    <text class="col-t" x="798" y="94">INTEGER</text>
+    <line class="grid-line" x1="560" y1="102" x2="920" y2="102" />
+    <text class="col-n" x="618" y="118">username</text>
+    <text class="col-t" x="798" y="118">VARCHAR(64)</text>
+    <line class="grid-line" x1="560" y1="126" x2="920" y2="126" />
+    <text class="col-n" x="618" y="142">password</text>
+    <text class="col-t" x="798" y="142">VARCHAR(255)</text>
+    <line class="grid-line" x1="560" y1="150" x2="920" y2="150" />
+    <text class="col-n" x="618" y="166">email</text>
+    <text class="col-t" x="798" y="166">VARCHAR(128)</text>
+    <line class="grid-line" x1="560" y1="174" x2="920" y2="174" />
+    <text class="col-n" x="618" y="190">created_at</text>
+    <text class="col-t" x="798" y="190">TIMESTAMP</text>
   </g>
-
-  <!-- ==================== TABLE 3: propellant_likes ==================== -->
+  <!-- Table: propellant_likes -->
   <g id="tbl_likes">
-    <!-- Outer Box -->
-    <rect class="tbl-bg" x="50" y="450" width="380" height="100" />
-    <!-- Header -->
-    <rect class="tbl-header-bg" x="50" y="450" width="380" height="28" />
-    <text class="tbl-header-txt" x="240" y="469">Лайки (propellant_likes)</text>
-    <line class="div-line" x1="50" y1="478" x2="430" y2="478" />
-
-    <!-- Vertical Column Dividers in Body -->
-    <line class="div-line" x1="115" y1="478" x2="115" y2="550" />
-    <line class="div-line" x1="290" y1="478" x2="290" y2="550" />
-
-    <!-- Rows (3 items, h=24 each) -->
-    <!-- 1: user_id (PK,FK) -->
-    <text class="col-k" x="82" y="494">PK,FK</text>
-    <text class="col-n" x="123" y="494">id_пользователя</text>
-    <text class="col-t" x="298" y="494">INTEGER</text>
-
-    <!-- 2: propellant_id (PK,FK) -->
-    <text class="col-k" x="82" y="518">PK,FK</text>
-    <text class="col-n" x="123" y="518">id_рабочего_тела</text>
-    <text class="col-t" x="298" y="518">INTEGER</text>
-
-    <!-- 3: created_at -->
-    <text class="col-n" x="123" y="542">Дата отметки</text>
-    <text class="col-t" x="298" y="542">DATETIME</text>
+    <rect class="tbl-bg" x="50" y="430" width="380" height="124" />
+    <rect class="tbl-header-bg" x="50" y="430" width="380" height="28" />
+    <text class="tbl-header-txt" x="240" y="449">propellant_likes</text>
+    <line class="grid-line" x1="50" y1="458" x2="430" y2="458" />
+    <line class="grid-line" x1="100" y1="458" x2="100" y2="554" />
+    <line class="grid-line" x1="290" y1="458" x2="290" y2="554" />
+    <text class="col-k" x="75" y="474">PK</text>
+    <text class="col-n" x="108" y="474">id</text>
+    <text class="col-t" x="298" y="474">INTEGER</text>
+    <line class="grid-line" x1="50" y1="482" x2="430" y2="482" />
+    <text class="col-k" x="75" y="498">FK</text>
+    <text class="col-n" x="108" y="498">user_id</text>
+    <text class="col-t" x="298" y="498">INTEGER</text>
+    <line class="grid-line" x1="50" y1="506" x2="430" y2="506" />
+    <text class="col-k" x="75" y="522">FK</text>
+    <text class="col-n" x="108" y="522">propellant_id</text>
+    <text class="col-t" x="298" y="522">INTEGER</text>
+    <line class="grid-line" x1="50" y1="530" x2="430" y2="530" />
+    <text class="col-n" x="108" y="546">created_at</text>
+    <text class="col-t" x="298" y="546">TIMESTAMP</text>
   </g>
-
-  <!-- ==================== RELATIONSHIPS (CROW'S FOOT) ==================== -->
-  <!-- 1. users -> propellants (creator_id) -->
-  <!-- From users left side (x=560, y=114) to propellants right side at creator_id row (x=430, y=334) -->
-  <path class="edge" d="M 560 114 L 490 114 L 490 334 L 430 334" />
-  <!-- Crow's foot at users (Mandatory One: ||) -->
-  <line class="cf-marker" x1="548" y1="107" x2="548" y2="121" />
-  <line class="cf-marker" x1="554" y1="107" x2="554" y2="121" />
-  <!-- Crow's foot at propellants (Zero or Many: o<) -->
+  <!-- ==================== RELATIONSHIPS ==================== -->
+  <!-- 1. users -> propellants -->
+  <path class="edge" d="M 560 90 L 495 90 L 495 334 L 430 334" />
+  <line class="cf-marker" x1="548" y1="83" x2="548" y2="97" />
+  <line class="cf-marker" x1="554" y1="83" x2="554" y2="97" />
   <circle class="cf-circle" cx="448" cy="334" r="4.5" />
   <path class="cf-marker" d="M 442 334 L 430 327 M 442 334 L 430 341 M 442 334 L 430 334" />
-
-  <!-- 2. propellants -> propellant_likes (propellant_id) -->
-  <!-- Directly down from propellants bottom (x=160, y=394) to propellant_likes top (x=160, y=450) -->
-  <path class="edge" d="M 160 394 L 160 450" />
-  <!-- Mandatory One at propellants: || -->
-  <line class="cf-marker" x1="153" y1="406" x2="167" y2="406" />
-  <line class="cf-marker" x1="153" y1="412" x2="167" y2="412" />
-  <!-- Zero or Many at propellant_likes: o< (downwards) -->
-  <circle class="cf-circle" cx="160" cy="432" r="4.5" />
-  <path class="cf-marker" d="M 160 438 L 153 450 M 160 438 L 167 450 M 160 438 L 160 450" />
-
-  <!-- 3. users -> propellant_likes (user_id) -->
-  <!-- From users bottom (x=740, y=218) down to y=500, then left to propellant_likes right (x=430, y=500) -->
-  <path class="edge" d="M 740 218 L 740 500 L 430 500" />
-  <!-- Mandatory One at users: || -->
-  <line class="cf-marker" x1="733" y1="230" x2="747" y2="230" />
-  <line class="cf-marker" x1="733" y1="236" x2="747" y2="236" />
-  <!-- Zero or Many at propellant_likes: o< -->
-  <circle class="cf-circle" cx="448" cy="500" r="4.5" />
-  <path class="cf-marker" d="M 442 500 L 430 493 M 442 500 L 430 507 M 442 500 L 430 500" />
-
+  <!-- 2. propellants -> propellant_likes -->
+  <path class="edge" d="M 160 394 L 160 430" />
+  <line class="cf-marker" x1="153" y1="404" x2="167" y2="404" />
+  <line class="cf-marker" x1="153" y1="410" x2="167" y2="410" />
+  <circle class="cf-circle" cx="160" cy="420" r="4.5" />
+  <path class="cf-marker" d="M 160 424 L 153 430 M 160 424 L 167 430 M 160 424 L 160 430" />
+  <!-- 3. users -> propellant_likes -->
+  <path class="edge" d="M 740 198 L 740 494 L 430 494" />
+  <line class="cf-marker" x1="733" y1="210" x2="747" y2="210" />
+  <line class="cf-marker" x1="733" y1="216" x2="747" y2="216" />
+  <circle class="cf-circle" cx="448" cy="494" r="4.5" />
+  <path class="cf-marker" d="M 442 494 L 430 487 M 442 494 L 430 501 M 442 494 L 430 494" />
 </svg>
