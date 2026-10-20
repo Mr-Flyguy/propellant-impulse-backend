@@ -26,9 +26,15 @@
             "url": {
               "raw": "http://localhost:3000/api/auth/register",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "auth", "register"]
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
             },
             "description": "Регистрация нового пользователя с автоматическим хешированием пароля через bcrypt."
           },
@@ -51,9 +57,15 @@
             "url": {
               "raw": "http://localhost:3000/api/auth/login",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "auth", "login"]
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             },
             "description": "Скриншоты 1-3: Выполняет аутентификацию, создает сессию в Redis (TTL 24h) и устанавливает HTTP-only cookie sessionId."
           },
@@ -72,9 +84,15 @@
             "url": {
               "raw": "http://localhost:3000/api/auth/me",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "auth", "me"]
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
             },
             "description": "Возвращает данные аутентифицированного пользователя из сессии Redis."
           },
@@ -88,9 +106,15 @@
             "url": {
               "raw": "http://localhost:3000/api/auth/logout",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "auth", "logout"]
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
             },
             "description": "Удаляет сессию из Redis и очищает cookie sessionId."
           },
@@ -114,9 +138,14 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants"]
+              "path": [
+                "api",
+                "propellants"
+              ]
             },
             "description": "Скриншоты 4-5: Выполнить получение всех услуг/рабочих тел в Insomnia/Postman без куки/токена. Возвращает 200 OK со всеми опубликованными телами."
           },
@@ -135,9 +164,14 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants?max_molar_mass=20",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants"],
+              "path": [
+                "api",
+                "propellants"
+              ],
               "query": [
                 {
                   "key": "max_molar_mass",
@@ -163,9 +197,15 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/feed",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "feed"]
+              "path": [
+                "api",
+                "propellants",
+                "feed"
+              ]
             },
             "description": "Получение карточки ленты рекомендаций без авторизации."
           },
@@ -193,9 +233,15 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "1"]
+              "path": [
+                "api",
+                "propellants",
+                "1"
+              ]
             },
             "description": "Скриншот 6: Выполнить PUT без авторизации. Ожидается ответ 401 Unauthorized (отсутствует sessionId)."
           },
@@ -223,9 +269,15 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/1",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "1"]
+              "path": [
+                "api",
+                "propellants",
+                "1"
+              ]
             },
             "description": "Скриншот 7: Выполнить PUT с авторизацией (куки sessionId). Возвращает 200 OK с обновленными данными. Далее сделать скриншот redis-cli (Скриншот 8)."
           },
@@ -244,9 +296,15 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/draft",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "draft"]
+              "path": [
+                "api",
+                "propellants",
+                "draft"
+              ]
             },
             "description": "Получение черновика авторизованного пользователя."
           },
@@ -273,9 +331,14 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants"]
+              "path": [
+                "api",
+                "propellants"
+              ]
             },
             "description": "Создание черновика. Идентификатор creator_id берется из сессии Redis."
           },
@@ -302,9 +365,16 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/2/publish",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "2", "publish"]
+              "path": [
+                "api",
+                "propellants",
+                "2",
+                "publish"
+              ]
             },
             "description": "Публикация черновика авторизованным создателем."
           },
@@ -331,9 +401,16 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/1/like",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "1", "like"]
+              "path": [
+                "api",
+                "propellants",
+                "1",
+                "like"
+              ]
             },
             "description": "Поставить или снять лайк от имени текущего авторизованного пользователя."
           },
@@ -352,9 +429,15 @@
             "url": {
               "raw": "http://localhost:3000/api/propellants/2",
               "protocol": "http",
-              "host": ["localhost"],
+              "host": [
+                "localhost"
+              ],
               "port": "3000",
-              "path": ["api", "propellants", "2"]
+              "path": [
+                "api",
+                "propellants",
+                "2"
+              ]
             },
             "description": "Мягкое удаление рабочего тела создателем или администратором."
           },
