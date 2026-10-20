@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 820" width="920" height="820">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 825" width="920" height="825">
 
   <defs>
     <style>
@@ -26,39 +26,39 @@
 
   <!-- Package: Фронтенд -->
   <path d="M 45 39 L 45 15 L 165 15 L 175 39 Z" class="pkg-tab" />
-  <rect x="45" y="39" width="830" height="106" class="pkg-box" />
+  <rect x="45" y="39" width="830" height="108" class="pkg-box" />
   <text x="59" y="31" class="pkg-title">Фронтенд</text>
   <!-- Package: Веб-сервис -->
   <path d="M 45 254 L 45 230 L 165 230 L 175 254 Z" class="pkg-tab" />
-  <rect x="45" y="254" width="830" height="191" class="pkg-box" />
+  <rect x="45" y="254" width="830" height="201" class="pkg-box" />
   <text x="59" y="246" class="pkg-title">Веб-сервис</text>
   <!-- Package: Модель -->
-  <path d="M 45 499 L 45 475 L 165 475 L 175 499 Z" class="pkg-tab" />
-  <rect x="45" y="499" width="830" height="91" class="pkg-box" />
-  <text x="59" y="491" class="pkg-title">Модель</text>
+  <path d="M 45 504 L 45 480 L 165 480 L 175 504 Z" class="pkg-tab" />
+  <rect x="45" y="504" width="830" height="91" class="pkg-box" />
+  <text x="59" y="496" class="pkg-title">Модель</text>
   <!-- Package: База данных -->
   <path d="M 45 644 L 45 620 L 165 620 L 175 644 Z" class="pkg-tab" />
-  <rect x="45" y="644" width="830" height="151" class="pkg-box" />
+  <rect x="45" y="644" width="830" height="156" class="pkg-box" />
   <text x="59" y="636" class="pkg-title">База данных</text>
-  <rect x="65" y="62" width="160" height="62" class="cls-box" />
-  <text x="145" y="80" class="cls-title-2line">Лента</text>
-  <text x="145" y="95" class="cls-title-2line">видов топлива</text>
-  <line x1="65" y1="104" x2="225" y2="104" class="div-line" />
+  <rect x="65" y="60" width="160" height="66" class="cls-box" />
+  <text x="145" y="79" class="cls-title-2line">Лента</text>
+  <text x="145" y="94" class="cls-title-2line">видов топлива</text>
+  <line x1="65" y1="102" x2="225" y2="102" class="div-line" />
   <line x1="65" y1="114" x2="225" y2="114" class="div-line" />
-  <rect x="270" y="62" width="160" height="62" class="cls-box" />
-  <text x="350" y="80" class="cls-title-2line">Добавление</text>
-  <text x="350" y="95" class="cls-title-2line">вида топлива</text>
-  <line x1="270" y1="104" x2="430" y2="104" class="div-line" />
+  <rect x="270" y="60" width="160" height="66" class="cls-box" />
+  <text x="350" y="79" class="cls-title-2line">Добавление</text>
+  <text x="350" y="94" class="cls-title-2line">вида топлива</text>
+  <line x1="270" y1="102" x2="430" y2="102" class="div-line" />
   <line x1="270" y1="114" x2="430" y2="114" class="div-line" />
-  <rect x="475" y="62" width="160" height="62" class="cls-box" />
-  <text x="555" y="80" class="cls-title-2line">Плитка</text>
-  <text x="555" y="95" class="cls-title-2line">видов топлива</text>
-  <line x1="475" y1="104" x2="635" y2="104" class="div-line" />
+  <rect x="475" y="60" width="160" height="66" class="cls-box" />
+  <text x="555" y="79" class="cls-title-2line">Плитка</text>
+  <text x="555" y="94" class="cls-title-2line">видов топлива</text>
+  <line x1="475" y1="102" x2="635" y2="102" class="div-line" />
   <line x1="475" y1="114" x2="635" y2="114" class="div-line" />
-  <rect x="680" y="62" width="160" height="62" class="cls-box" />
-  <text x="760" y="80" class="cls-title-2line">Вход</text>
-  <text x="760" y="95" class="cls-title-2line">пользователя</text>
-  <line x1="680" y1="104" x2="840" y2="104" class="div-line" />
+  <rect x="680" y="60" width="160" height="66" class="cls-box" />
+  <text x="760" y="79" class="cls-title-2line">Вход</text>
+  <text x="760" y="94" class="cls-title-2line">пользователя</text>
+  <line x1="680" y1="102" x2="840" y2="102" class="div-line" />
   <line x1="680" y1="114" x2="840" y2="114" class="div-line" />
   <!-- Socket 1: API видов топлива -->
   <path d="M 337 188 A 13 13 0 0 0 363 188" class="socket" />
@@ -68,45 +68,45 @@
   <path d="M 747 188 A 13 13 0 0 0 773 188" class="socket" />
   <circle cx="760" cy="188" r="8" class="ball" />
   <text x="785" y="192" class="api-lbl" text-anchor="start">API пользователей</text>
-  <line x1="203" y1="124" x2="340" y2="181" class="conn-dash" />
-  <line x1="350" y1="124" x2="350" y2="175" class="conn-dash" />
-  <line x1="497" y1="124" x2="360" y2="181" class="conn-dash" />
-  <line x1="760" y1="124" x2="760" y2="175" class="conn-dash" />
+  <line x1="203" y1="126" x2="340" y2="181" class="conn-dash" />
+  <line x1="350" y1="126" x2="350" y2="175" class="conn-dash" />
+  <line x1="497" y1="126" x2="360" y2="181" class="conn-dash" />
+  <line x1="760" y1="126" x2="760" y2="175" class="conn-dash" />
   <line x1="350" y1="196" x2="350" y2="275" class="conn-solid" />
   <line x1="760" y1="196" x2="760" y2="275" class="conn-solid" />
-  <!-- Class: Домен видов топлива -->
-  <rect x="65" y="275" width="440" height="155" class="cls-box" />
-  <text x="285" y="296" class="cls-title">Домен видов топлива</text>
-  <line x1="65" y1="302" x2="505" y2="302" class="div-line" />
-  <text x="80" y="321" class="method">+ GET Propellants(maxMolarMass)</text>
-  <text x="80" y="337" class="method">+ GET PropellantFeed(id, next)</text>
-  <text x="80" y="353" class="method">+ GET PropellantDraft()</text>
-  <text x="80" y="369" class="method">+ POST Propellant(name, image, video)</text>
-  <text x="80" y="385" class="method">+ PUT Propellant(id)</text>
-  <text x="80" y="401" class="method">+ DELETE Propellant(id)</text>
-  <text x="80" y="417" class="method">+ POST PropellantLike(id, like)</text>
-  <!-- Class: Домен пользователей -->
-  <rect x="535" y="275" width="310" height="155" class="cls-box" />
-  <text x="690" y="296" class="cls-title">Домен пользователей</text>
-  <line x1="535" y1="302" x2="845" y2="302" class="div-line" />
-  <text x="550" y="328" class="method">+ POST User(username, email, password)</text>
-  <text x="550" y="350" class="method">+ POST UserLogin()</text>
-  <text x="550" y="372" class="method">+ POST UserLogout()</text>
-  <rect x="75" y="520" width="170" height="52" class="cls-box" />
-  <text x="160.0" y="538" class="cls-title">Propellant</text>
-  <line x1="75" y1="548" x2="245" y2="548" class="div-line" />
-  <line x1="75" y1="558" x2="245" y2="558" class="div-line" />
-  <rect x="360" y="520" width="180" height="52" class="cls-box" />
-  <text x="450.0" y="538" class="cls-title">PropellantLike</text>
-  <line x1="360" y1="548" x2="540" y2="548" class="div-line" />
-  <line x1="360" y1="558" x2="540" y2="558" class="div-line" />
-  <rect x="655" y="520" width="170" height="52" class="cls-box" />
-  <text x="740.0" y="538" class="cls-title">User</text>
-  <line x1="655" y1="548" x2="825" y2="548" class="div-line" />
-  <line x1="655" y1="558" x2="825" y2="558" class="div-line" />
-  <line x1="160" y1="430" x2="160" y2="514" class="conn-dash" marker-end="url(#arrow)" />
-  <line x1="450" y1="430" x2="450" y2="514" class="conn-dash" marker-end="url(#arrow)" />
-  <line x1="740" y1="430" x2="740" y2="514" class="conn-dash" marker-end="url(#arrow)" />
+  <!-- Class 1: Домен видов топлива -->
+  <rect x="65" y="275" width="440" height="28" class="cls-box" />
+  <text x="285" y="294" class="cls-title">Домен видов топлива</text>
+  <rect x="65" y="303" width="440" height="137" class="cls-box" />
+  <text x="79" y="321" class="method">+ GET Propellants(maxMolarMass)</text>
+  <text x="79" y="338" class="method">+ GET PropellantFeed(id, next)</text>
+  <text x="79" y="355" class="method">+ GET PropellantDraft()</text>
+  <text x="79" y="372" class="method">+ POST Propellant(name, image, video)</text>
+  <text x="79" y="389" class="method">+ PUT Propellant(id)</text>
+  <text x="79" y="406" class="method">+ DELETE Propellant(id)</text>
+  <text x="79" y="423" class="method">+ POST PropellantLike(id, like)</text>
+  <!-- Class 2: Домен пользователей -->
+  <rect x="535" y="275" width="310" height="28" class="cls-box" />
+  <text x="690" y="294" class="cls-title">Домен пользователей</text>
+  <rect x="535" y="303" width="310" height="137" class="cls-box" />
+  <text x="549" y="332" class="method">+ POST User(username, email, password)</text>
+  <text x="549" y="360" class="method">+ POST UserLogin()</text>
+  <text x="549" y="388" class="method">+ POST UserLogout()</text>
+  <rect x="75" y="520" width="170" height="54" class="cls-box" />
+  <text x="160.0" y="539" class="cls-title">Propellant</text>
+  <line x1="75" y1="550" x2="245" y2="550" class="div-line" />
+  <line x1="75" y1="562" x2="245" y2="562" class="div-line" />
+  <rect x="360" y="520" width="180" height="54" class="cls-box" />
+  <text x="450.0" y="539" class="cls-title">PropellantLike</text>
+  <line x1="360" y1="550" x2="540" y2="550" class="div-line" />
+  <line x1="360" y1="562" x2="540" y2="562" class="div-line" />
+  <rect x="655" y="520" width="170" height="54" class="cls-box" />
+  <text x="740.0" y="539" class="cls-title">User</text>
+  <line x1="655" y1="550" x2="825" y2="550" class="div-line" />
+  <line x1="655" y1="562" x2="825" y2="562" class="div-line" />
+  <line x1="160" y1="440" x2="160" y2="514" class="conn-dash" marker-end="url(#arrow)" />
+  <line x1="450" y1="440" x2="450" y2="514" class="conn-dash" marker-end="url(#arrow)" />
+  <line x1="740" y1="440" x2="740" y2="514" class="conn-dash" marker-end="url(#arrow)" />
   <!-- Database Tables -->
   <rect x="75" y="665" width="170" height="40" class="cls-box" />
   <text x="160" y="690" class="cls-title">propellants</text>
@@ -114,9 +114,9 @@
   <text x="450" y="690" class="cls-title">propellant_likes</text>
   <rect x="655" y="665" width="170" height="40" class="cls-box" />
   <text x="740" y="690" class="cls-title">users</text>
-  <line x1="160" y1="572" x2="160" y2="659" class="conn-dash" marker-end="url(#arrow)" />
-  <line x1="450" y1="572" x2="450" y2="659" class="conn-dash" marker-end="url(#arrow)" />
-  <line x1="740" y1="572" x2="740" y2="659" class="conn-dash" marker-end="url(#arrow)" />
+  <line x1="160" y1="574" x2="160" y2="659" class="conn-dash" marker-end="url(#arrow)" />
+  <line x1="450" y1="574" x2="450" y2="659" class="conn-dash" marker-end="url(#arrow)" />
+  <line x1="740" y1="574" x2="740" y2="659" class="conn-dash" marker-end="url(#arrow)" />
   <line x1="245" y1="685" x2="360" y2="685" class="conn-solid" />
   <text x="256" y="678" class="cardinality">1</text>
   <text x="336" y="678" class="cardinality">0..*</text>

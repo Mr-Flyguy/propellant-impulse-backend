@@ -1,44 +1,44 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0">
   <diagram id="class_diagram_propellants" name="Диаграмма классов">
-    <mxGraphModel dx="1000" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="820" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1000" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="920" pageHeight="825" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <!-- Package 1: Фронтенд -->
         <mxCell id="pkg_frontend" parent="1" style="shape=folder;fontStyle=1;tabWidth=120;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.8;fontColor=#111111;fontFamily=Helvetica;fontSize=12.5;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;" value="Фронтенд" vertex="1">
-          <mxGeometry x="45" y="15" width="830" height="130" as="geometry" />
+          <mxGeometry x="45" y="15" width="830" height="132" as="geometry" />
         </mxCell>
         <!-- Package 2: Веб-сервис -->
         <mxCell id="pkg_backend" parent="1" style="shape=folder;fontStyle=1;tabWidth=120;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.8;fontColor=#111111;fontFamily=Helvetica;fontSize=12.5;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;" value="Веб-сервис" vertex="1">
-          <mxGeometry x="45" y="230" width="830" height="215" as="geometry" />
+          <mxGeometry x="45" y="230" width="830" height="225" as="geometry" />
         </mxCell>
         <!-- Package 3: Модель -->
         <mxCell id="pkg_model" parent="1" style="shape=folder;fontStyle=1;tabWidth=120;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.8;fontColor=#111111;fontFamily=Helvetica;fontSize=12.5;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;" value="Модель" vertex="1">
-          <mxGeometry x="45" y="475" width="830" height="115" as="geometry" />
+          <mxGeometry x="45" y="480" width="830" height="115" as="geometry" />
         </mxCell>
         <!-- Package 4: База данных -->
         <mxCell id="pkg_db" parent="1" style="shape=folder;fontStyle=1;tabWidth=120;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.8;fontColor=#111111;fontFamily=Helvetica;fontSize=12.5;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;" value="База данных" vertex="1">
-          <mxGeometry x="45" y="620" width="830" height="175" as="geometry" />
+          <mxGeometry x="45" y="620" width="830" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="cls_feed" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Лента&lt;br/&gt;видов топлива" vertex="1">
-          <mxGeometry x="65" y="62" width="160" height="62" as="geometry" />
+        <mxCell id="cls_feed" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=7;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Лента&lt;br/&gt;видов топлива" vertex="1">
+          <mxGeometry x="65" y="60" width="160" height="66" as="geometry" />
         </mxCell>
-        <mxCell id="cls_feed_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="65" y="104" as="sourcePoint" /><mxPoint x="225" y="104" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_feed_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="65" y="102" as="sourcePoint" /><mxPoint x="225" y="102" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="cls_feed_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="65" y="114" as="sourcePoint" /><mxPoint x="225" y="114" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_draft" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Добавление&lt;br/&gt;вида топлива" vertex="1">
-          <mxGeometry x="270" y="62" width="160" height="62" as="geometry" />
+        <mxCell id="cls_draft" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=7;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Добавление&lt;br/&gt;вида топлива" vertex="1">
+          <mxGeometry x="270" y="60" width="160" height="66" as="geometry" />
         </mxCell>
-        <mxCell id="cls_draft_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="270" y="104" as="sourcePoint" /><mxPoint x="430" y="104" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_draft_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="270" y="102" as="sourcePoint" /><mxPoint x="430" y="102" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="cls_draft_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="270" y="114" as="sourcePoint" /><mxPoint x="430" y="114" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_catalog" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Плитка&lt;br/&gt;видов топлива" vertex="1">
-          <mxGeometry x="475" y="62" width="160" height="62" as="geometry" />
+        <mxCell id="cls_catalog" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=7;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Плитка&lt;br/&gt;видов топлива" vertex="1">
+          <mxGeometry x="475" y="60" width="160" height="66" as="geometry" />
         </mxCell>
-        <mxCell id="cls_catalog_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="475" y="104" as="sourcePoint" /><mxPoint x="635" y="104" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_catalog_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="475" y="102" as="sourcePoint" /><mxPoint x="635" y="102" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="cls_catalog_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="475" y="114" as="sourcePoint" /><mxPoint x="635" y="114" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_auth" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Вход&lt;br/&gt;пользователя" vertex="1">
-          <mxGeometry x="680" y="62" width="160" height="62" as="geometry" />
+        <mxCell id="cls_auth" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=7;fontFamily=Helvetica;fontSize=12;fontStyle=1;fontColor=#111111;" value="Вход&lt;br/&gt;пользователя" vertex="1">
+          <mxGeometry x="680" y="60" width="160" height="66" as="geometry" />
         </mxCell>
-        <mxCell id="cls_auth_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="680" y="104" as="sourcePoint" /><mxPoint x="840" y="104" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_auth_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="680" y="102" as="sourcePoint" /><mxPoint x="840" y="102" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="cls_auth_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="680" y="114" as="sourcePoint" /><mxPoint x="840" y="114" as="targetPoint" /></mxGeometry></mxCell>
         <!-- Socket 1: API видов топлива -->
         <mxCell id="socket_propellants" parent="1" style="shape=mxgraph.basic.arc;startAngle=0.25;endAngle=0.75;strokeWidth=2.2;strokeColor=#222222;fillColor=none;" value="" vertex="1">
@@ -64,31 +64,37 @@
         <mxCell id="e_f2" edge="1" parent="1" source="cls_draft" target="socket_propellants" style="endArrow=none;dashed=1;html=1;strokeColor=#444444;strokeWidth=1.3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e_f3" edge="1" parent="1" source="cls_catalog" target="socket_propellants" style="endArrow=none;dashed=1;html=1;strokeColor=#444444;strokeWidth=1.3;exitX=0.14;exitY=1;entryX=0.9;entryY=0.2;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e_f4" edge="1" parent="1" source="cls_auth" target="socket_users" style="endArrow=none;dashed=1;html=1;strokeColor=#444444;strokeWidth=1.3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="cls_domain_propellants" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12.5;fontStyle=1;" value="Домен видов топлива&lt;div style=&quot;text-align:left;padding-top:14px;padding-left:14px;font-family:Consolas,monospace;font-size:11px;line-height:1.55;color:#111111;&quot;&gt;+ GET Propellants(maxMolarMass)&lt;br/&gt;+ GET PropellantFeed(id, next)&lt;br/&gt;+ GET PropellantDraft()&lt;br/&gt;+ POST Propellant(name, image, video)&lt;br/&gt;+ PUT Propellant(id)&lt;br/&gt;+ DELETE Propellant(id)&lt;br/&gt;+ POST PropellantLike(id, like)&lt;/div&gt;" vertex="1">
-          <mxGeometry x="65" y="275" width="440" height="155" as="geometry" />
+        <!-- Class 1: Домен видов топлива -->
+        <mxCell id="cls_domain_propellants_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;fontStyle=1;fontSize=12.5;fontFamily=Helvetica;align=center;verticalAlign=middle;fontColor=#111111;" value="Домен видов топлива" vertex="1">
+          <mxGeometry x="65" y="275" width="440" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="dp_line" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="65" y="302" as="sourcePoint" /><mxPoint x="505" y="302" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_domain_users" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12.5;fontStyle=1;" value="Домен пользователей&lt;div style=&quot;text-align:left;padding-top:18px;padding-left:14px;font-family:Consolas,monospace;font-size:11px;line-height:2.0;color:#111111;&quot;&gt;+ POST User(username, email, password)&lt;br/&gt;+ POST UserLogin()&lt;br/&gt;+ POST UserLogout()&lt;/div&gt;" vertex="1">
-          <mxGeometry x="535" y="275" width="310" height="155" as="geometry" />
+        <mxCell id="cls_domain_propellants" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=left;verticalAlign=top;spacingLeft=14;spacingTop=8;fontFamily=Consolas,monospace;fontSize=11;lineHeight=1.5;fontColor=#111111;" value="+ GET Propellants(maxMolarMass)&lt;br/&gt;+ GET PropellantFeed(id, next)&lt;br/&gt;+ GET PropellantDraft()&lt;br/&gt;+ POST Propellant(name, image, video)&lt;br/&gt;+ PUT Propellant(id)&lt;br/&gt;+ DELETE Propellant(id)&lt;br/&gt;+ POST PropellantLike(id, like)" vertex="1">
+          <mxGeometry x="65" y="303" width="440" height="137" as="geometry" />
         </mxCell>
-        <mxCell id="du_line" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="535" y="302" as="sourcePoint" /><mxPoint x="845" y="302" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="e_b1_dom" edge="1" parent="1" source="ball_propellants" target="cls_domain_propellants" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.648;entryY=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e_b2_dom" edge="1" parent="1" source="ball_users" target="cls_domain_users" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.726;entryY=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Class 2: Домен пользователей -->
+        <mxCell id="cls_domain_users_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;fontStyle=1;fontSize=12.5;fontFamily=Helvetica;align=center;verticalAlign=middle;fontColor=#111111;" value="Домен пользователей" vertex="1">
+          <mxGeometry x="535" y="275" width="310" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_domain_users" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;fontFamily=Consolas,monospace;fontSize=11;lineHeight=1.8;fontColor=#111111;" value="+ POST User(username, email, password)&lt;br/&gt;&lt;br/&gt;+ POST UserLogin()&lt;br/&gt;&lt;br/&gt;+ POST UserLogout()" vertex="1">
+          <mxGeometry x="535" y="303" width="310" height="137" as="geometry" />
+        </mxCell>
+        <mxCell id="e_b1_dom" edge="1" parent="1" source="ball_propellants" target="cls_domain_propellants_head" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.648;entryY=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_b2_dom" edge="1" parent="1" source="ball_users" target="cls_domain_users_head" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.726;entryY=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="cls_mod_propellant" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12.5;fontStyle=1;fontColor=#111111;" value="Propellant" vertex="1">
-          <mxGeometry x="75" y="520" width="170" height="52" as="geometry" />
+          <mxGeometry x="75" y="520" width="170" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="cls_mod_propellant_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="75" y="548" as="sourcePoint" /><mxPoint x="245" y="548" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_mod_propellant_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="75" y="558" as="sourcePoint" /><mxPoint x="245" y="558" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_mod_propellant_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="75" y="550" as="sourcePoint" /><mxPoint x="245" y="550" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_mod_propellant_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="75" y="562" as="sourcePoint" /><mxPoint x="245" y="562" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="cls_mod_like" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12.5;fontStyle=1;fontColor=#111111;" value="PropellantLike" vertex="1">
-          <mxGeometry x="360" y="520" width="180" height="52" as="geometry" />
+          <mxGeometry x="360" y="520" width="180" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="cls_mod_like_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="360" y="548" as="sourcePoint" /><mxPoint x="540" y="548" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_mod_like_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="360" y="558" as="sourcePoint" /><mxPoint x="540" y="558" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_mod_like_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="360" y="550" as="sourcePoint" /><mxPoint x="540" y="550" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_mod_like_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="360" y="562" as="sourcePoint" /><mxPoint x="540" y="562" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="cls_mod_user" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#222222;strokeWidth=1.5;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontSize=12.5;fontStyle=1;fontColor=#111111;" value="User" vertex="1">
-          <mxGeometry x="655" y="520" width="170" height="52" as="geometry" />
+          <mxGeometry x="655" y="520" width="170" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="cls_mod_user_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="655" y="548" as="sourcePoint" /><mxPoint x="825" y="548" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="cls_mod_user_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="655" y="558" as="sourcePoint" /><mxPoint x="825" y="558" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_mod_user_l1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="655" y="550" as="sourcePoint" /><mxPoint x="825" y="550" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cls_mod_user_l2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#222222;strokeWidth=1.2;" value=""><mxGeometry relative="1" as="geometry"><mxPoint x="655" y="562" as="sourcePoint" /><mxPoint x="825" y="562" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="e_dm1" edge="1" parent="1" source="cls_domain_propellants" target="cls_mod_propellant" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#444444;strokeWidth=1.3;exitX=0.216;exitY=1;entryX=0.5;entryY=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
