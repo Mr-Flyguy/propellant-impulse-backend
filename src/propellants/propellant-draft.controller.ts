@@ -29,7 +29,6 @@ export class PropellantDraftController {
       name: name || 'Новое рабочее тело',
       shortDescription: '',
       molarMass: 16.04,
-      reactorTemperatureK: 2600,
       specificHeatRatio: 1.32,
       imageUrl: '/img/invalid_propellant.jpg',
       videoUrl: '/video/invalid_exhaust.mp4',
@@ -55,7 +54,6 @@ export class PropellantDraftController {
       name: name || 'Новое рабочее тело',
       shortDescription: short_description || '',
       molarMass: parsedMolarMass,
-      reactorTemperatureK: 2600,
       specificHeatRatio: parsedGamma,
     });
     return res.redirect('/propellants/catalog');
