@@ -223,11 +223,11 @@
         },
         {
           "_type": "UMLAttribute",
-          "_id": "ROLE_REACT_ID",
+          "_id": "ROLE_FRONTEND_ID",
           "_parent": {
             "$ref": "COLLAB_HTTP_MAIN"
           },
-          "name": "react_role"
+          "name": "frontend_role"
         },
         {
           "_type": "UMLAttribute",
@@ -261,7 +261,7 @@
           "_parent": {
             "$ref": "COLLAB_HTTP_MAIN"
           },
-          "name": "Диаграмма последовательности",
+          "name": "HTTP запросы",
           "participants": [
             {
               "_type": "UMLLifeline",
@@ -277,13 +277,13 @@
             },
             {
               "_type": "UMLLifeline",
-              "_id": "LL_REACT_ID",
+              "_id": "LL_FRONTEND_ID",
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "React",
+              "name": "Frontend",
               "represent": {
-                "$ref": "ROLE_REACT_ID"
+                "$ref": "ROLE_FRONTEND_ID"
               },
               "isMultiInstance": false
             },
@@ -352,7 +352,7 @@
                 "$ref": "LL_SERVER_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "createMessage",
               "arguments": ""
@@ -365,7 +365,7 @@
               },
               "name": "POST UserLogin",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_USERS_ID"
@@ -387,7 +387,7 @@
                 "$ref": "LL_USERS_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "sessionId, user"
@@ -400,7 +400,7 @@
               },
               "name": "GET Propellants",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -422,7 +422,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "propellants[]"
@@ -435,7 +435,7 @@
               },
               "name": "POST Propellant",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -457,7 +457,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "id, draft = true"
@@ -470,7 +470,7 @@
               },
               "name": "GET PropellantDraft",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -492,7 +492,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "draft_fields"
@@ -505,7 +505,7 @@
               },
               "name": "PUT Propellant",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -527,7 +527,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "id, published = true"
@@ -540,7 +540,7 @@
               },
               "name": "GET PropellantFeed",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -562,7 +562,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "feed_item"
@@ -575,7 +575,7 @@
               },
               "name": "GET PropellantFeed",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -597,7 +597,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "next_feed_item"
@@ -610,7 +610,7 @@
               },
               "name": "POST PropellantLike",
               "source": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "target": {
                 "$ref": "LL_PROP_ID"
@@ -632,7 +632,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_REACT_ID"
+                "$ref": "LL_FRONTEND_ID"
               },
               "messageSort": "reply",
               "arguments": "likesCount, isLiked"
@@ -645,7 +645,7 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "Диаграмма последовательности",
+              "name": "HTTP запросы",
               "showSequenceNumber": true,
               "showSignature": true,
               "ownedViews": [
@@ -669,9 +669,9 @@
                       "parentStyle": true,
                       "left": 24,
                       "top": 14,
-                      "width": 16,
+                      "width": 64,
                       "height": 13,
-                      "text": "sd"
+                      "text": "interaction"
                     },
                     {
                       "_type": "LabelView",
@@ -681,11 +681,11 @@
                       },
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 45,
+                      "left": 92,
                       "top": 14,
-                      "width": 190,
+                      "width": 140,
                       "height": 13,
-                      "text": "Диаграмма последовательности"
+                      "text": "HTTP запросы"
                     }
                   ],
                   "font": "Arial;11;0",
@@ -814,29 +814,29 @@
                 },
                 {
                   "_type": "UMLSeqLifelineView",
-                  "_id": "V_LL_REACT",
+                  "_id": "V_LL_FRONTEND",
                   "_parent": {
                     "$ref": "DIAGRAM_HTTP_MAIN"
                   },
                   "model": {
-                    "$ref": "LL_REACT_ID"
+                    "$ref": "LL_FRONTEND_ID"
                   },
                   "subViews": [
                     {
                       "_type": "UMLNameCompartmentView",
-                      "_id": "COMP_REACT",
+                      "_id": "COMP_FRONTEND",
                       "_parent": {
-                        "$ref": "V_LL_REACT"
+                        "$ref": "V_LL_FRONTEND"
                       },
                       "model": {
-                        "$ref": "LL_REACT_ID"
+                        "$ref": "LL_FRONTEND_ID"
                       },
                       "subViews": [
                         {
                           "_type": "LabelView",
-                          "_id": "STEREO_react",
+                          "_id": "STEREO_frontend",
                           "_parent": {
-                            "$ref": "COMP_REACT"
+                            "$ref": "COMP_FRONTEND"
                           },
                           "visible": false,
                           "font": "Arial;11;0",
@@ -845,23 +845,23 @@
                         },
                         {
                           "_type": "LabelView",
-                          "_id": "NLBL_REACT",
+                          "_id": "NLBL_FRONTEND",
                           "_parent": {
-                            "$ref": "COMP_REACT"
+                            "$ref": "COMP_FRONTEND"
                           },
                           "font": "Arial;11;1",
                           "parentStyle": true,
-                          "left": 254,
+                          "left": 249,
                           "top": 152,
-                          "width": 82,
+                          "width": 92,
                           "height": 26,
-                          "text": "React"
+                          "text": "Frontend"
                         },
                         {
                           "_type": "LabelView",
-                          "_id": "NS_react",
+                          "_id": "NS_frontend",
                           "_parent": {
-                            "$ref": "COMP_REACT"
+                            "$ref": "COMP_FRONTEND"
                           },
                           "visible": false,
                           "font": "Arial;11;0",
@@ -870,9 +870,9 @@
                         },
                         {
                           "_type": "LabelView",
-                          "_id": "PROP_react",
+                          "_id": "PROP_frontend",
                           "_parent": {
-                            "$ref": "COMP_REACT"
+                            "$ref": "COMP_FRONTEND"
                           },
                           "visible": false,
                           "font": "Arial;11;0",
@@ -882,22 +882,22 @@
                       ],
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 250,
+                      "left": 245,
                       "top": 145,
-                      "width": 90,
+                      "width": 100,
                       "height": 40,
                       "nameLabel": {
-                        "$ref": "NLBL_REACT"
+                        "$ref": "NLBL_FRONTEND"
                       }
                     },
                     {
                       "_type": "UMLLinePartView",
-                      "_id": "LINE_REACT",
+                      "_id": "LINE_FRONTEND",
                       "_parent": {
-                        "$ref": "V_LL_REACT"
+                        "$ref": "V_LL_FRONTEND"
                       },
                       "model": {
-                        "$ref": "LL_REACT_ID"
+                        "$ref": "LL_FRONTEND_ID"
                       },
                       "font": "Arial;11;0",
                       "parentStyle": false,
@@ -909,15 +909,15 @@
                   ],
                   "font": "Arial;11;0",
                   "parentStyle": false,
-                  "left": 250,
+                  "left": 245,
                   "top": 145,
-                  "width": 90,
+                  "width": 100,
                   "height": 975,
                   "nameCompartment": {
-                    "$ref": "COMP_REACT"
+                    "$ref": "COMP_FRONTEND"
                   },
                   "linePart": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   }
                 },
                 {
@@ -1333,7 +1333,7 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 313.0,
+                      "left": 311.0,
                       "top": 149,
                       "width": 78.0,
                       "height": 13,
@@ -1357,7 +1357,7 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 243,
+                      "left": 238,
                       "top": 165,
                       "width": 14,
                       "height": 25
@@ -1366,12 +1366,12 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_SERVER"
                   },
-                  "points": "455:165;250:165",
+                  "points": "455:165;245:165",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_2"
                   },
@@ -1437,7 +1437,7 @@
                     "$ref": "LINE_USERS"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:225;670:225",
                   "nameLabel": {
@@ -1502,7 +1502,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_USERS"
@@ -1573,7 +1573,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:335;895:335",
                   "nameLabel": {
@@ -1638,7 +1638,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
@@ -1709,7 +1709,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:445;895:445",
                   "nameLabel": {
@@ -1774,7 +1774,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
@@ -1845,7 +1845,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:555;895:555",
                   "nameLabel": {
@@ -1910,7 +1910,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
@@ -1981,7 +1981,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:665;895:665",
                   "nameLabel": {
@@ -2046,7 +2046,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
@@ -2117,7 +2117,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:775;895:775",
                   "nameLabel": {
@@ -2182,7 +2182,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
@@ -2253,7 +2253,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:885;895:885",
                   "nameLabel": {
@@ -2318,7 +2318,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
@@ -2389,7 +2389,7 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "points": "295:995;895:995",
                   "nameLabel": {
@@ -2454,7 +2454,7 @@
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_REACT"
+                    "$ref": "LINE_FRONTEND"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"

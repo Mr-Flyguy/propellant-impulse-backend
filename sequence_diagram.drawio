@@ -5,8 +5,8 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
-        <!-- FRAME: sd Диаграмма последовательности -->
-        <mxCell id="frame_box" value="sd Диаграмма последовательности" style="shape=umlFrame;whiteSpace=wrap;html=1;width=240;height=26;fontStyle=1;fontSize=11.5;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;" vertex="1" parent="1">
+        <!-- FRAME: interaction HTTP запросы -->
+        <mxCell id="frame_box" value="interaction HTTP запросы" style="shape=umlFrame;whiteSpace=wrap;html=1;width=180;height=26;fontStyle=1;fontSize=11.5;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;" vertex="1" parent="1">
           <mxGeometry x="10" y="10" width="1040" height="1120" as="geometry" />
         </mxCell>
 
@@ -30,9 +30,9 @@
           <mxGeometry x="830" y="50" width="130" height="1050" as="geometry" />
         </mxCell>
 
-        <!-- React SPA block (created dynamically) -->
-        <mxCell id="block_react" value="React" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;fontFamily=Helvetica;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="255" y="145" width="80" height="40" as="geometry" />
+        <!-- Frontend SPA block (created dynamically) -->
+        <mxCell id="block_react" value="Frontend" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;fontFamily=Helvetica;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="145" width="90" height="40" as="geometry" />
         </mxCell>
 
         <!-- React Lifeline Stem -->
