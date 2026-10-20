@@ -36,12 +36,6 @@ export class Propellant {
   @Column({ type: 'varchar', length: 255, name: 'video_url', nullable: true })
   videoUrl: string;
 
-  @Column({ type: 'int', name: 'image_size_kb', nullable: true, default: 168 })
-  imageSizeKb: number;
-
-  @Column({ type: 'varchar', length: 64, name: 'image_mime', nullable: true, default: 'image/jpeg' })
-  imageMime: string;
-
   @Column({
     type: 'decimal',
     precision: 8,
@@ -53,9 +47,6 @@ export class Propellant {
     },
   })
   molarMass: number;
-
-  @Column({ type: 'int', name: 'reactor_temperature_k', nullable: true, default: 2400 })
-  reactorTemperatureK: number;
 
   @Column({
     type: 'decimal',
@@ -70,9 +61,6 @@ export class Propellant {
     },
   })
   specificHeatRatio: number;
-
-  @Column({ type: 'int', name: 'specific_impulse' })
-  specificImpulse: number;
 
   @Column({ name: 'creator_id' })
   creatorId: number;

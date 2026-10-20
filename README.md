@@ -62,15 +62,13 @@ npm run start
 | :--- | :--- | :--- | :--- |
 | `id` | `SERIAL` | `PRIMARY KEY` | Уникальный идентификатор рабочего тела |
 | `name` | `VARCHAR(128)` | `NOT NULL` | Наименование рабочего тела |
-| `short_description`| `TEXT` | `NULL` | Краткое описание физико-химических свойств |
+| `short_description`| `VARCHAR(255)` | `NULL` | Краткое описание физико-химических свойств |
 | `engineering_analysis` | `TEXT` | `NULL` | Детальный инженерный термодинамический анализ |
-| `status` | `VARCHAR(20)` | `NOT NULL, CHECK (status IN ('draft', 'published', 'deleted'))` | Жизненный цикл записи |
-| `image_url` | `VARCHAR(255)` | `NOT NULL` | URL схемы/фото в объектном хранилище Minio |
-| `video_url` | `VARCHAR(255)` | `NOT NULL` | URL видеозаписи истечения факела в Minio |
+| `status` | `VARCHAR(32)` | `NOT NULL, CHECK (status IN ('draft', 'published', 'deleted'))` | Жизненный цикл записи |
+| `image_url` | `VARCHAR(255)` | `NULL` | URL схемы/фото в объектном хранилище Minio |
+| `video_url` | `VARCHAR(255)` | `NULL` | URL видеозаписи истечения факела в Minio |
 | `molar_mass` | `DECIMAL(8, 3)` | `NOT NULL` | Молярная масса рабочего тела $\mu$ (г/моль) |
-| `reactor_temperature_k` | `INT` | `DEFAULT 2400` | Оптимальная температура в активной зоне реактора (K) |
 | `specific_heat_ratio` | `DECIMAL(8, 3)` | `DEFAULT 1.25` | Показатель адиабаты $\gamma$ |
-| `specific_impulse` | `INT` | `NOT NULL` | Расчетный удельный импульс $I_{sp}$ (сек) |
 | `creator_id` | `INT` | `NOT NULL, FOREIGN KEY -> users(id) ON DELETE RESTRICT` | Автор записи (назначается сервером) |
 | `created_at` | `TIMESTAMPTZ` | `DEFAULT CURRENT_TIMESTAMP` | Время добавления записи |
 | `updated_at` | `TIMESTAMPTZ` | `DEFAULT CURRENT_TIMESTAMP` | Время последнего обновления |
@@ -79,8 +77,9 @@ npm run start
 
 | Поле | Тип данных | Ограничения | Описание |
 | :--- | :--- | :--- | :--- |
-| `user_id` | `INT` | `PRIMARY KEY, FOREIGN KEY -> users(id)` | Пользователь, поставивший отметку |
-| `propellant_id` | `INT` | `PRIMARY KEY, FOREIGN KEY -> propellants(id)` | Оцениваемое рабочее тело |
+| `id` | `SERIAL` | `PRIMARY KEY` | Уникальный идентификатор отметки |
+| `user_id` | `INT` | `NOT NULL, FOREIGN KEY -> users(id)` | Пользователь, поставивший отметку |
+| `propellant_id` | `INT` | `NOT NULL, FOREIGN KEY -> propellants(id)` | Оцениваемое рабочее тело |
 | `created_at` | `TIMESTAMPTZ` | `DEFAULT CURRENT_TIMESTAMP` | Время выставления отметки |
 
 ---
