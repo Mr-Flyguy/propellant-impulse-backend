@@ -24,9 +24,7 @@ export interface SavePropellantDto {
   shortDescription?: string;
   engineeringAnalysis?: string;
   molarMass?: number;
-  reactorTemperatureK?: number;
   specificHeatRatio?: number;
-  specificImpulse?: number;
   imageUrl?: string;
   videoUrl?: string;
 }
@@ -179,17 +177,10 @@ export class PropellantsService {
       if (dto.molarMass !== undefined && !isNaN(dto.molarMass))
         draft.molarMass = dto.molarMass;
       if (
-        dto.reactorTemperatureK !== undefined &&
-        !isNaN(dto.reactorTemperatureK)
-      )
-        draft.reactorTemperatureK = dto.reactorTemperatureK;
-      if (
         dto.specificHeatRatio !== undefined &&
         !isNaN(dto.specificHeatRatio)
       )
         draft.specificHeatRatio = dto.specificHeatRatio;
-      if (dto.specificImpulse !== undefined && !isNaN(dto.specificImpulse))
-        draft.specificImpulse = dto.specificImpulse;
       draft.updatedAt = new Date();
       return await this.propellantRepo.save(draft);
     }
@@ -202,9 +193,7 @@ export class PropellantsService {
       imageUrl: dto.imageUrl || this.defaultImageUrl,
       videoUrl: dto.videoUrl || this.defaultVideoUrl,
       molarMass: dto.molarMass ?? 16.04,
-      reactorTemperatureK: dto.reactorTemperatureK ?? 2600,
       specificHeatRatio: dto.specificHeatRatio ?? 1.32,
-      specificImpulse: dto.specificImpulse ?? 630,
       creatorId: userId,
     });
 
@@ -230,17 +219,10 @@ export class PropellantsService {
       if (dto.molarMass !== undefined && !isNaN(dto.molarMass))
         draft.molarMass = dto.molarMass;
       if (
-        dto.reactorTemperatureK !== undefined &&
-        !isNaN(dto.reactorTemperatureK)
-      )
-        draft.reactorTemperatureK = dto.reactorTemperatureK;
-      if (
         dto.specificHeatRatio !== undefined &&
         !isNaN(dto.specificHeatRatio)
       )
         draft.specificHeatRatio = dto.specificHeatRatio;
-      if (dto.specificImpulse !== undefined && !isNaN(dto.specificImpulse))
-        draft.specificImpulse = dto.specificImpulse;
       draft.status = 'published';
       draft.updatedAt = new Date();
       return await this.propellantRepo.save(draft);
@@ -254,9 +236,7 @@ export class PropellantsService {
       imageUrl: dto.imageUrl || this.defaultImageUrl,
       videoUrl: dto.videoUrl || this.defaultVideoUrl,
       molarMass: dto.molarMass ?? 16.04,
-      reactorTemperatureK: dto.reactorTemperatureK ?? 2600,
       specificHeatRatio: dto.specificHeatRatio ?? 1.32,
-      specificImpulse: dto.specificImpulse ?? 630,
       creatorId: userId,
     });
 
@@ -373,7 +353,6 @@ export class PropellantsService {
         status: 'draft',
         imageUrl: imageUrl || this.defaultImageUrl,
         videoUrl: videoUrl || this.defaultVideoUrl,
-        specificImpulse: 630,
         creatorId: currentUserId,
       });
       draft = await this.propellantRepo.save(draft);

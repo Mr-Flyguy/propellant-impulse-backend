@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" width="980" height="580">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 550" width="980" height="550">
 
   <defs>
     <style>
@@ -19,12 +19,12 @@
 
   <!-- Table: propellants -->
   <g id="tbl_propellants">
-    <rect class="tbl-bg" x="50" y="30" width="380" height="364" />
+    <rect class="tbl-bg" x="50" y="30" width="380" height="316" />
     <rect class="tbl-header-bg" x="50" y="30" width="380" height="28" />
     <text class="tbl-header-txt" x="240" y="49">propellants</text>
     <line class="grid-line" x1="50" y1="58" x2="430" y2="58" />
-    <line class="grid-line" x1="100" y1="58" x2="100" y2="394" />
-    <line class="grid-line" x1="290" y1="58" x2="290" y2="394" />
+    <line class="grid-line" x1="100" y1="58" x2="100" y2="346" />
+    <line class="grid-line" x1="290" y1="58" x2="290" y2="346" />
     <text class="col-k" x="75" y="74">PK</text>
     <text class="col-n" x="108" y="74">id</text>
     <text class="col-t" x="298" y="74">INTEGER</text>
@@ -54,24 +54,18 @@
     <text class="col-n" x="108" y="242">molar_mass</text>
     <text class="col-t" x="298" y="242">DECIMAL(8,3)</text>
     <line class="grid-line" x1="50" y1="250" x2="430" y2="250" />
-    <text class="col-n" x="108" y="266">specific_impulse</text>
-    <text class="col-t" x="298" y="266">INTEGER</text>
+    <text class="col-n" x="108" y="266">specific_heat_ratio</text>
+    <text class="col-t" x="298" y="266">DECIMAL(8,3)</text>
     <line class="grid-line" x1="50" y1="274" x2="430" y2="274" />
-    <text class="col-n" x="108" y="290">reactor_temperature_k</text>
+    <text class="col-k" x="75" y="290">FK</text>
+    <text class="col-n" x="108" y="290">creator_id</text>
     <text class="col-t" x="298" y="290">INTEGER</text>
     <line class="grid-line" x1="50" y1="298" x2="430" y2="298" />
-    <text class="col-n" x="108" y="314">specific_heat_ratio</text>
-    <text class="col-t" x="298" y="314">DECIMAL(8,3)</text>
+    <text class="col-n" x="108" y="314">created_at</text>
+    <text class="col-t" x="298" y="314">TIMESTAMP</text>
     <line class="grid-line" x1="50" y1="322" x2="430" y2="322" />
-    <text class="col-k" x="75" y="338">FK</text>
-    <text class="col-n" x="108" y="338">creator_id</text>
-    <text class="col-t" x="298" y="338">INTEGER</text>
-    <line class="grid-line" x1="50" y1="346" x2="430" y2="346" />
-    <text class="col-n" x="108" y="362">created_at</text>
-    <text class="col-t" x="298" y="362">TIMESTAMP</text>
-    <line class="grid-line" x1="50" y1="370" x2="430" y2="370" />
-    <text class="col-n" x="108" y="386">updated_at</text>
-    <text class="col-t" x="298" y="386">TIMESTAMP</text>
+    <text class="col-n" x="108" y="338">updated_at</text>
+    <text class="col-t" x="298" y="338">TIMESTAMP</text>
   </g>
   <!-- Table: users -->
   <g id="tbl_users">
@@ -99,44 +93,44 @@
   </g>
   <!-- Table: propellant_likes -->
   <g id="tbl_likes">
-    <rect class="tbl-bg" x="50" y="430" width="380" height="124" />
-    <rect class="tbl-header-bg" x="50" y="430" width="380" height="28" />
-    <text class="tbl-header-txt" x="240" y="449">propellant_likes</text>
-    <line class="grid-line" x1="50" y1="458" x2="430" y2="458" />
-    <line class="grid-line" x1="100" y1="458" x2="100" y2="554" />
-    <line class="grid-line" x1="290" y1="458" x2="290" y2="554" />
-    <text class="col-k" x="75" y="474">PK</text>
-    <text class="col-n" x="108" y="474">id</text>
-    <text class="col-t" x="298" y="474">INTEGER</text>
-    <line class="grid-line" x1="50" y1="482" x2="430" y2="482" />
-    <text class="col-k" x="75" y="498">FK</text>
-    <text class="col-n" x="108" y="498">user_id</text>
-    <text class="col-t" x="298" y="498">INTEGER</text>
-    <line class="grid-line" x1="50" y1="506" x2="430" y2="506" />
-    <text class="col-k" x="75" y="522">FK</text>
-    <text class="col-n" x="108" y="522">propellant_id</text>
-    <text class="col-t" x="298" y="522">INTEGER</text>
-    <line class="grid-line" x1="50" y1="530" x2="430" y2="530" />
-    <text class="col-n" x="108" y="546">created_at</text>
-    <text class="col-t" x="298" y="546">TIMESTAMP</text>
+    <rect class="tbl-bg" x="50" y="400" width="380" height="124" />
+    <rect class="tbl-header-bg" x="50" y="400" width="380" height="28" />
+    <text class="tbl-header-txt" x="240" y="419">propellant_likes</text>
+    <line class="grid-line" x1="50" y1="428" x2="430" y2="428" />
+    <line class="grid-line" x1="100" y1="428" x2="100" y2="524" />
+    <line class="grid-line" x1="290" y1="428" x2="290" y2="524" />
+    <text class="col-k" x="75" y="444">PK</text>
+    <text class="col-n" x="108" y="444">id</text>
+    <text class="col-t" x="298" y="444">INTEGER</text>
+    <line class="grid-line" x1="50" y1="452" x2="430" y2="452" />
+    <text class="col-k" x="75" y="468">FK</text>
+    <text class="col-n" x="108" y="468">user_id</text>
+    <text class="col-t" x="298" y="468">INTEGER</text>
+    <line class="grid-line" x1="50" y1="476" x2="430" y2="476" />
+    <text class="col-k" x="75" y="492">FK</text>
+    <text class="col-n" x="108" y="492">propellant_id</text>
+    <text class="col-t" x="298" y="492">INTEGER</text>
+    <line class="grid-line" x1="50" y1="500" x2="430" y2="500" />
+    <text class="col-n" x="108" y="516">created_at</text>
+    <text class="col-t" x="298" y="516">TIMESTAMP</text>
   </g>
   <!-- ==================== RELATIONSHIPS ==================== -->
   <!-- 1. users -> propellants -->
-  <path class="edge" d="M 560 90 L 495 90 L 495 334 L 430 334" />
+  <path class="edge" d="M 560 90 L 495 90 L 495 286 L 430 286" />
   <line class="cf-marker" x1="548" y1="83" x2="548" y2="97" />
   <line class="cf-marker" x1="554" y1="83" x2="554" y2="97" />
-  <circle class="cf-circle" cx="448" cy="334" r="4.5" />
-  <path class="cf-marker" d="M 442 334 L 430 327 M 442 334 L 430 341 M 442 334 L 430 334" />
+  <circle class="cf-circle" cx="448" cy="286" r="4.5" />
+  <path class="cf-marker" d="M 442 286 L 430 279 M 442 286 L 430 293 M 442 286 L 430 286" />
   <!-- 2. propellants -> propellant_likes -->
-  <path class="edge" d="M 160 394 L 160 430" />
-  <line class="cf-marker" x1="153" y1="404" x2="167" y2="404" />
-  <line class="cf-marker" x1="153" y1="410" x2="167" y2="410" />
-  <circle class="cf-circle" cx="160" cy="420" r="4.5" />
-  <path class="cf-marker" d="M 160 424 L 153 430 M 160 424 L 167 430 M 160 424 L 160 430" />
+  <path class="edge" d="M 160 346 L 160 400" />
+  <line class="cf-marker" x1="153" y1="356" x2="167" y2="356" />
+  <line class="cf-marker" x1="153" y1="362" x2="167" y2="362" />
+  <circle class="cf-circle" cx="160" cy="390" r="4.5" />
+  <path class="cf-marker" d="M 160 394 L 153 400 M 160 394 L 167 400 M 160 394 L 160 400" />
   <!-- 3. users -> propellant_likes -->
-  <path class="edge" d="M 740 198 L 740 494 L 430 494" />
+  <path class="edge" d="M 740 198 L 740 464 L 430 464" />
   <line class="cf-marker" x1="733" y1="210" x2="747" y2="210" />
   <line class="cf-marker" x1="733" y1="216" x2="747" y2="216" />
-  <circle class="cf-circle" cx="448" cy="494" r="4.5" />
-  <path class="cf-marker" d="M 442 494 L 430 487 M 442 494 L 430 501 M 442 494 L 430 494" />
+  <circle class="cf-circle" cx="448" cy="464" r="4.5" />
+  <path class="cf-marker" d="M 442 464 L 430 457 M 442 464 L 430 471 M 442 464 L 430 464" />
 </svg>
