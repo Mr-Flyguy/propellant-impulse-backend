@@ -5,8 +5,8 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
-        <!-- FRAME: interaction HTTP запросы -->
-        <mxCell id="frame_box" value="interaction HTTP запросы" style="shape=umlFrame;whiteSpace=wrap;html=1;width=180;height=26;fontStyle=1;fontSize=11.5;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;" vertex="1" parent="1">
+        <!-- FRAME: sd Диаграмма последовательности -->
+        <mxCell id="frame_box" value="sd Диаграмма последовательности" style="shape=umlFrame;whiteSpace=wrap;html=1;width=240;height=26;fontStyle=1;fontSize=11.5;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.2;" vertex="1" parent="1">
           <mxGeometry x="10" y="10" width="1040" height="1120" as="geometry" />
         </mxCell>
 

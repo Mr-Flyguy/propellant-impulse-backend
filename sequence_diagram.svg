@@ -29,8 +29,8 @@
   </style>
 
   <!-- Interaction Frame Header -->
-  <path d="M 10 10 L 190 10 L 205 26 L 1050 26 L 1050 1130 L 10 1130 Z" fill="none" stroke="#222222" stroke-width="1.2" />
-  <text x="20" y="21" class="title-txt">interaction HTTP запросы</text>
+  <path d="M 10 10 L 260 10 L 275 28 L 1050 28 L 1050 1130 L 10 1130 Z" fill="none" stroke="#222222" stroke-width="1.2" />
+  <text x="20" y="22" class="title-txt">sd Диаграмма последовательности</text>
 
   <!-- ==================== LIFELINES ==================== -->
   <!-- 1. Браузер: Веб-браузер (x = 140) -->
