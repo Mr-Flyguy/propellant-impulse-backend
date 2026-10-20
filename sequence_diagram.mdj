@@ -25,7 +25,21 @@
               "_parent": {
                 "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
               },
-              "name": "POST UserLogin"
+              "name": "POST UserLogin",
+              "parameters": [
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_LOGIN_U",
+                  "name": "username",
+                  "type": "string"
+                },
+                {
+                  "_type": "UMLParameter",
+                  "_id": "P_LOGIN_P",
+                  "name": "password",
+                  "type": "string"
+                }
+              ]
             },
             {
               "_type": "UMLOperation",
@@ -202,265 +216,6 @@
               ]
             }
           ]
-        },
-        {
-          "_type": "UMLCollaboration",
-          "_id": "AAAAAAF_COLLAB_MAIN",
-          "_parent": {
-            "$ref": "AAAAAAF_MODEL_MAIN"
-          },
-          "name": "Collaboration",
-          "ownedElements": [
-            {
-              "_type": "UMLInteraction",
-              "_id": "AAAAAAF_INTERACTION_MAIN",
-              "_parent": {
-                "$ref": "AAAAAAF_COLLAB_MAIN"
-              },
-              "name": "HTTP запросы",
-              "ownedElements": [
-                {
-                  "_type": "UMLSequenceDiagram",
-                  "_id": "AAAAAAF_SEQ_DIAGRAM_MAIN",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "HTTP запросы"
-                }
-              ],
-              "messages": [
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_1_GET",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "GET",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_BROWSER"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_SERVER"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_2_CREATE",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "«create»",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_SERVER"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "messageSort": "createMessage"
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP1_LOGIN",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "POST UserLogin",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_USERS"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_USER_LOGIN"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP2_CATALOG",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "GET Propellants",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_GET_PROPELLANTS"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP3_DRAFT",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "GET PropellantDraft",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_GET_DRAFT"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP4_POST",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "POST Propellant",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_POST_PROPELLANT"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP5_PUT",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "PUT Propellant",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_PUT_PROPELLANT"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP6_LIKE",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "POST PropellantLike",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_POST_LIKE"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP7_DELETE",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "DELETE Propellant",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_REACT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_DELETE_PROPELLANT"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "MSG_OP8_FEED",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "GET PropellantFeed",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_MOBILE"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
-                  },
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_GET_FEED"
-                  }
-                }
-              ],
-              "participants": [
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_BROWSER",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "Браузер: Веб-браузер"
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_SERVER",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "HTTP: HTTP-сервер :3000"
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_REACT",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "React"
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_DOMAIN_USERS",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "Домен пользователей",
-                  "represent": {
-                    "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
-                  }
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_MOBILE",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "Мобильное приложение"
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_DOMAIN_PROP",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "Домен видов топлива",
-                  "represent": {
-                    "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
-                  }
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_POSTGRES",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "PostgreSQL"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -506,27 +261,11 @@
         },
         {
           "_type": "UMLAttribute",
-          "_id": "ROLE_MOBILE_ID",
-          "_parent": {
-            "$ref": "COLLAB_HTTP_MAIN"
-          },
-          "name": "mobile_role"
-        },
-        {
-          "_type": "UMLAttribute",
           "_id": "ROLE_PROP_ID",
           "_parent": {
             "$ref": "COLLAB_HTTP_MAIN"
           },
           "name": "propellants_role"
-        },
-        {
-          "_type": "UMLAttribute",
-          "_id": "ROLE_PG_ID",
-          "_parent": {
-            "$ref": "COLLAB_HTTP_MAIN"
-          },
-          "name": "postgres_role"
         }
       ],
       "ownedElements": [
@@ -588,18 +327,6 @@
             },
             {
               "_type": "UMLLifeline",
-              "_id": "LL_MOBILE_ID",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": ": Мобильное приложение",
-              "represent": {
-                "$ref": "ROLE_MOBILE_ID"
-              },
-              "isMultiInstance": false
-            },
-            {
-              "_type": "UMLLifeline",
               "_id": "LL_PROP_ID",
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
@@ -607,18 +334,6 @@
               "name": ": Домен видов топлива",
               "represent": {
                 "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
-              },
-              "isMultiInstance": false
-            },
-            {
-              "_type": "UMLLifeline",
-              "_id": "LL_PG_ID",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": ": PostgreSQL",
-              "represent": {
-                "$ref": "ROLE_PG_ID"
               },
               "isMultiInstance": false
             }
@@ -637,7 +352,8 @@
               "target": {
                 "$ref": "LL_SERVER_ID"
               },
-              "messageSort": "synchCall"
+              "messageSort": "synchCall",
+              "arguments": ""
             },
             {
               "_type": "UMLMessage",
@@ -652,7 +368,8 @@
               "target": {
                 "$ref": "LL_REACT_ID"
               },
-              "messageSort": "createMessage"
+              "messageSort": "createMessage",
+              "arguments": ""
             },
             {
               "_type": "UMLMessage",
@@ -660,7 +377,7 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "POST UserLogin()",
+              "name": "POST UserLogin",
               "source": {
                 "$ref": "LL_REACT_ID"
               },
@@ -668,6 +385,7 @@
                 "$ref": "LL_USERS_ID"
               },
               "messageSort": "synchCall",
+              "arguments": "username, password",
               "signature": {
                 "$ref": "AAAAAAF_OP_USER_LOGIN"
               }
@@ -685,7 +403,8 @@
               "target": {
                 "$ref": "LL_REACT_ID"
               },
-              "messageSort": "reply"
+              "messageSort": "reply",
+              "arguments": "sessionId, user"
             },
             {
               "_type": "UMLMessage",
@@ -693,7 +412,7 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "GET Propellants(maxMolarMass)",
+              "name": "GET Propellants",
               "source": {
                 "$ref": "LL_REACT_ID"
               },
@@ -701,6 +420,7 @@
                 "$ref": "LL_PROP_ID"
               },
               "messageSort": "synchCall",
+              "arguments": "maxMolarMass",
               "signature": {
                 "$ref": "AAAAAAF_OP_GET_PROPELLANTS"
               }
@@ -711,14 +431,15 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "JSON рабочих тел",
+              "name": "JSON списка услуг",
               "source": {
                 "$ref": "LL_PROP_ID"
               },
               "target": {
                 "$ref": "LL_REACT_ID"
               },
-              "messageSort": "reply"
+              "messageSort": "reply",
+              "arguments": "propellants[]"
             },
             {
               "_type": "UMLMessage",
@@ -726,7 +447,7 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "GET PropellantDraft()",
+              "name": "POST Propellant",
               "source": {
                 "$ref": "LL_REACT_ID"
               },
@@ -734,46 +455,14 @@
                 "$ref": "LL_PROP_ID"
               },
               "messageSort": "synchCall",
-              "signature": {
-                "$ref": "AAAAAAF_OP_GET_DRAFT"
-              }
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_8",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "JSON полей черновика",
-              "source": {
-                "$ref": "LL_PROP_ID"
-              },
-              "target": {
-                "$ref": "LL_REACT_ID"
-              },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_9",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "POST Propellant(name, image, video)",
-              "source": {
-                "$ref": "LL_REACT_ID"
-              },
-              "target": {
-                "$ref": "LL_PROP_ID"
-              },
-              "messageSort": "synchCall",
+              "arguments": "name, image, video",
               "signature": {
                 "$ref": "AAAAAAF_OP_POST_PROPELLANT"
               }
             },
             {
               "_type": "UMLMessage",
-              "_id": "MSG_MODEL_10",
+              "_id": "MSG_MODEL_8",
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
@@ -784,15 +473,16 @@
               "target": {
                 "$ref": "LL_REACT_ID"
               },
-              "messageSort": "reply"
+              "messageSort": "reply",
+              "arguments": "id, draft = true"
             },
             {
               "_type": "UMLMessage",
-              "_id": "MSG_MODEL_11",
+              "_id": "MSG_MODEL_9",
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "PUT Propellant(id)",
+              "name": "GET PropellantDraft",
               "source": {
                 "$ref": "LL_REACT_ID"
               },
@@ -800,6 +490,42 @@
                 "$ref": "LL_PROP_ID"
               },
               "messageSort": "synchCall",
+              "arguments": "",
+              "signature": {
+                "$ref": "AAAAAAF_OP_GET_DRAFT"
+              }
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "MSG_MODEL_10",
+              "_parent": {
+                "$ref": "INTERACTION_HTTP_MAIN"
+              },
+              "name": "JSON полей черновика",
+              "source": {
+                "$ref": "LL_PROP_ID"
+              },
+              "target": {
+                "$ref": "LL_REACT_ID"
+              },
+              "messageSort": "reply",
+              "arguments": "draft_fields"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "MSG_MODEL_11",
+              "_parent": {
+                "$ref": "INTERACTION_HTTP_MAIN"
+              },
+              "name": "PUT Propellant",
+              "source": {
+                "$ref": "LL_REACT_ID"
+              },
+              "target": {
+                "$ref": "LL_PROP_ID"
+              },
+              "messageSort": "synchCall",
+              "arguments": "id",
               "signature": {
                 "$ref": "AAAAAAF_OP_PUT_PROPELLANT"
               }
@@ -810,14 +536,15 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "select propellants",
+              "name": "JSON опубликованной услуги",
               "source": {
                 "$ref": "LL_PROP_ID"
               },
               "target": {
-                "$ref": "LL_PG_ID"
+                "$ref": "LL_REACT_ID"
               },
-              "messageSort": "synchCall"
+              "messageSort": "reply",
+              "arguments": "id, published = true"
             },
             {
               "_type": "UMLMessage",
@@ -825,67 +552,7 @@
               "_parent": {
                 "$ref": "INTERACTION_HTTP_MAIN"
               },
-              "name": "курсор рабочего тела",
-              "source": {
-                "$ref": "LL_PG_ID"
-              },
-              "target": {
-                "$ref": "LL_PROP_ID"
-              },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_14",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "update propellants",
-              "source": {
-                "$ref": "LL_PROP_ID"
-              },
-              "target": {
-                "$ref": "LL_PG_ID"
-              },
-              "messageSort": "synchCall"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_15",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "статус обновления",
-              "source": {
-                "$ref": "LL_PG_ID"
-              },
-              "target": {
-                "$ref": "LL_PROP_ID"
-              },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_16",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "JSON обновленного рабочего тела",
-              "source": {
-                "$ref": "LL_PROP_ID"
-              },
-              "target": {
-                "$ref": "LL_REACT_ID"
-              },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_17",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "POST PropellantLike(id, like)",
+              "name": "GET PropellantFeed",
               "source": {
                 "$ref": "LL_REACT_ID"
               },
@@ -893,6 +560,77 @@
                 "$ref": "LL_PROP_ID"
               },
               "messageSort": "synchCall",
+              "arguments": "",
+              "signature": {
+                "$ref": "AAAAAAF_OP_GET_FEED"
+              }
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "MSG_MODEL_14",
+              "_parent": {
+                "$ref": "INTERACTION_HTTP_MAIN"
+              },
+              "name": "JSON карточки ленты",
+              "source": {
+                "$ref": "LL_PROP_ID"
+              },
+              "target": {
+                "$ref": "LL_REACT_ID"
+              },
+              "messageSort": "reply",
+              "arguments": "feed_item"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "MSG_MODEL_15",
+              "_parent": {
+                "$ref": "INTERACTION_HTTP_MAIN"
+              },
+              "name": "GET PropellantFeed",
+              "source": {
+                "$ref": "LL_REACT_ID"
+              },
+              "target": {
+                "$ref": "LL_PROP_ID"
+              },
+              "messageSort": "synchCall",
+              "arguments": "id, next = true",
+              "signature": {
+                "$ref": "AAAAAAF_OP_GET_FEED"
+              }
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "MSG_MODEL_16",
+              "_parent": {
+                "$ref": "INTERACTION_HTTP_MAIN"
+              },
+              "name": "JSON следующей карточки ленты",
+              "source": {
+                "$ref": "LL_PROP_ID"
+              },
+              "target": {
+                "$ref": "LL_REACT_ID"
+              },
+              "messageSort": "reply",
+              "arguments": "next_feed_item"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "MSG_MODEL_17",
+              "_parent": {
+                "$ref": "INTERACTION_HTTP_MAIN"
+              },
+              "name": "POST PropellantLike",
+              "source": {
+                "$ref": "LL_REACT_ID"
+              },
+              "target": {
+                "$ref": "LL_PROP_ID"
+              },
+              "messageSort": "synchCall",
+              "arguments": "id, like",
               "signature": {
                 "$ref": "AAAAAAF_OP_POST_LIKE"
               }
@@ -910,103 +648,8 @@
               "target": {
                 "$ref": "LL_REACT_ID"
               },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_19",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "DELETE Propellant(id)",
-              "source": {
-                "$ref": "LL_REACT_ID"
-              },
-              "target": {
-                "$ref": "LL_PROP_ID"
-              },
-              "messageSort": "synchCall",
-              "signature": {
-                "$ref": "AAAAAAF_OP_DELETE_PROPELLANT"
-              }
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_20",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "200 : OK",
-              "source": {
-                "$ref": "LL_PROP_ID"
-              },
-              "target": {
-                "$ref": "LL_REACT_ID"
-              },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_21",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "GET PropellantFeed(id, next)",
-              "source": {
-                "$ref": "LL_MOBILE_ID"
-              },
-              "target": {
-                "$ref": "LL_PROP_ID"
-              },
-              "messageSort": "synchCall",
-              "signature": {
-                "$ref": "AAAAAAF_OP_GET_FEED"
-              }
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_22",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "select feed_propellant",
-              "source": {
-                "$ref": "LL_PROP_ID"
-              },
-              "target": {
-                "$ref": "LL_PG_ID"
-              },
-              "messageSort": "synchCall"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_23",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "курсор ленты",
-              "source": {
-                "$ref": "LL_PG_ID"
-              },
-              "target": {
-                "$ref": "LL_PROP_ID"
-              },
-              "messageSort": "reply"
-            },
-            {
-              "_type": "UMLMessage",
-              "_id": "MSG_MODEL_24",
-              "_parent": {
-                "$ref": "INTERACTION_HTTP_MAIN"
-              },
-              "name": "JSON карточки ленты",
-              "source": {
-                "$ref": "LL_PROP_ID"
-              },
-              "target": {
-                "$ref": "LL_MOBILE_ID"
-              },
-              "messageSort": "reply"
+              "messageSort": "reply",
+              "arguments": "likesCount, isLiked"
             }
           ],
           "ownedElements": [
@@ -1018,6 +661,7 @@
               },
               "name": "HTTP запросы",
               "showSequenceNumber": true,
+              "showSignature": true,
               "ownedViews": [
                 {
                   "_type": "UMLSeqLifelineView",
@@ -1058,9 +702,9 @@
                           },
                           "font": "Arial;11;1",
                           "parentStyle": true,
-                          "left": 44,
+                          "left": 64,
                           "top": 57,
-                          "width": 142,
+                          "width": 152,
                           "height": 26,
                           "text": "Браузер: Веб-браузер"
                         },
@@ -1089,9 +733,9 @@
                       ],
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 40,
+                      "left": 60,
                       "top": 50,
-                      "width": 150,
+                      "width": 160,
                       "height": 40,
                       "nameLabel": {
                         "$ref": "NLBL_BROWSER"
@@ -1108,18 +752,18 @@
                       },
                       "font": "Arial;11;0",
                       "parentStyle": false,
-                      "left": 115,
+                      "left": 140,
                       "top": 91,
                       "width": 1,
-                      "height": 1325
+                      "height": 1025
                     }
                   ],
                   "font": "Arial;11;0",
                   "parentStyle": false,
-                  "left": 40,
+                  "left": 60,
                   "top": 50,
-                  "width": 150,
-                  "height": 1370,
+                  "width": 160,
+                  "height": 1070,
                   "nameCompartment": {
                     "$ref": "COMP_BROWSER"
                   },
@@ -1166,9 +810,9 @@
                           },
                           "font": "Arial;11;1",
                           "parentStyle": true,
-                          "left": 229,
-                          "top": 162,
-                          "width": 72,
+                          "left": 254,
+                          "top": 152,
+                          "width": 82,
                           "height": 26,
                           "text": "React"
                         },
@@ -1197,9 +841,9 @@
                       ],
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 225,
-                      "top": 155,
-                      "width": 80,
+                      "left": 250,
+                      "top": 145,
+                      "width": 90,
                       "height": 40,
                       "nameLabel": {
                         "$ref": "NLBL_REACT"
@@ -1216,18 +860,18 @@
                       },
                       "font": "Arial;11;0",
                       "parentStyle": false,
-                      "left": 265,
-                      "top": 196,
+                      "left": 295,
+                      "top": 186,
                       "width": 1,
-                      "height": 1220
+                      "height": 930
                     }
                   ],
                   "font": "Arial;11;0",
                   "parentStyle": false,
-                  "left": 225,
-                  "top": 155,
-                  "width": 80,
-                  "height": 1265,
+                  "left": 250,
+                  "top": 145,
+                  "width": 90,
+                  "height": 975,
                   "nameCompartment": {
                     "$ref": "COMP_REACT"
                   },
@@ -1274,9 +918,9 @@
                           },
                           "font": "Arial;11;1",
                           "parentStyle": true,
-                          "left": 344,
+                          "left": 374,
                           "top": 57,
-                          "width": 152,
+                          "width": 162,
                           "height": 26,
                           "text": "HTTP: HTTP-сервер :3000"
                         },
@@ -1305,9 +949,9 @@
                       ],
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 340,
+                      "left": 370,
                       "top": 50,
-                      "width": 160,
+                      "width": 170,
                       "height": 40,
                       "nameLabel": {
                         "$ref": "NLBL_SERVER"
@@ -1324,18 +968,18 @@
                       },
                       "font": "Arial;11;0",
                       "parentStyle": false,
-                      "left": 420,
+                      "left": 455,
                       "top": 91,
                       "width": 1,
-                      "height": 1325
+                      "height": 1025
                     }
                   ],
                   "font": "Arial;11;0",
                   "parentStyle": false,
-                  "left": 340,
+                  "left": 370,
                   "top": 50,
-                  "width": 160,
-                  "height": 1370,
+                  "width": 170,
+                  "height": 1070,
                   "nameCompartment": {
                     "$ref": "COMP_SERVER"
                   },
@@ -1382,9 +1026,9 @@
                           },
                           "font": "Arial;11;1",
                           "parentStyle": true,
-                          "left": 544,
+                          "left": 584,
                           "top": 57,
-                          "width": 152,
+                          "width": 172,
                           "height": 26,
                           "text": ": Домен пользователей"
                         },
@@ -1413,9 +1057,9 @@
                       ],
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 540,
+                      "left": 580,
                       "top": 50,
-                      "width": 160,
+                      "width": 180,
                       "height": 40,
                       "nameLabel": {
                         "$ref": "NLBL_USERS"
@@ -1432,131 +1076,23 @@
                       },
                       "font": "Arial;11;0",
                       "parentStyle": false,
-                      "left": 620,
+                      "left": 670,
                       "top": 91,
                       "width": 1,
-                      "height": 1325
+                      "height": 1025
                     }
                   ],
                   "font": "Arial;11;0",
                   "parentStyle": false,
-                  "left": 540,
+                  "left": 580,
                   "top": 50,
-                  "width": 160,
-                  "height": 1370,
+                  "width": 180,
+                  "height": 1070,
                   "nameCompartment": {
                     "$ref": "COMP_USERS"
                   },
                   "linePart": {
                     "$ref": "LINE_USERS"
-                  }
-                },
-                {
-                  "_type": "UMLSeqLifelineView",
-                  "_id": "V_LL_MOBILE",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "LL_MOBILE_ID"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "UMLNameCompartmentView",
-                      "_id": "COMP_MOBILE",
-                      "_parent": {
-                        "$ref": "V_LL_MOBILE"
-                      },
-                      "model": {
-                        "$ref": "LL_MOBILE_ID"
-                      },
-                      "subViews": [
-                        {
-                          "_type": "LabelView",
-                          "_id": "STEREO_mobile",
-                          "_parent": {
-                            "$ref": "COMP_MOBILE"
-                          },
-                          "visible": false,
-                          "font": "Arial;11;0",
-                          "parentStyle": true,
-                          "height": 13
-                        },
-                        {
-                          "_type": "LabelView",
-                          "_id": "NLBL_MOBILE",
-                          "_parent": {
-                            "$ref": "COMP_MOBILE"
-                          },
-                          "font": "Arial;11;1",
-                          "parentStyle": true,
-                          "left": 744,
-                          "top": 57,
-                          "width": 152,
-                          "height": 26,
-                          "text": ": Мобильное приложение"
-                        },
-                        {
-                          "_type": "LabelView",
-                          "_id": "NS_mobile",
-                          "_parent": {
-                            "$ref": "COMP_MOBILE"
-                          },
-                          "visible": false,
-                          "font": "Arial;11;0",
-                          "parentStyle": true,
-                          "height": 13
-                        },
-                        {
-                          "_type": "LabelView",
-                          "_id": "PROP_mobile",
-                          "_parent": {
-                            "$ref": "COMP_MOBILE"
-                          },
-                          "visible": false,
-                          "font": "Arial;11;0",
-                          "parentStyle": true,
-                          "height": 13
-                        }
-                      ],
-                      "font": "Arial;11;0",
-                      "parentStyle": true,
-                      "left": 740,
-                      "top": 50,
-                      "width": 160,
-                      "height": 40,
-                      "nameLabel": {
-                        "$ref": "NLBL_MOBILE"
-                      }
-                    },
-                    {
-                      "_type": "UMLLinePartView",
-                      "_id": "LINE_MOBILE",
-                      "_parent": {
-                        "$ref": "V_LL_MOBILE"
-                      },
-                      "model": {
-                        "$ref": "LL_MOBILE_ID"
-                      },
-                      "font": "Arial;11;0",
-                      "parentStyle": false,
-                      "left": 820,
-                      "top": 91,
-                      "width": 1,
-                      "height": 1325
-                    }
-                  ],
-                  "font": "Arial;11;0",
-                  "parentStyle": false,
-                  "left": 740,
-                  "top": 50,
-                  "width": 160,
-                  "height": 1370,
-                  "nameCompartment": {
-                    "$ref": "COMP_MOBILE"
-                  },
-                  "linePart": {
-                    "$ref": "LINE_MOBILE"
                   }
                 },
                 {
@@ -1598,9 +1134,9 @@
                           },
                           "font": "Arial;11;1",
                           "parentStyle": true,
-                          "left": 944,
+                          "left": 804,
                           "top": 57,
-                          "width": 152,
+                          "width": 182,
                           "height": 26,
                           "text": ": Домен видов топлива"
                         },
@@ -1629,9 +1165,9 @@
                       ],
                       "font": "Arial;11;0",
                       "parentStyle": true,
-                      "left": 940,
+                      "left": 800,
                       "top": 50,
-                      "width": 160,
+                      "width": 190,
                       "height": 40,
                       "nameLabel": {
                         "$ref": "NLBL_PROP"
@@ -1648,131 +1184,23 @@
                       },
                       "font": "Arial;11;0",
                       "parentStyle": false,
-                      "left": 1020,
+                      "left": 895,
                       "top": 91,
                       "width": 1,
-                      "height": 1325
+                      "height": 1025
                     }
                   ],
                   "font": "Arial;11;0",
                   "parentStyle": false,
-                  "left": 940,
+                  "left": 800,
                   "top": 50,
-                  "width": 160,
-                  "height": 1370,
+                  "width": 190,
+                  "height": 1070,
                   "nameCompartment": {
                     "$ref": "COMP_PROP"
                   },
                   "linePart": {
                     "$ref": "LINE_PROP"
-                  }
-                },
-                {
-                  "_type": "UMLSeqLifelineView",
-                  "_id": "V_LL_PG",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "LL_PG_ID"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "UMLNameCompartmentView",
-                      "_id": "COMP_PG",
-                      "_parent": {
-                        "$ref": "V_LL_PG"
-                      },
-                      "model": {
-                        "$ref": "LL_PG_ID"
-                      },
-                      "subViews": [
-                        {
-                          "_type": "LabelView",
-                          "_id": "STEREO_postgres",
-                          "_parent": {
-                            "$ref": "COMP_PG"
-                          },
-                          "visible": false,
-                          "font": "Arial;11;0",
-                          "parentStyle": true,
-                          "height": 13
-                        },
-                        {
-                          "_type": "LabelView",
-                          "_id": "NLBL_PG",
-                          "_parent": {
-                            "$ref": "COMP_PG"
-                          },
-                          "font": "Arial;11;1",
-                          "parentStyle": true,
-                          "left": 1144,
-                          "top": 57,
-                          "width": 122,
-                          "height": 26,
-                          "text": ": PostgreSQL"
-                        },
-                        {
-                          "_type": "LabelView",
-                          "_id": "NS_postgres",
-                          "_parent": {
-                            "$ref": "COMP_PG"
-                          },
-                          "visible": false,
-                          "font": "Arial;11;0",
-                          "parentStyle": true,
-                          "height": 13
-                        },
-                        {
-                          "_type": "LabelView",
-                          "_id": "PROP_postgres",
-                          "_parent": {
-                            "$ref": "COMP_PG"
-                          },
-                          "visible": false,
-                          "font": "Arial;11;0",
-                          "parentStyle": true,
-                          "height": 13
-                        }
-                      ],
-                      "font": "Arial;11;0",
-                      "parentStyle": true,
-                      "left": 1140,
-                      "top": 50,
-                      "width": 130,
-                      "height": 40,
-                      "nameLabel": {
-                        "$ref": "NLBL_PG"
-                      }
-                    },
-                    {
-                      "_type": "UMLLinePartView",
-                      "_id": "LINE_PG",
-                      "_parent": {
-                        "$ref": "V_LL_PG"
-                      },
-                      "model": {
-                        "$ref": "LL_PG_ID"
-                      },
-                      "font": "Arial;11;0",
-                      "parentStyle": false,
-                      "left": 1205,
-                      "top": 91,
-                      "width": 1,
-                      "height": 1325
-                    }
-                  ],
-                  "font": "Arial;11;0",
-                  "parentStyle": false,
-                  "left": 1140,
-                  "top": 50,
-                  "width": 130,
-                  "height": 1370,
-                  "nameCompartment": {
-                    "$ref": "COMP_PG"
-                  },
-                  "linePart": {
-                    "$ref": "LINE_PG"
                   }
                 },
                 {
@@ -1796,9 +1224,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 242,
+                      "left": 267,
                       "top": 99,
-                      "width": 50,
+                      "width": 60,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -1806,7 +1234,7 @@
                         "$ref": "MSG_VIEW_1"
                       },
                       "edgePosition": 1,
-                      "text": "GET"
+                      "text": "1 : GET"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -1820,10 +1248,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 413,
+                      "left": 448,
                       "top": 115,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -1834,7 +1262,7 @@
                   "tail": {
                     "$ref": "LINE_BROWSER"
                   },
-                  "points": "115:115;420:115",
+                  "points": "140:115;455:115",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_1"
                   },
@@ -1864,9 +1292,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 297,
-                      "top": 159,
-                      "width": 50,
+                      "left": 313.0,
+                      "top": 149,
+                      "width": 78.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -1874,7 +1302,7 @@
                         "$ref": "MSG_VIEW_2"
                       },
                       "edgePosition": 1,
-                      "text": ""
+                      "text": "2 : «create»"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -1888,8 +1316,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 218,
-                      "top": 175,
+                      "left": 243,
+                      "top": 165,
                       "width": 14,
                       "height": 25
                     }
@@ -1902,7 +1330,7 @@
                   "tail": {
                     "$ref": "LINE_SERVER"
                   },
-                  "points": "420:175;225:175",
+                  "points": "455:165;250:165",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_2"
                   },
@@ -1932,9 +1360,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 390.0,
-                      "top": 224,
-                      "width": 104.0,
+                      "left": 359.0,
+                      "top": 209,
+                      "width": 247.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -1942,7 +1370,7 @@
                         "$ref": "MSG_VIEW_3"
                       },
                       "edgePosition": 1,
-                      "text": "POST UserLogin()"
+                      "text": "3 : POST UserLogin(username, password)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -1956,10 +1384,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 613,
-                      "top": 240,
+                      "left": 663,
+                      "top": 225,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -1970,7 +1398,7 @@
                   "tail": {
                     "$ref": "LINE_REACT"
                   },
-                  "points": "265:240;620:240",
+                  "points": "295:225;670:225",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_3"
                   },
@@ -2000,9 +1428,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 325.0,
-                      "top": 279,
-                      "width": 234.0,
+                      "left": 297.0,
+                      "top": 259,
+                      "width": 370.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2010,7 +1438,7 @@
                         "$ref": "MSG_VIEW_4"
                       },
                       "edgePosition": 1,
-                      "text": "JSON пользователя и Cookie sessionId"
+                      "text": "4 : JSON пользователя и Cookie sessionId(sessionId, user)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2024,8 +1452,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 258,
-                      "top": 295,
+                      "left": 288,
+                      "top": 275,
                       "width": 14,
                       "height": 25
                     }
@@ -2038,7 +1466,7 @@
                   "tail": {
                     "$ref": "LINE_USERS"
                   },
-                  "points": "620:295;265:295",
+                  "points": "670:275;295:275",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_4"
                   },
@@ -2068,9 +1496,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 548.0,
-                      "top": 339,
-                      "width": 188.5,
+                      "left": 488.0,
+                      "top": 319,
+                      "width": 214.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2078,7 +1506,7 @@
                         "$ref": "MSG_VIEW_5"
                       },
                       "edgePosition": 1,
-                      "text": "GET Propellants(maxMolarMass)"
+                      "text": "5 : GET Propellants(maxMolarMass)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2092,10 +1520,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 355,
+                      "left": 888,
+                      "top": 335,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2106,7 +1534,7 @@
                   "tail": {
                     "$ref": "LINE_REACT"
                   },
-                  "points": "265:355;1020:355",
+                  "points": "295:335;895:335",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_5"
                   },
@@ -2136,9 +1564,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 590.0,
-                      "top": 394,
-                      "width": 104.0,
+                      "left": 478.0,
+                      "top": 369,
+                      "width": 234.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2146,7 +1574,7 @@
                         "$ref": "MSG_VIEW_6"
                       },
                       "edgePosition": 1,
-                      "text": "JSON рабочих тел"
+                      "text": "6 : JSON списка услуг(propellants[])"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2160,8 +1588,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 258,
-                      "top": 410,
+                      "left": 288,
+                      "top": 385,
                       "width": 14,
                       "height": 25
                     }
@@ -2174,7 +1602,7 @@
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:410;265:410",
+                  "points": "895:385;295:385",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_6"
                   },
@@ -2204,9 +1632,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 574.0,
-                      "top": 454,
-                      "width": 136.5,
+                      "left": 469.0,
+                      "top": 429,
+                      "width": 253.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2214,7 +1642,7 @@
                         "$ref": "MSG_VIEW_7"
                       },
                       "edgePosition": 1,
-                      "text": "GET PropellantDraft()"
+                      "text": "7 : POST Propellant(name, image, video)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2228,10 +1656,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 470,
+                      "left": 888,
+                      "top": 445,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2242,7 +1670,7 @@
                   "tail": {
                     "$ref": "LINE_REACT"
                   },
-                  "points": "265:470;1020:470",
+                  "points": "295:445;895:445",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_7"
                   },
@@ -2272,9 +1700,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 577.0,
-                      "top": 509,
-                      "width": 130.0,
+                      "left": 459.0,
+                      "top": 479,
+                      "width": 273.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2282,7 +1710,7 @@
                         "$ref": "MSG_VIEW_8"
                       },
                       "edgePosition": 1,
-                      "text": "JSON полей черновика"
+                      "text": "8 : 201 : JSON черновика(id, draft = true)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2296,8 +1724,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 258,
-                      "top": 525,
+                      "left": 288,
+                      "top": 495,
                       "width": 14,
                       "height": 25
                     }
@@ -2310,7 +1738,7 @@
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:525;265:525",
+                  "points": "895:495;295:495",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_8"
                   },
@@ -2340,9 +1768,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 529.0,
-                      "top": 569,
-                      "width": 227.5,
+                      "left": 514.0,
+                      "top": 539,
+                      "width": 162.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2350,7 +1778,7 @@
                         "$ref": "MSG_VIEW_9"
                       },
                       "edgePosition": 1,
-                      "text": "POST Propellant(name, image, video)"
+                      "text": "9 : GET PropellantDraft()"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2364,10 +1792,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 585,
+                      "left": 888,
+                      "top": 555,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2378,7 +1806,7 @@
                   "tail": {
                     "$ref": "LINE_REACT"
                   },
-                  "points": "265:585;1020:585",
+                  "points": "295:555;895:555",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_9"
                   },
@@ -2408,9 +1836,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 577.0,
-                      "top": 624,
-                      "width": 130.0,
+                      "left": 469.0,
+                      "top": 589,
+                      "width": 253.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2418,7 +1846,7 @@
                         "$ref": "MSG_VIEW_10"
                       },
                       "edgePosition": 1,
-                      "text": "201 : JSON черновика"
+                      "text": "10 : JSON полей черновика(draft_fields)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2432,8 +1860,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 258,
-                      "top": 640,
+                      "left": 288,
+                      "top": 605,
                       "width": 14,
                       "height": 25
                     }
@@ -2446,7 +1874,7 @@
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:640;265:640",
+                  "points": "895:605;295:605",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_10"
                   },
@@ -2476,9 +1904,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 584.0,
-                      "top": 684,
-                      "width": 117.0,
+                      "left": 521.0,
+                      "top": 649,
+                      "width": 149.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2486,7 +1914,7 @@
                         "$ref": "MSG_VIEW_11"
                       },
                       "edgePosition": 1,
-                      "text": "PUT Propellant(id)"
+                      "text": "11 : PUT Propellant(id)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2500,10 +1928,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 700,
+                      "left": 888,
+                      "top": 665,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2514,7 +1942,7 @@
                   "tail": {
                     "$ref": "LINE_REACT"
                   },
-                  "points": "265:700;1020:700",
+                  "points": "295:665;895:665",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_11"
                   },
@@ -2544,9 +1972,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1054.0,
-                      "top": 729,
-                      "width": 117.0,
+                      "left": 423.0,
+                      "top": 699,
+                      "width": 344.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2554,7 +1982,7 @@
                         "$ref": "MSG_VIEW_12"
                       },
                       "edgePosition": 1,
-                      "text": "select propellants"
+                      "text": "12 : JSON опубликованной услуги(id, published = true)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2565,24 +1993,24 @@
                       "model": {
                         "$ref": "MSG_MODEL_12"
                       },
-                      "visible": true,
+                      "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1198,
-                      "top": 745,
+                      "left": 288,
+                      "top": 715,
                       "width": 14,
-                      "height": 45
+                      "height": 25
                     }
                   ],
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_PG"
+                    "$ref": "LINE_REACT"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:745;1205:745",
+                  "points": "895:715;295:715",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_12"
                   },
@@ -2612,9 +2040,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1047.0,
-                      "top": 769,
-                      "width": 130.0,
+                      "left": 514.0,
+                      "top": 759,
+                      "width": 162.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2622,7 +2050,7 @@
                         "$ref": "MSG_VIEW_13"
                       },
                       "edgePosition": 1,
-                      "text": "курсор рабочего тела"
+                      "text": "13 : GET PropellantFeed()"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2633,13 +2061,13 @@
                       "model": {
                         "$ref": "MSG_MODEL_13"
                       },
-                      "visible": false,
+                      "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 785,
+                      "left": 888,
+                      "top": 775,
                       "width": 14,
-                      "height": 25
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2648,9 +2076,9 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_PG"
+                    "$ref": "LINE_REACT"
                   },
-                  "points": "1205:785;1020:785",
+                  "points": "295:775;895:775",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_13"
                   },
@@ -2680,9 +2108,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1054.0,
+                      "left": 482.0,
                       "top": 809,
-                      "width": 117.0,
+                      "width": 227.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2690,7 +2118,7 @@
                         "$ref": "MSG_VIEW_14"
                       },
                       "edgePosition": 1,
-                      "text": "update propellants"
+                      "text": "14 : JSON карточки ленты(feed_item)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2701,24 +2129,24 @@
                       "model": {
                         "$ref": "MSG_MODEL_14"
                       },
-                      "visible": true,
+                      "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1198,
+                      "left": 288,
                       "top": 825,
                       "width": 14,
-                      "height": 45
+                      "height": 25
                     }
                   ],
                   "font": "Arial;10.5;0",
                   "parentStyle": false,
                   "head": {
-                    "$ref": "LINE_PG"
+                    "$ref": "LINE_REACT"
                   },
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:825;1205:825",
+                  "points": "895:825;295:825",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_14"
                   },
@@ -2748,9 +2176,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1057.0,
-                      "top": 849,
-                      "width": 110.5,
+                      "left": 465.0,
+                      "top": 869,
+                      "width": 260.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2758,7 +2186,7 @@
                         "$ref": "MSG_VIEW_15"
                       },
                       "edgePosition": 1,
-                      "text": "статус обновления"
+                      "text": "15 : GET PropellantFeed(id, next = true)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2769,13 +2197,13 @@
                       "model": {
                         "$ref": "MSG_MODEL_15"
                       },
-                      "visible": false,
+                      "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 865,
+                      "left": 888,
+                      "top": 885,
                       "width": 14,
-                      "height": 25
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2784,9 +2212,9 @@
                     "$ref": "LINE_PROP"
                   },
                   "tail": {
-                    "$ref": "LINE_PG"
+                    "$ref": "LINE_REACT"
                   },
-                  "points": "1205:865;1020:865",
+                  "points": "295:885;895:885",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_15"
                   },
@@ -2816,9 +2244,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 542.0,
-                      "top": 894,
-                      "width": 201.5,
+                      "left": 433.0,
+                      "top": 919,
+                      "width": 325.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2826,7 +2254,7 @@
                         "$ref": "MSG_VIEW_16"
                       },
                       "edgePosition": 1,
-                      "text": "JSON обновленного рабочего тела"
+                      "text": "16 : JSON следующей карточки ленты(next_feed_item)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2840,8 +2268,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 258,
-                      "top": 910,
+                      "left": 288,
+                      "top": 935,
                       "width": 14,
                       "height": 25
                     }
@@ -2854,7 +2282,7 @@
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:910;265:910",
+                  "points": "895:935;295:935",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_16"
                   },
@@ -2884,9 +2312,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 548.0,
-                      "top": 954,
-                      "width": 188.5,
+                      "left": 485.0,
+                      "top": 979,
+                      "width": 221.0,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2894,7 +2322,7 @@
                         "$ref": "MSG_VIEW_17"
                       },
                       "edgePosition": 1,
-                      "text": "POST PropellantLike(id, like)"
+                      "text": "17 : POST PropellantLike(id, like)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2908,10 +2336,10 @@
                       "visible": true,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 1013,
-                      "top": 970,
+                      "left": 888,
+                      "top": 995,
                       "width": 14,
-                      "height": 45
+                      "height": 50
                     }
                   ],
                   "font": "Arial;10.5;0",
@@ -2922,7 +2350,7 @@
                   "tail": {
                     "$ref": "LINE_REACT"
                   },
-                  "points": "265:970;1020:970",
+                  "points": "295:995;895:995",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_17"
                   },
@@ -2952,9 +2380,9 @@
                       },
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 574.0,
-                      "top": 1009,
-                      "width": 136.5,
+                      "left": 443.0,
+                      "top": 1029,
+                      "width": 305.5,
                       "height": 13,
                       "alpha": 1.5707963267948966,
                       "distance": 10,
@@ -2962,7 +2390,7 @@
                         "$ref": "MSG_VIEW_18"
                       },
                       "edgePosition": 1,
-                      "text": "JSON отметки нравится"
+                      "text": "18 : JSON отметки нравится(likesCount, isLiked)"
                     },
                     {
                       "_type": "UMLActivationView",
@@ -2976,8 +2404,8 @@
                       "visible": false,
                       "font": "Arial;10.5;0",
                       "parentStyle": false,
-                      "left": 258,
-                      "top": 1025,
+                      "left": 288,
+                      "top": 1045,
                       "width": 14,
                       "height": 25
                     }
@@ -2990,420 +2418,12 @@
                   "tail": {
                     "$ref": "LINE_PROP"
                   },
-                  "points": "1020:1025;265:1025",
+                  "points": "895:1045;295:1045",
                   "nameLabel": {
                     "$ref": "MSG_ELBL_18"
                   },
                   "activation": {
                     "$ref": "MSG_ACT_18"
-                  },
-                  "lineStyle": 1
-                },
-                {
-                  "_type": "UMLSeqMessageView",
-                  "_id": "MSG_VIEW_19",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "MSG_MODEL_19"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "EdgeLabelView",
-                      "_id": "MSG_ELBL_19",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_19"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_19"
-                      },
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 574.0,
-                      "top": 1069,
-                      "width": 136.5,
-                      "height": 13,
-                      "alpha": 1.5707963267948966,
-                      "distance": 10,
-                      "hostEdge": {
-                        "$ref": "MSG_VIEW_19"
-                      },
-                      "edgePosition": 1,
-                      "text": "DELETE Propellant(id)"
-                    },
-                    {
-                      "_type": "UMLActivationView",
-                      "_id": "MSG_ACT_19",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_19"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_19"
-                      },
-                      "visible": true,
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 1013,
-                      "top": 1085,
-                      "width": 14,
-                      "height": 45
-                    }
-                  ],
-                  "font": "Arial;10.5;0",
-                  "parentStyle": false,
-                  "head": {
-                    "$ref": "LINE_PROP"
-                  },
-                  "tail": {
-                    "$ref": "LINE_REACT"
-                  },
-                  "points": "265:1085;1020:1085",
-                  "nameLabel": {
-                    "$ref": "MSG_ELBL_19"
-                  },
-                  "activation": {
-                    "$ref": "MSG_ACT_19"
-                  },
-                  "lineStyle": 1
-                },
-                {
-                  "_type": "UMLSeqMessageView",
-                  "_id": "MSG_VIEW_20",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "MSG_MODEL_20"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "EdgeLabelView",
-                      "_id": "MSG_ELBL_20",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_20"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_20"
-                      },
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 616.0,
-                      "top": 1124,
-                      "width": 52.0,
-                      "height": 13,
-                      "alpha": 1.5707963267948966,
-                      "distance": 10,
-                      "hostEdge": {
-                        "$ref": "MSG_VIEW_20"
-                      },
-                      "edgePosition": 1,
-                      "text": "200 : OK"
-                    },
-                    {
-                      "_type": "UMLActivationView",
-                      "_id": "MSG_ACT_20",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_20"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_20"
-                      },
-                      "visible": false,
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 258,
-                      "top": 1140,
-                      "width": 14,
-                      "height": 25
-                    }
-                  ],
-                  "font": "Arial;10.5;0",
-                  "parentStyle": false,
-                  "head": {
-                    "$ref": "LINE_REACT"
-                  },
-                  "tail": {
-                    "$ref": "LINE_PROP"
-                  },
-                  "points": "1020:1140;265:1140",
-                  "nameLabel": {
-                    "$ref": "MSG_ELBL_20"
-                  },
-                  "activation": {
-                    "$ref": "MSG_ACT_20"
-                  },
-                  "lineStyle": 1
-                },
-                {
-                  "_type": "UMLSeqMessageView",
-                  "_id": "MSG_VIEW_21",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "MSG_MODEL_21"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "EdgeLabelView",
-                      "_id": "MSG_ELBL_21",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_21"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_21"
-                      },
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 829.0,
-                      "top": 1184,
-                      "width": 182.0,
-                      "height": 13,
-                      "alpha": 1.5707963267948966,
-                      "distance": 10,
-                      "hostEdge": {
-                        "$ref": "MSG_VIEW_21"
-                      },
-                      "edgePosition": 1,
-                      "text": "GET PropellantFeed(id, next)"
-                    },
-                    {
-                      "_type": "UMLActivationView",
-                      "_id": "MSG_ACT_21",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_21"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_21"
-                      },
-                      "visible": true,
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 1013,
-                      "top": 1200,
-                      "width": 14,
-                      "height": 45
-                    }
-                  ],
-                  "font": "Arial;10.5;0",
-                  "parentStyle": false,
-                  "head": {
-                    "$ref": "LINE_PROP"
-                  },
-                  "tail": {
-                    "$ref": "LINE_MOBILE"
-                  },
-                  "points": "820:1200;1020:1200",
-                  "nameLabel": {
-                    "$ref": "MSG_ELBL_21"
-                  },
-                  "activation": {
-                    "$ref": "MSG_ACT_21"
-                  },
-                  "lineStyle": 1
-                },
-                {
-                  "_type": "UMLSeqMessageView",
-                  "_id": "MSG_VIEW_22",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "MSG_MODEL_22"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "EdgeLabelView",
-                      "_id": "MSG_ELBL_22",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_22"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_22"
-                      },
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 1041.0,
-                      "top": 1229,
-                      "width": 143.0,
-                      "height": 13,
-                      "alpha": 1.5707963267948966,
-                      "distance": 10,
-                      "hostEdge": {
-                        "$ref": "MSG_VIEW_22"
-                      },
-                      "edgePosition": 1,
-                      "text": "select feed_propellant"
-                    },
-                    {
-                      "_type": "UMLActivationView",
-                      "_id": "MSG_ACT_22",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_22"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_22"
-                      },
-                      "visible": true,
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 1198,
-                      "top": 1245,
-                      "width": 14,
-                      "height": 45
-                    }
-                  ],
-                  "font": "Arial;10.5;0",
-                  "parentStyle": false,
-                  "head": {
-                    "$ref": "LINE_PG"
-                  },
-                  "tail": {
-                    "$ref": "LINE_PROP"
-                  },
-                  "points": "1020:1245;1205:1245",
-                  "nameLabel": {
-                    "$ref": "MSG_ELBL_22"
-                  },
-                  "activation": {
-                    "$ref": "MSG_ACT_22"
-                  },
-                  "lineStyle": 1
-                },
-                {
-                  "_type": "UMLSeqMessageView",
-                  "_id": "MSG_VIEW_23",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "MSG_MODEL_23"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "EdgeLabelView",
-                      "_id": "MSG_ELBL_23",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_23"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_23"
-                      },
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 1073.0,
-                      "top": 1269,
-                      "width": 78.0,
-                      "height": 13,
-                      "alpha": 1.5707963267948966,
-                      "distance": 10,
-                      "hostEdge": {
-                        "$ref": "MSG_VIEW_23"
-                      },
-                      "edgePosition": 1,
-                      "text": "курсор ленты"
-                    },
-                    {
-                      "_type": "UMLActivationView",
-                      "_id": "MSG_ACT_23",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_23"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_23"
-                      },
-                      "visible": false,
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 1013,
-                      "top": 1285,
-                      "width": 14,
-                      "height": 25
-                    }
-                  ],
-                  "font": "Arial;10.5;0",
-                  "parentStyle": false,
-                  "head": {
-                    "$ref": "LINE_PROP"
-                  },
-                  "tail": {
-                    "$ref": "LINE_PG"
-                  },
-                  "points": "1205:1285;1020:1285",
-                  "nameLabel": {
-                    "$ref": "MSG_ELBL_23"
-                  },
-                  "activation": {
-                    "$ref": "MSG_ACT_23"
-                  },
-                  "lineStyle": 1
-                },
-                {
-                  "_type": "UMLSeqMessageView",
-                  "_id": "MSG_VIEW_24",
-                  "_parent": {
-                    "$ref": "DIAGRAM_HTTP_MAIN"
-                  },
-                  "model": {
-                    "$ref": "MSG_MODEL_24"
-                  },
-                  "subViews": [
-                    {
-                      "_type": "EdgeLabelView",
-                      "_id": "MSG_ELBL_24",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_24"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_24"
-                      },
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 859.0,
-                      "top": 1319,
-                      "width": 123.5,
-                      "height": 13,
-                      "alpha": 1.5707963267948966,
-                      "distance": 10,
-                      "hostEdge": {
-                        "$ref": "MSG_VIEW_24"
-                      },
-                      "edgePosition": 1,
-                      "text": "JSON карточки ленты"
-                    },
-                    {
-                      "_type": "UMLActivationView",
-                      "_id": "MSG_ACT_24",
-                      "_parent": {
-                        "$ref": "MSG_VIEW_24"
-                      },
-                      "model": {
-                        "$ref": "MSG_MODEL_24"
-                      },
-                      "visible": false,
-                      "font": "Arial;10.5;0",
-                      "parentStyle": false,
-                      "left": 813,
-                      "top": 1335,
-                      "width": 14,
-                      "height": 25
-                    }
-                  ],
-                  "font": "Arial;10.5;0",
-                  "parentStyle": false,
-                  "head": {
-                    "$ref": "LINE_MOBILE"
-                  },
-                  "tail": {
-                    "$ref": "LINE_PROP"
-                  },
-                  "points": "1020:1335;820:1335",
-                  "nameLabel": {
-                    "$ref": "MSG_ELBL_24"
-                  },
-                  "activation": {
-                    "$ref": "MSG_ACT_24"
                   },
                   "lineStyle": 1
                 }
@@ -3414,5 +2434,5 @@
       ]
     }
   ],
-  "documentVersion": 1
+  "documentVersion": "2.0"
 }
