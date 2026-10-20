@@ -252,7 +252,7 @@ export class PropellantsService {
   }
 
   // ==========================================
-  // REST API METHODS (Laboratory Work 3 & 4)
+  // REST API METHODS
   // ==========================================
 
   async getApiCatalog(

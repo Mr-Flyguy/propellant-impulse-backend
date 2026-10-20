@@ -9,7 +9,7 @@
       "_parent": {
         "$ref": "AAAAAAF_PROJ_PROPELLANT"
       },
-      "name": "Class and Interaction Model",
+      "name": "HTTP запросы",
       "ownedElements": [
         {
           "_type": "UMLClass",
@@ -217,7 +217,7 @@
               "_parent": {
                 "$ref": "AAAAAAF_COLLAB_MAIN"
               },
-              "name": "Взаимодействие компонентов (8 операций)",
+              "name": "HTTP запросы",
               "ownedElements": [
                 {
                   "_type": "UMLSequenceDiagram",
@@ -225,49 +225,77 @@
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
-                  "name": "Sequence Diagram",
+                  "name": "HTTP запросы",
                   "ownedViews": [
                     {
                       "_type": "UMLLifelineView",
-                      "_id": "VIEW_LIFE_USER",
+                      "_id": "VIEW_LIFE_BROWSER",
                       "_parent": {
                         "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
                       },
                       "model": {
-                        "$ref": "AAAAAAF_LIFE_USER"
+                        "$ref": "AAAAAAF_LIFE_BROWSER"
                       },
-                      "left": 50,
+                      "left": 90,
                       "top": 40,
-                      "width": 110,
-                      "height": 820
+                      "width": 120,
+                      "height": 880
                     },
                     {
                       "_type": "UMLLifelineView",
-                      "_id": "VIEW_LIFE_FRONT",
+                      "_id": "VIEW_LIFE_SERVER",
                       "_parent": {
                         "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
                       },
                       "model": {
-                        "$ref": "AAAAAAF_LIFE_FRONT"
+                        "$ref": "AAAAAAF_LIFE_SERVER"
                       },
-                      "left": 210,
+                      "left": 270,
                       "top": 40,
                       "width": 130,
-                      "height": 820
+                      "height": 880
                     },
                     {
                       "_type": "UMLLifelineView",
-                      "_id": "VIEW_LIFE_AUTH",
+                      "_id": "VIEW_LIFE_REACT",
                       "_parent": {
                         "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
                       },
                       "model": {
-                        "$ref": "AAAAAAF_LIFE_AUTH"
+                        "$ref": "AAAAAAF_LIFE_REACT"
                       },
-                      "left": 400,
+                      "left": 180,
+                      "top": 150,
+                      "width": 80,
+                      "height": 770
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_USERS",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_DOMAIN_USERS"
+                      },
+                      "left": 430,
                       "top": 40,
-                      "width": 150,
-                      "height": 820
+                      "width": 130,
+                      "height": 880
+                    },
+                    {
+                      "_type": "UMLLifelineView",
+                      "_id": "VIEW_LIFE_MOBILE",
+                      "_parent": {
+                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
+                      },
+                      "model": {
+                        "$ref": "AAAAAAF_LIFE_MOBILE"
+                      },
+                      "left": 600,
+                      "top": 40,
+                      "width": 120,
+                      "height": 880
                     },
                     {
                       "_type": "UMLLifelineView",
@@ -276,26 +304,12 @@
                         "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
                       },
                       "model": {
-                        "$ref": "AAAAAAF_LIFE_PROP"
+                        "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                       },
-                      "left": 610,
+                      "left": 750,
                       "top": 40,
-                      "width": 160,
-                      "height": 820
-                    },
-                    {
-                      "_type": "UMLLifelineView",
-                      "_id": "VIEW_LIFE_REDIS",
-                      "_parent": {
-                        "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
-                      },
-                      "model": {
-                        "$ref": "AAAAAAF_LIFE_REDIS"
-                      },
-                      "left": 830,
-                      "top": 40,
-                      "width": 120,
-                      "height": 820
+                      "width": 140,
+                      "height": 880
                     },
                     {
                       "_type": "UMLLifelineView",
@@ -304,12 +318,12 @@
                         "$ref": "AAAAAAF_SEQ_DIAGRAM_MAIN"
                       },
                       "model": {
-                        "$ref": "AAAAAAF_LIFE_DB"
+                        "$ref": "AAAAAAF_LIFE_POSTGRES"
                       },
-                      "left": 1010,
+                      "left": 920,
                       "top": 40,
-                      "width": 130,
-                      "height": 820
+                      "width": 110,
+                      "height": 880
                     }
                   ]
                 }
@@ -317,54 +331,61 @@
               "participants": [
                 {
                   "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_USER",
+                  "_id": "AAAAAAF_LIFE_BROWSER",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
-                  "name": "Пользователь",
-                  "isActor": true
+                  "name": "Браузер: Веб-браузер"
                 },
                 {
                   "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_FRONT",
+                  "_id": "AAAAAAF_LIFE_SERVER",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
-                  "name": "SPA Фронтенд"
+                  "name": "HTTP: HTTP-сервер :3000"
                 },
                 {
                   "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_AUTH",
+                  "_id": "AAAAAAF_LIFE_REACT",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
-                  "name": "AuthService",
+                  "name": "React"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_DOMAIN_USERS",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "Домен пользователей",
                   "represent": {
                     "$ref": "AAAAAAF_CLS_DOMAIN_USERS"
                   }
                 },
                 {
                   "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_PROP",
+                  "_id": "AAAAAAF_LIFE_MOBILE",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
-                  "name": "PropellantsService",
+                  "name": "Мобильное приложение"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "AAAAAAF_LIFE_DOMAIN_PROP",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "Домен видов топлива",
                   "represent": {
                     "$ref": "AAAAAAF_CLS_DOMAIN_PROPELLANTS"
                   }
                 },
                 {
                   "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_REDIS",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "Redis"
-                },
-                {
-                  "_type": "UMLLifeline",
-                  "_id": "AAAAAAF_LIFE_DB",
+                  "_id": "AAAAAAF_LIFE_POSTGRES",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
@@ -374,16 +395,46 @@
               "messages": [
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_1_LOGIN",
+                  "_id": "MSG_1_GET",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "GET",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_BROWSER"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_SERVER"
+                  },
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "MSG_2_CREATE",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "«create»",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_SERVER"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_REACT"
+                  },
+                  "messageSort": "createMessage"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "MSG_OP1_LOGIN",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
                   "name": "POST UserLogin",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_REACT"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_AUTH"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_USERS"
                   },
                   "messageSort": "synchCall",
                   "signature": {
@@ -392,16 +443,16 @@
                 },
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_2_CATALOG",
+                  "_id": "MSG_OP2_CATALOG",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
                   "name": "GET Propellants",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_REACT"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                   },
                   "messageSort": "synchCall",
                   "signature": {
@@ -410,34 +461,16 @@
                 },
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_3_FEED",
-                  "_parent": {
-                    "$ref": "AAAAAAF_INTERACTION_MAIN"
-                  },
-                  "name": "GET PropellantFeed",
-                  "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
-                  },
-                  "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
-                  },
-                  "messageSort": "synchCall",
-                  "signature": {
-                    "$ref": "AAAAAAF_OP_GET_FEED"
-                  }
-                },
-                {
-                  "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_4_DRAFT",
+                  "_id": "MSG_OP3_DRAFT",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
                   "name": "GET PropellantDraft",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_REACT"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                   },
                   "messageSort": "synchCall",
                   "signature": {
@@ -446,16 +479,16 @@
                 },
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_5_CREATE",
+                  "_id": "MSG_OP4_POST",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
                   "name": "POST Propellant",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_REACT"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                   },
                   "messageSort": "synchCall",
                   "signature": {
@@ -464,16 +497,16 @@
                 },
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_6_UPDATE",
+                  "_id": "MSG_OP5_PUT",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
                   "name": "PUT Propellant",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_REACT"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                   },
                   "messageSort": "synchCall",
                   "signature": {
@@ -482,16 +515,34 @@
                 },
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_7_DELETE",
+                  "_id": "MSG_OP6_LIKE",
+                  "_parent": {
+                    "$ref": "AAAAAAF_INTERACTION_MAIN"
+                  },
+                  "name": "POST PropellantLike",
+                  "source": {
+                    "$ref": "AAAAAAF_LIFE_REACT"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
+                  },
+                  "messageSort": "synchCall",
+                  "signature": {
+                    "$ref": "AAAAAAF_OP_POST_LIKE"
+                  }
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "MSG_OP7_DELETE",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
                   "name": "DELETE Propellant",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_REACT"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                   },
                   "messageSort": "synchCall",
                   "signature": {
@@ -500,20 +551,20 @@
                 },
                 {
                   "_type": "UMLMessage",
-                  "_id": "AAAAAAF_MSG_8_LIKE",
+                  "_id": "MSG_OP8_FEED",
                   "_parent": {
                     "$ref": "AAAAAAF_INTERACTION_MAIN"
                   },
-                  "name": "POST PropellantLike",
+                  "name": "GET PropellantFeed",
                   "source": {
-                    "$ref": "AAAAAAF_LIFE_FRONT"
+                    "$ref": "AAAAAAF_LIFE_MOBILE"
                   },
                   "target": {
-                    "$ref": "AAAAAAF_LIFE_PROP"
+                    "$ref": "AAAAAAF_LIFE_DOMAIN_PROP"
                   },
                   "messageSort": "synchCall",
                   "signature": {
-                    "$ref": "AAAAAAF_OP_POST_LIKE"
+                    "$ref": "AAAAAAF_OP_GET_FEED"
                   }
                 }
               ]
