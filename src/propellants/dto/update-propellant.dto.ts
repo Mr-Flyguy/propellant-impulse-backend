@@ -12,7 +12,7 @@ export class UpdatePropellantDto {
 
   @ApiPropertyOptional({
     description: 'Краткое описание рабочего тела',
-    example: 'Обновленное описание для лабораторной работы 4',
+    example: 'Модифицированное описание рабочего тела',
   })
   @IsOptional()
   @IsString()

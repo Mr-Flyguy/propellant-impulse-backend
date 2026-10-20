@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "4d7ae606-61fb-48fe-8da4-propellant-lab4",
-    "name": "Propellant Impulse - Lab 4 (Auth & Sessions)",
-    "description": "Коллекция запросов к REST API сервиса Propellant Impulse для Лабораторной работы 4 (Сессии в Redis, защита маршрутов, Swagger, Insomnia/Postman).\nБазовый URL: http://localhost:3000",
+    "name": "Propellant Impulse - Session Auth & REST API",
+    "description": "Коллекция запросов к REST API сервиса Propellant Impulse (Сессии в Redis, защита маршрутов, Swagger, Insomnia/Postman).\nБазовый URL: http://localhost:3000",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
