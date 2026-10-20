@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS propellant_likes (
 );
 
 INSERT INTO users (id, username, email) VALUES
-(1, 'engineer_maksim', 'maksim@bmstu.ru'),
+(1, 'test_engineer', 'engineer@bmstu.ru'),
 (2, 'chief_designer', 'designer@roscosmos.ru'),
 (3, 'flight_specialist', 'specialist@roscosmos.ru'),
 (4, 'test_pilot', 'pilot@gagarin.ru')

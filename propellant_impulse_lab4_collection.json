@@ -46,7 +46,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"username\": \"engineer_maksim\",\n  \"password\": \"secret123\"\n}"
+              "raw": "{\n  \"username\": \"test_engineer\",\n  \"password\": \"secret123\"\n}"
             },
             "url": {
               "raw": "http://localhost:3000/api/auth/login",
@@ -218,7 +218,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Жидкий водород H₂ (модифицированный)\",\n  \"short_description\": \"Максимальный удельный импульс. Успешно обновлено авторизованным инженером.\",\n  \"molar_mass\": 2.016,\n  \"specific_heat_ratio\": 1.41\n}"
+              "raw": "{\n  \"name\": \"Жидкий водород H₂ (модифицированный)\",\n  \"short_description\": \"Высокий удельный импульс. Успешно обновлено авторизованным инженером.\",\n  \"molar_mass\": 2.016,\n  \"specific_heat_ratio\": 1.41\n}"
             },
             "url": {
               "raw": "http://localhost:3000/api/propellants/1",

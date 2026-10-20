@@ -2,12 +2,12 @@ import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class RegisterUserDto {
-  @ApiProperty({ description: 'Уникальный логин инженера', example: 'engineer_maksim' })
+  @ApiProperty({ description: 'Уникальный логин инженера', example: 'test_engineer' })
   @IsNotEmpty({ message: 'Логин обязателен' })
   @IsString()
   username: string;
 
-  @ApiProperty({ description: 'Электронная почта', example: 'maksim@bmstu.ru' })
+  @ApiProperty({ description: 'Электронная почта', example: 'engineer@bmstu.ru' })
   @IsNotEmpty({ message: 'Email обязателен' })
   @IsEmail({}, { message: 'Некорректный формат email' })
   email: string;
