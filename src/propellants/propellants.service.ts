@@ -22,6 +22,7 @@ export interface FeedResult {
 
 export interface SavePropellantDto {
   name?: string;
+  description?: string;
   shortDescription?: string;
   engineeringAnalysis?: string;
   molarMass?: number;
@@ -76,6 +77,9 @@ export class PropellantsService {
 
     return {
       ...item,
+      description: item.description ?? null,
+      shortDescription: item.description || '',
+      engineeringAnalysis: item.description || '',
       imageUrl: rawImageUrl,
       videoUrl,
       imageKey,
@@ -167,12 +171,10 @@ export class PropellantsService {
       where: { creatorId: userId, status: 'draft' },
     });
 
+    const desc = dto.description ?? dto.shortDescription ?? dto.engineeringAnalysis;
     if (draft) {
       if (dto.name) draft.name = dto.name;
-      if (dto.shortDescription !== undefined)
-        draft.shortDescription = dto.shortDescription;
-      if (dto.engineeringAnalysis !== undefined)
-        draft.engineeringAnalysis = dto.engineeringAnalysis;
+      if (desc !== undefined) draft.description = desc;
       if (dto.imageUrl !== undefined) draft.imageUrl = dto.imageUrl;
       if (dto.videoUrl !== undefined) draft.videoUrl = dto.videoUrl;
       if (dto.molarMass !== undefined && !isNaN(dto.molarMass))
@@ -182,20 +184,20 @@ export class PropellantsService {
         !isNaN(dto.specificHeatRatio)
       )
         draft.specificHeatRatio = dto.specificHeatRatio;
-      draft.updatedAt = new Date();
+      draft.updatedAt = null;
       return await this.propellantRepo.save(draft);
     }
 
     const newDraft = this.propellantRepo.create({
       name: dto.name || 'Новое рабочее тело',
-      shortDescription: dto.shortDescription || '',
-      engineeringAnalysis: dto.engineeringAnalysis || '',
+      description: desc || null,
       status: 'draft',
       imageUrl: dto.imageUrl || this.defaultImageUrl,
       videoUrl: dto.videoUrl || this.defaultVideoUrl,
       molarMass: dto.molarMass ?? 16.04,
       specificHeatRatio: dto.specificHeatRatio ?? 1.32,
       creatorId: userId,
+      updatedAt: null,
     });
 
     return await this.propellantRepo.save(newDraft);
@@ -209,12 +211,10 @@ export class PropellantsService {
       where: { creatorId: userId, status: 'draft' },
     });
 
+    const pubDesc = dto.description ?? dto.shortDescription ?? dto.engineeringAnalysis;
     if (draft) {
       if (dto.name) draft.name = dto.name;
-      if (dto.shortDescription !== undefined)
-        draft.shortDescription = dto.shortDescription;
-      if (dto.engineeringAnalysis !== undefined)
-        draft.engineeringAnalysis = dto.engineeringAnalysis;
+      if (pubDesc !== undefined) draft.description = pubDesc;
       if (dto.imageUrl !== undefined) draft.imageUrl = dto.imageUrl;
       if (dto.videoUrl !== undefined) draft.videoUrl = dto.videoUrl;
       if (dto.molarMass !== undefined && !isNaN(dto.molarMass))
@@ -231,14 +231,14 @@ export class PropellantsService {
 
     const newPropellant = this.propellantRepo.create({
       name: dto.name || 'Новое рабочее тело',
-      shortDescription: dto.shortDescription || '',
-      engineeringAnalysis: dto.engineeringAnalysis || '',
+      description: pubDesc || null,
       status: 'published',
       imageUrl: dto.imageUrl || this.defaultImageUrl,
       videoUrl: dto.videoUrl || this.defaultVideoUrl,
       molarMass: dto.molarMass ?? 16.04,
       specificHeatRatio: dto.specificHeatRatio ?? 1.32,
       creatorId: userId,
+      updatedAt: new Date(),
     });
 
     return await this.propellantRepo.save(newPropellant);
@@ -346,25 +346,27 @@ export class PropellantsService {
       ? Number(String(dto.specific_heat_ratio).replace(',', '.'))
       : 1.32;
 
+    const desc = dto.description ?? dto.short_description;
     if (draft) {
       if (dto.name) draft.name = dto.name;
-      if (dto.short_description !== undefined) draft.shortDescription = dto.short_description;
+      if (desc !== undefined) draft.description = desc;
       if (dto.molar_mass !== undefined) draft.molarMass = isNaN(parsedMolarMass) ? 16.04 : parsedMolarMass;
       if (dto.specific_heat_ratio !== undefined) draft.specificHeatRatio = isNaN(parsedGamma) ? 1.32 : parsedGamma;
       if (imageUrl) draft.imageUrl = imageUrl;
       if (videoUrl) draft.videoUrl = videoUrl;
-      draft.updatedAt = new Date();
+      draft.updatedAt = null;
       draft = await this.propellantRepo.save(draft);
     } else {
       draft = this.propellantRepo.create({
         name: dto.name || 'Новое рабочее тело',
-        shortDescription: dto.short_description || '',
+        description: desc ?? null,
         molarMass: isNaN(parsedMolarMass) ? 16.04 : parsedMolarMass,
         specificHeatRatio: isNaN(parsedGamma) ? 1.32 : parsedGamma,
         status: 'draft',
         imageUrl: imageUrl || this.defaultImageUrl,
         videoUrl: videoUrl || this.defaultVideoUrl,
         creatorId: currentUserId,
+        updatedAt: null,
       });
       draft = await this.propellantRepo.save(draft);
     }
@@ -393,8 +395,9 @@ export class PropellantsService {
       );
     }
 
+    const updateDesc = dto.description ?? dto.short_description;
     if (dto.name) propellant.name = dto.name;
-    if (dto.short_description !== undefined) propellant.shortDescription = dto.short_description;
+    if (updateDesc !== undefined) propellant.description = updateDesc;
     if (dto.molar_mass !== undefined && dto.molar_mass !== null && dto.molar_mass !== '') {
       const parsedMolarMass = Number(String(dto.molar_mass).replace(',', '.'));
       if (!isNaN(parsedMolarMass)) propellant.molarMass = parsedMolarMass;
@@ -407,7 +410,11 @@ export class PropellantsService {
       propellant.status = dto.status as PropellantStatus;
     }
 
-    propellant.updatedAt = new Date();
+    if (propellant.status === 'published' || propellant.status === 'deleted') {
+      propellant.updatedAt = new Date();
+    } else {
+      propellant.updatedAt = null;
+    }
     const saved = await this.propellantRepo.save(propellant);
 
     return PropellantResponseDto.fromEntity(saved, currentUserId);
@@ -441,8 +448,9 @@ export class PropellantsService {
     }
 
     if (dto) {
+      const pubApiDesc = dto.description ?? dto.short_description;
       if (dto.name) propellant.name = dto.name;
-      if (dto.short_description !== undefined) propellant.shortDescription = dto.short_description;
+      if (pubApiDesc !== undefined) propellant.description = pubApiDesc;
       if (dto.molar_mass !== undefined && dto.molar_mass !== null && dto.molar_mass !== '') {
         const parsedMolarMass = Number(String(dto.molar_mass).replace(',', '.'));
         if (!isNaN(parsedMolarMass)) propellant.molarMass = parsedMolarMass;

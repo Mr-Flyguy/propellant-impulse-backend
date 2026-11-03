@@ -27,7 +27,7 @@ export class PropellantDraftController {
   ) {
     await this.propellantsService.saveUserDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
-      shortDescription: '',
+      description: '',
       molarMass: 16.04,
       specificHeatRatio: 1.32,
       imageUrl: '/img/invalid_propellant.jpg',
@@ -39,6 +39,7 @@ export class PropellantDraftController {
   @Post('publish')
   async publishDraft(
     @Body('name') name: string,
+    @Body('description') description: string,
     @Body('short_description') short_description: string,
     @Body('molar_mass') molar_mass: string,
     @Body('specific_heat_ratio') specific_heat_ratio: string,
@@ -52,7 +53,7 @@ export class PropellantDraftController {
 
     await this.propellantsService.publishDraft(this.defaultUserId, {
       name: name || 'Новое рабочее тело',
-      shortDescription: short_description || '',
+      description: description || short_description || '',
       molarMass: parsedMolarMass,
       specificHeatRatio: parsedGamma,
     });

@@ -5,13 +5,20 @@ export class PropellantResponseDto {
   @ApiProperty({ example: 1, description: 'Уникальный идентификатор' })
   id: number;
 
-  @ApiProperty({ example: 'Жидкий водород H₂', description: 'Наименование' })
+  @ApiProperty({ example: 'Жидкий водород', description: 'Наименование' })
   name: string;
 
   @ApiProperty({
     example: 'Эффективное рабочее тело с минимальной массой',
     nullable: true,
-    description: 'Краткое описание',
+    description: 'Описание рабочего тела',
+  })
+  description: string | null;
+
+  @ApiProperty({
+    example: 'Эффективное рабочее тело с минимальной массой',
+    nullable: true,
+    description: 'Краткое описание (алиас)',
   })
   short_description: string | null;
 
@@ -71,6 +78,20 @@ export class PropellantResponseDto {
   })
   is_liked: number;
 
+  @ApiProperty({
+    example: '2026-10-20T21:17:16.614Z',
+    nullable: true,
+    description: 'Дата создания',
+  })
+  created_at: string | null;
+
+  @ApiProperty({
+    example: '2026-10-20T21:17:16.614Z',
+    nullable: true,
+    description: 'Дата обновления (null для неопубликованного черновика)',
+  })
+  updated_at: string | null;
+
   static fromEntity(
     entity: Propellant,
     currentUserId?: number,
@@ -93,7 +114,8 @@ export class PropellantResponseDto {
     return {
       id: entity.id,
       name: entity.name,
-      short_description: entity.shortDescription ?? null,
+      description: entity.description ?? null,
+      short_description: entity.description ?? null,
       status: entity.status,
       image_url: entity.imageUrl ?? null,
       video_url: entity.videoUrl ?? null,
@@ -110,6 +132,8 @@ export class PropellantResponseDto {
       likes_count: likesCount,
       is_creator: isCreator,
       is_liked: isLiked,
+      created_at: entity.createdAt ? new Date(entity.createdAt).toISOString() : null,
+      updated_at: entity.updatedAt ? new Date(entity.updatedAt).toISOString() : null,
     };
   }
 }

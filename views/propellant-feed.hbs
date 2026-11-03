@@ -40,12 +40,18 @@
       <div class="feed-info-card">
         <h1 class="feed-title">{{propellant.name}}</h1>
 
-        <p class="desc-short-preview">{{propellant.shortDescription}}</p>
-
-        <details class="desc-details">
-          <summary>Подробнее &#9662;</summary>
-          <p class="desc-full-text">{{propellant.engineeringAnalysis}}</p>
-        </details>
+        {{#if propellant.description}}
+        <div class="desc-expandable-block">
+          <details class="desc-details">
+            <summary>
+              <span class="desc-toggle-more">Подробнее &#9662;</span>
+              <span class="desc-toggle-less">Свернуть &#9652;</span>
+            </summary>
+            <p class="desc-full-text">{{propellant.description}}</p>
+          </details>
+          <p class="desc-short-preview">{{propellant.description}}</p>
+        </div>
+        {{/if}}
       </div>
     </div>
 

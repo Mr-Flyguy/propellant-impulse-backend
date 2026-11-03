@@ -4,14 +4,22 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export class CreatePropellantDto {
   @ApiProperty({
     description: 'Наименование рабочего тела',
-    example: 'Метан (CH4) / Кислород',
+    example: 'Метан жидкий',
   })
   @IsNotEmpty({ message: 'Наименование обязательно' })
   @IsString()
   name: string;
 
   @ApiPropertyOptional({
-    description: 'Краткое описание',
+    description: 'Описание рабочего тела',
+    example: 'Перспективное экологичное ракетное топливо с высокой плотностью',
+  })
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @ApiPropertyOptional({
+    description: 'Краткое описание (алиас для обратной совместимости)',
     example: 'Перспективное экологичное ракетное топливо',
   })
   @IsOptional()

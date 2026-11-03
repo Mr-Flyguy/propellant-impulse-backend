@@ -5,8 +5,9 @@ export interface Propellant {
   propellant_name: string;
   molar_mass_g_mol: number;
   specific_heat_ratio: number;
-  thermodynamic_description: string;
-  engineering_analysis: string;
+  description?: string;
+  thermodynamic_description?: string;
+  engineering_analysis?: string;
   propellant_image_key: string;
   propellant_video_key: string;
   propellant_status: PropellantStatus;

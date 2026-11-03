@@ -4,14 +4,22 @@ import { IsOptional, IsString } from 'class-validator';
 export class UpdatePropellantDto {
   @ApiPropertyOptional({
     description: 'Наименование рабочего тела',
-    example: 'Жидкий метан CH₄ (модифицированный)',
+    example: 'Жидкий метан модифицированный',
   })
   @IsOptional()
   @IsString()
   name?: string;
 
   @ApiPropertyOptional({
-    description: 'Краткое описание рабочего тела',
+    description: 'Описание рабочего тела',
+    example: 'Модифицированное описание рабочего тела',
+  })
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @ApiPropertyOptional({
+    description: 'Краткое описание (алиас для обратной совместимости)',
     example: 'Модифицированное описание рабочего тела',
   })
   @IsOptional()

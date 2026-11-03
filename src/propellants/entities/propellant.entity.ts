@@ -3,7 +3,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
   ManyToOne,
   OneToMany,
   JoinColumn,
@@ -21,11 +20,11 @@ export class Propellant {
   @Column({ type: 'varchar', length: 128 })
   name: string;
 
-  @Column({ type: 'varchar', length: 255, name: 'short_description', nullable: true })
-  shortDescription: string;
+  @Column({ type: 'text', name: 'description', nullable: true })
+  description: string | null;
 
-  @Column({ type: 'text', name: 'engineering_analysis', nullable: true })
-  engineeringAnalysis: string;
+  shortDescription?: string;
+  engineeringAnalysis?: string;
 
   @Column({ type: 'varchar', length: 32, default: 'draft' })
   status: PropellantStatus;
@@ -68,8 +67,8 @@ export class Propellant {
   @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn({ type: 'timestamp with time zone', name: 'updated_at' })
-  updatedAt: Date;
+  @Column({ type: 'timestamp with time zone', name: 'updated_at', nullable: true })
+  updatedAt: Date | null;
 
   @ManyToOne(() => User, (user) => user.propellants, { onDelete: 'RESTRICT' })
   @JoinColumn({ name: 'creator_id' })
